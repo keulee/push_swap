@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: keulee <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 17:00:13 by keulee            #+#    #+#              #
-#    Updated: 2021/05/21 16:34:04 by keulee           ###   ########.fr        #
+#    Updated: 2021/06/02 23:48:30 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,11 @@ SRC = ft_putchar.c ft_putstr.c ft_strlen.c ft_strncmp.c \
 	  ft_uppercase.c ft_space.c ft_digit.c ft_split.c \
 	  ft_strcmp.c ft_strstr_cub.c ft_only_digit.c \
 	  ft_atoi.c ft_strcpy.c ft_strlcpy.c ft_strncpy.c \
-	  ft_bzero.c ft_calloc.c ft_itoa.c
+	  ft_bzero.c ft_calloc.c ft_itoa.c ft_exit_msg.c
 
 OBJ = $(SRC:.c=.o)
 
-CC = gcc
+CC = clang
 CFLAG = -Wall -Wextra -Werror
 INCLUDE = ./
 AR = ar
