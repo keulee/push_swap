@@ -6,7 +6,7 @@
 #    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 18:18:39 by keulee            #+#    #+#              #
-#    Updated: 2021/05/28 16:40:23 by keulee           ###   ########.fr        #
+#    Updated: 2021/06/03 00:03:47 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT) $(MINILIB) 
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L. -lft
 
 $(LIBFT):
 	$(MAKE) -C libft
