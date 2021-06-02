@@ -8,6 +8,4 @@
 
 # include "../libft/libft.h"
 
-void	ft_exit_msg(char *str);
-
 #endif

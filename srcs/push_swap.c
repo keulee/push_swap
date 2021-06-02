@@ -2,10 +2,19 @@
 
 int		main(int ac, char **av)
 {
-	(void)av;
+	int i;
 
+	i = 1;
 	if (ac < 2)
 		ft_exit_msg("ERROR: Argument not enough");
-	printf("Hello world\n");
+	else
+	{
+		while (i < ac)
+		{
+			printf("%s\n", av[i]);
+			
+			i++;
+		}
+	}
 	return (0);
 }
