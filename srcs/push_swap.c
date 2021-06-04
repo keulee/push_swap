@@ -12,7 +12,6 @@ int		main(int ac, char **av)
 		while (i < ac)
 		{
 			printf("%s\n", av[i]);
-			
 			i++;
 		}
 	}
