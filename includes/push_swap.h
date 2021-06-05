@@ -9,7 +9,8 @@
 # include "../libft/libft.h"
 
 typedef struct s_info {
-	int	i;
+	char *av_with_space;
+	char *string;
 }				t_info;
 
 #endif
