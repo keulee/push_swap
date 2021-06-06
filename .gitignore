@@ -2,4 +2,4 @@ push_swap
 *.o
 .DS_Store
 *.a
-*..dSYM/
+push_swap.dSYM/
