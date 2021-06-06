@@ -12,12 +12,14 @@ int		main(int ac, char **av)
 		ft_exit_msg("ERROR: Argument not enough");
 	else
 	{
-		info.string = ft_strjoin(av[1], " ");
+		info.string = ft_strjoin(av[1], " "); //leaks
 		while (i < ac)
 		{
 			// printf("av: %s\n", av[i]);
 			info.av_with_space = ft_strjoin(av[i], " ");
-			info.string = ft_strjoin(info.string, info.av_with_space);	
+			info.string = ft_strjoin(info.string, info.av_with_space); //leaks
+			free(info.av_with_space);
+			info.av_with_space = NULL;
 			// if (!info.string)
 			// {
 			// 	info.string = info.av_with_space;
