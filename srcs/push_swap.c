@@ -5,7 +5,6 @@ int		main(int ac, char **av)
 	t_info info;
 	int i;
 
-	i = 2;
 	info.string = NULL;
 	info.av_with_space = NULL;
 	if (ac < 2)
@@ -13,6 +12,7 @@ int		main(int ac, char **av)
 	else
 	{
 		info.string = ft_strjoin(av[1], " "); //leaks
+		i = 2;
 		while (i < ac)
 		{
 			// printf("av: %s\n", av[i]);
@@ -20,16 +20,6 @@ int		main(int ac, char **av)
 			info.string = ft_strjoin(info.string, info.av_with_space); //leaks
 			free(info.av_with_space);
 			info.av_with_space = NULL;
-			// if (!info.string)
-			// {
-			// 	info.string = info.av_with_space;
-			// 	// printf("str: %s\n", info.string);
-			// }
-			// if (info.string && info.av_with_space)
-			// {
-			// 	free(info.av_with_space);
-			// 	info.av_with_space = NULL;
-			// }
 			i++;
 		}
 	}
