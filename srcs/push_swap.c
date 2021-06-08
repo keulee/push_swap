@@ -24,9 +24,16 @@ int	main(int ac, char **av)
 		info.arg = ft_split(info.string, ' ');
 		if (!info.arg)
 			ft_exit_msg("ERROR: Arguement split failed");
-		
+		i = 0;
+		while (info.arg[i])
+		{
+			if (!info.arg[i] || !ft_only_digit(info.arg[i]))
+				ft_exit_msg("ERROR: Not valid argument");
+			printf("arg %d : %s\n", i, info.arg[i]);
+			i++;
+		}
 	}
-	printf("%s\n", info.string);
+	// printf("%s\n", info.string);
 	free(info.string);
 	return (EXIT_SUCCESS);
 }
