@@ -9,8 +9,9 @@
 # include "../libft/libft.h"
 
 typedef struct s_info {
-	char *av_with_space;
-	char *string;
+	char	*av_with_space;
+	char	*string;
+	char	**arg;
 }				t_info;
 
 #endif
