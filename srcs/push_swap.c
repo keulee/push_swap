@@ -21,6 +21,9 @@ int	main(int ac, char **av)
 			info.av_with_space = NULL;
 			i++;
 		}
+		/*
+		** arg need to be freed
+		*/
 		info.arg = ft_split(info.string, ' ');
 		if (!info.arg)
 			ft_exit_msg("ERROR: Arguement split failed");
