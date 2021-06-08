@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 18:22:42 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/08 00:52:53 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/08 23:46:43 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ void	*ft_memset(void *b, int c, size_t len);
 char	*ft_itoa(int n);
 void	ft_exit_msg(char *str);
 char	*ft_make_string(char *s1, char *s2);
+void	ft_free_tab2(char **str);
 
 #endif
