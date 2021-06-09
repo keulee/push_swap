@@ -44,5 +44,6 @@ char	*ft_itoa(int n);
 void	ft_exit_msg(char *str);
 char	*ft_make_string(char *s1, char *s2);
 void	ft_free_tab2(char **str);
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 
 #endif

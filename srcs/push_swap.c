@@ -17,6 +17,7 @@ int	main(int ac, char **av)
 	t_info	info;
 	int		i;
 	int		j;
+	int		len;
 
 	ft_init(&info);
 	j = 0;
@@ -35,22 +36,47 @@ int	main(int ac, char **av)
 			i++;
 		}
 		/*
-		** DONT FORGET : info.arg need to be freed
+		** DONT FORGET:	info.arg
+						info.check need to be freed
 		*/
+		i = 0;
 		info.count = count_arg(info.string);
 		printf("count: %d\n", info.count);
 		info.arg = ft_split(info.string, ' ');
 		if (!info.arg)
 			ft_exit_msg("ERROR: Arguement split failed");
+
+
+		info.check = ft_calloc(info.count + 1, sizeof(char **));
+		if (!info.check)
+			ft_exit_msg("ERROR: Array malloc failed");
+		while (i < info.count)
+		{
+			len = ft_strlen(info.arg[i]);
+			info.check[i] = ft_calloc(len + 1, sizeof(char *));
+			if (!info.check[i])
+				ft_exit_msg("ERROR: Array malloc failed");
+			i++;
+		}
+
+
 		i = 0;
 		while (info.arg[i])
 		{
 			if (!info.arg[i] || !ft_only_digit(info.arg[i]))
-				ft_exit_msg("ERROR: Not valid argument");
-			// if (!check_double(info.check, info.arg[i]))
-			// 	info.check[j] = ft_strcpy(info.check[j], info.arg[i]);
-			// else
-			// 	ft_exit_msg("ERROR: The same arguement detected. (Arguement cannot be doubled)");
+				ft_exit_msg("ERROR: Argument invalide");
+			if (check_double(info.check, info.arg[i]))
+			{
+				ft_strcpy(info.check[j], info.arg[i]);
+				printf("info check : %s\n", info.check[j]);
+				j++;
+			}
+			else
+			{
+				printf("info check : %s\n", info.check[j]);
+				printf("info arg : %s\n", info.arg[i]);
+			 	ft_exit_msg("ERROR: The same arguement detected (Arguement cannot be doubled)");
+			}
 			printf("arg %d : %s\n", i, info.arg[i]);
 			i++;
 		}
