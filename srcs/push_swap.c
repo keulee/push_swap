@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 		ft_exit_msg("ERROR: Argument not enough");
 	else
 	{
+		//make one argument in one string
 		info.string = ft_strjoin(av[1], " ");
 		i = 2;
 		while (i < ac)
@@ -62,7 +63,7 @@ int	main(int ac, char **av)
 			i++;
 		}
 
-
+		//check valid arguments and doubled arguments
 		i = 0;
 		while (info.arg[i])
 		{
@@ -83,6 +84,7 @@ int	main(int ac, char **av)
 			printf("arg %d : %s\n", i, info.arg[i]);
 			i++;
 		}
+		ft_free_tab2(info.check);
 	}
 	// printf("%s\n", info.string);
 	free(info.string);
