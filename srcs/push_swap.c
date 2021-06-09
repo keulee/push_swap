@@ -16,9 +16,10 @@ int	main(int ac, char **av)
 {
 	t_info	info;
 	int		i;
+	int		j;
 
-	info.string = NULL;
-	info.av_with_space = NULL;
+	ft_init(&info);
+	j = 0;
 	if (ac < 2)
 		ft_exit_msg("ERROR: Argument not enough");
 	else
@@ -36,6 +37,8 @@ int	main(int ac, char **av)
 		/*
 		** DONT FORGET : info.arg need to be freed
 		*/
+		info.count = count_arg(info.string);
+		printf("count: %d\n", info.count);
 		info.arg = ft_split(info.string, ' ');
 		if (!info.arg)
 			ft_exit_msg("ERROR: Arguement split failed");
@@ -44,6 +47,10 @@ int	main(int ac, char **av)
 		{
 			if (!info.arg[i] || !ft_only_digit(info.arg[i]))
 				ft_exit_msg("ERROR: Not valid argument");
+			// if (!check_double(info.check, info.arg[i]))
+			// 	info.check[j] = ft_strcpy(info.check[j], info.arg[i]);
+			// else
+			// 	ft_exit_msg("ERROR: The same arguement detected. (Arguement cannot be doubled)");
 			printf("arg %d : %s\n", i, info.arg[i]);
 			i++;
 		}

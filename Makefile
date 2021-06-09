@@ -12,13 +12,13 @@
 
 NAME = push_swap
 
-SRCS = srcs/push_swap.c
+SRCS = srcs/push_swap.c srcs/p01_init.c srcs/p01_utiles.c
 
 OBJS = $(SRCS:.c=.o)
 
 CC = clang
 
-CFLAGS = -Wall -Wextra -Werror #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 LIBFT = libft.a
 
