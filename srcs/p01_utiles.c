@@ -7,11 +7,11 @@ int		check_double(char **s1, char *s2)
 	i = 0;
 	while (s1[i])
 	{
-		if (ft_strcmp(s1[i], s2) != 0)
-			return (1);
+		if (ft_strcmp(s1[i], s2) == 0) //if two string is the same, it returns 0
+			return (0);
 		i++;
 	}
-	return (0);
+	return (i);
 }
 
 int	count_arg(char *str)

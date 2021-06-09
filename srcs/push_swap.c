@@ -39,14 +39,17 @@ int	main(int ac, char **av)
 		** DONT FORGET:	info.arg
 						info.check need to be freed
 		*/
+		//count how many arguemnt exist
 		i = 0;
 		info.count = count_arg(info.string);
-		printf("count: %d\n", info.count);
+		//printf("count: %d\n", info.count);
+
+		//split argument
 		info.arg = ft_split(info.string, ' ');
 		if (!info.arg)
 			ft_exit_msg("ERROR: Arguement split failed");
 
-
+		//info.check calloc
 		info.check = ft_calloc(info.count + 1, sizeof(char **));
 		if (!info.check)
 			ft_exit_msg("ERROR: Array malloc failed");
@@ -65,7 +68,7 @@ int	main(int ac, char **av)
 		{
 			if (!info.arg[i] || !ft_only_digit(info.arg[i]))
 				ft_exit_msg("ERROR: Argument invalide");
-			if (check_double(info.check, info.arg[i]))
+			if (check_double(info.check, info.arg[i]) != 0)
 			{
 				ft_strcpy(info.check[j], info.arg[i]);
 				printf("info check : %s\n", info.check[j]);
