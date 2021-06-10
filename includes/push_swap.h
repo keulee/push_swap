@@ -9,11 +9,12 @@
 # include "../libft/libft.h"
 
 typedef struct s_info {
-	char	*av_with_space;
-	char	*string;
-	char	**arg;
-	int		count;
-	char	**check;
+	char	**tmp;
+	//char	*av_with_space;
+	//char	*string;
+	//char	**arg;
+	//int		count;
+	//char	**check;
 }				t_info;
 
 void	ft_init(t_info *info);
