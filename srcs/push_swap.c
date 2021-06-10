@@ -31,10 +31,10 @@ int	main(int ac, char **av)
 		j = 0;
 		while(info.tmp[j])
 		{
-			printf("tmp: %s\n", info.tmp[j]);
+			printf("tmp[%d]: %s\n", j, info.tmp[j]);
 			j++;
 		}
-		// ft_free_tab2(info.tmp);
+		ft_free_tab2(info.tmp);
 		i++;
 	}
 	return (EXIT_SUCCESS);
