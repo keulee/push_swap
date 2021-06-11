@@ -8,20 +8,18 @@
 
 # include "../libft/libft.h"
 
-typedef struct s_info {
-	char	**tmp;
-	//char	*av_with_space;
-	//char	*string;
-	//char	**arg;
-	//int		count;
-	//char	**check;
-}				t_info;
-
 typedef struct s_node{
     int value;
-    struct node *prev;
-    struct node *next;
+    struct s_node *prev;
+    struct s_node *next;
 }				t_node;
+
+
+typedef struct s_info {
+	char	**tmp;
+	int		arg;
+	t_node	*head;
+}				t_info;
 
 void	ft_init(t_info *info);
 int		check_double(char **s1, char *s2);
