@@ -17,6 +17,12 @@ typedef struct s_info {
 	//char	**check;
 }				t_info;
 
+typedef struct s_node{
+    int value;
+    struct node *prev;
+    struct node *next;
+}				t_node;
+
 void	ft_init(t_info *info);
 int		check_double(char **s1, char *s2);
 int		count_arg(char *str);
