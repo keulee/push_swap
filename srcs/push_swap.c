@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/11 18:54:16 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/12 23:30:57 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int ac, char **av)
 	int		i;
 	int		j;
 	int		k = 0;
-	int		arg;
+	long	arg;
 
 	(void)ac;
 	ft_init(&info);
@@ -67,8 +67,10 @@ int	main(int ac, char **av)
 				arg = arg * 10 + (info.tmp[j][k] - 48);
 				k++;
 			}
-			printf("int value : %d\n", arg);
-			insert_node(&info.head, arg);	
+			if (arg > 2147483647)
+				ft_exit_msg("ERROR: arg overflow int");
+			printf("int value : %ld\n", arg);
+			//insert_node(&info.head, arg);	
 			j++;
 		}
 		ft_free_tab2(info.tmp);
