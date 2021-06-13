@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/14 00:07:53 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/14 00:10:10 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,6 @@ void	insert_node(t_node **node, int value)
 		tmp = tmp->next;
 	tmp->next = new;
 	new->prev = tmp;
-}
-
-void	value_check(char *str, int neg)
-{
-	int i;
-
-	i = 0;
-	if (neg == 1)
-		i++;
-	if (!ft_only_digit(&str[i]))
-		ft_exit_msg("ERROR: Argument not int");
 }
 
 int	main(int ac, char **av)

@@ -24,6 +24,7 @@ typedef struct s_info {
 void	ft_init(t_info *info);
 int		check_double(char **s1, char *s2);
 int		count_arg(char *str);
+void	value_check(char *str, int neg);
 
 
 #endif

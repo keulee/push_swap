@@ -29,3 +29,18 @@ int	count_arg(char *str)
 	}
 	return (count);
 }
+
+void	value_check(char *str, int neg)
+{
+	int i;
+
+	i = 0;
+	if (neg == 1)
+	{
+		i++;
+		if (str[i] == '\0')
+			ft_exit_msg("ERROR: Arguemnt not int");
+	}
+	if (!ft_only_digit(&str[i]))
+		ft_exit_msg("ERROR: Argument not int");
+}
