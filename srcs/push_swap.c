@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/12 23:30:57 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/13 23:58:25 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,17 @@ void	insert_node(t_node **node, int value)
 	new->prev = tmp;
 }
 
+void	value_check(char *str, int neg)
+{
+	int i;
+
+	i = 0;
+	if (neg == 1)
+		i++;
+	if (!ft_only_digit(&str[i]))
+		ft_exit_msg("ERROR: Argument not int");
+}
+
 int	main(int ac, char **av)
 {
 	t_info	info;
@@ -47,6 +58,7 @@ int	main(int ac, char **av)
 	int		j;
 	int		k = 0;
 	long	arg;
+	int		neg;
 
 	(void)ac;
 	ft_init(&info);
@@ -57,11 +69,18 @@ int	main(int ac, char **av)
 		j = 0;
 		while(info.tmp[j])
 		{
+			neg = 0;
 			// printf("tmp[%d]: %s\n", j, info.tmp[j]);
-			if (!ft_only_digit(info.tmp[j]))
-				ft_exit_msg("ERROR: Argument not int");
+			if (ft_strncmp(info.tmp[j], "-", 1) == 0)
+				neg = 1;
+			// printf("%d\n", neg);
+			// if (!ft_only_digit(info.tmp[j]))
+			// 	ft_exit_msg("ERROR: Argument not int");
+			value_check(info.tmp[j], neg);
 			arg = 0;
 			k = 0;
+			if (neg == 1)
+				k++;
 			while (ft_digit(info.tmp[j][k]))
 			{
 				arg = arg * 10 + (info.tmp[j][k] - 48);
