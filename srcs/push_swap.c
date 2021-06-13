@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/14 00:01:24 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/14 00:07:53 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ int	main(int ac, char **av)
 			}
 			if (neg == 1)
 				arg *= -1;
-			if (arg > 2147483647)
-				ft_exit_msg("ERROR: arg overflow int");
+			if (arg > 2147483647 || arg < -2147483648)
+				ft_exit_msg("ERROR: int range not valid");
 			printf("int value : %ld\n", arg);
-			//insert_node(&info.head, arg);	
+			insert_node(&info.head, arg);	
 			j++;
 		}
 		ft_free_tab2(info.tmp);
