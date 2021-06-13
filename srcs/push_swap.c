@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/13 23:58:25 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/14 00:01:24 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int	main(int ac, char **av)
 				arg = arg * 10 + (info.tmp[j][k] - 48);
 				k++;
 			}
+			if (neg == 1)
+				arg *= -1;
 			if (arg > 2147483647)
 				ft_exit_msg("ERROR: arg overflow int");
 			printf("int value : %ld\n", arg);
