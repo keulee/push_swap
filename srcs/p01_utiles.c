@@ -30,12 +30,14 @@ int	count_arg(char *str)
 	return (count);
 }
 
-void	value_check(char *str, int neg)
+void	value_check(char *str, t_info *info)
 {
 	int i;
 
 	i = 0;
-	if (neg == 1)
+	if (ft_strncmp(&str[i], "-", 1) == 0)
+		info->neg = 1;
+	if (info->neg == 1)
 	{
 		i++;
 		if (str[i] == '\0')

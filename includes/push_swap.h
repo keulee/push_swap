@@ -18,13 +18,14 @@ typedef struct s_node{
 typedef struct s_info {
 	char	**tmp;
 	int		arg;
+	int		neg;
 	t_node	*head;
 }				t_info;
 
 void	ft_init(t_info *info);
 int		check_double(char **s1, char *s2);
 int		count_arg(char *str);
-void	value_check(char *str, int neg);
+void	value_check(char *str, t_info *info);
 
 
 #endif

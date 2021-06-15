@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/14 00:10:10 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/15 23:49:14 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int ac, char **av)
 	int		j;
 	int		k = 0;
 	long	arg;
-	int		neg;
+	// int		neg;
 
 	(void)ac;
 	ft_init(&info);
@@ -58,24 +58,18 @@ int	main(int ac, char **av)
 		j = 0;
 		while(info.tmp[j])
 		{
-			neg = 0;
-			// printf("tmp[%d]: %s\n", j, info.tmp[j]);
-			if (ft_strncmp(info.tmp[j], "-", 1) == 0)
-				neg = 1;
-			// printf("%d\n", neg);
-			// if (!ft_only_digit(info.tmp[j]))
-			// 	ft_exit_msg("ERROR: Argument not int");
-			value_check(info.tmp[j], neg);
+			info.neg = 0;
 			arg = 0;
+			value_check(info.tmp[j], &info);
 			k = 0;
-			if (neg == 1)
+			if (info.neg == 1)
 				k++;
 			while (ft_digit(info.tmp[j][k]))
 			{
 				arg = arg * 10 + (info.tmp[j][k] - 48);
 				k++;
 			}
-			if (neg == 1)
+			if (info.neg == 1)
 				arg *= -1;
 			if (arg > 2147483647 || arg < -2147483648)
 				ft_exit_msg("ERROR: int range not valid");
