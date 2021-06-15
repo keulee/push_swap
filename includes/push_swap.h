@@ -28,6 +28,7 @@ int		count_arg(char *str);
 void	value_check(char *str, t_info *info);
 void	insert_value(t_node **node, int value);
 void	find_double(t_node *node, int value);
+void	free_node(t_node *node);
 
 
 #endif
