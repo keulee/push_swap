@@ -33,11 +33,15 @@ int	count_arg(char *str)
 void	value_check(char *str, t_info *info)
 {
 	int i;
+	int	neg;
+	long arg;
 
 	i = 0;
+	neg = 0;
+	arg = 0;
 	if (ft_strncmp(&str[i], "-", 1) == 0)
-		info->neg = 1;
-	if (info->neg == 1)
+		neg = 1;
+	if (neg == 1)
 	{
 		i++;
 		if (str[i] == '\0')
@@ -45,4 +49,14 @@ void	value_check(char *str, t_info *info)
 	}
 	if (!ft_only_digit(&str[i]))
 		ft_exit_msg("ERROR: Argument not int");
+	while (ft_digit(str[i]))
+	{
+		arg = arg * 10 + (str[i] - 48);
+		i++;
+	}
+	if (neg == 1)
+		arg *= -1;
+	if (arg > 2147483647 || arg < -2147483648)
+		ft_exit_msg("ERROR: int range not valid");
+	info->arg = arg;
 }
