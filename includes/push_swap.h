@@ -14,21 +14,27 @@ typedef struct s_node{
     struct s_node *next;
 }				t_node;
 
+// typedef struct s_list{
+// 	t_node	*tail;
+// 	int		count;
+// }				t_list;
 
 typedef struct s_info {
 	char	**tmp;
 	long	arg;
-	int		neg;
+	int		listsize;
 	t_node	*head;
+	// t_list	*list;
 }				t_info;
 
 void	ft_init(t_info *info);
 int		check_double(char **s1, char *s2);
 int		count_arg(char *str);
 void	value_check(char *str, t_info *info);
+// void	init_list(t_list *list);
+// void	add_value(t_list *list, int count, int value);
 void	insert_value(t_node **node, int value);
 void	find_double(t_node *node, int value);
-void	free_node(t_node *node);
-
+void		print_node(t_node *node, t_info *info);
 
 #endif
