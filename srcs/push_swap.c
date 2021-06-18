@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/17 01:38:58 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/17 22:10:16 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@ int	main(int ac, char **av)
 	int		i;
 	int		j;
 
-	(void)ac;
 	ft_init(&info);
 	i = 1;
+	if (ac == 1)
+		exit(0);
 	while (av[i])
 	{
 		info.tmp = ft_split(av[i], ' ');
