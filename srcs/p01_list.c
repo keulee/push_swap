@@ -8,6 +8,7 @@ void	insert_value(t_node **node, int value)
 	new = (t_node *)malloc(sizeof(t_node));
 	tmp = *node;
 
+	//init t_node new
 	new->next = NULL;
 	new->prev = NULL;
 	new->value = value;
@@ -35,5 +36,18 @@ void		find_double(t_node *node, int value)
 		if (node->value == value)
 			ft_exit_msg("ERROR: Value doubled");
 		node = node->next; 
+	}
+}
+
+void		print_node(t_node *node)
+{
+	int i;
+
+	i = 0;
+	while (node != NULL)
+	{
+		printf("node [%d] : %d\n", i, node->value);
+		node = node->next;
+		i++;
 	}
 }

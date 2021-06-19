@@ -3,8 +3,8 @@
 void	ft_init(t_info *info)
 {
 	info->tmp = NULL;
-	info->head = NULL;
+	info->stack_a = NULL;
+	info->stack_b = NULL;
 	info->arg = 0;
 	info->listsize= 0;
-	// init_list(info->list);
 }
