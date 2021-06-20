@@ -44,6 +44,8 @@ void		print_node(t_node *node)
 	int i;
 
 	i = 0;
+	if (node == NULL)
+		return ;
 	while (node != NULL)
 	{
 		printf("node [%d] : %d\n", i, node->value);
@@ -56,7 +58,7 @@ void	swap_ab(t_node **node)
 {
 	int	tmp;
 
-	if (*node == NULL | (*node)->next == NULL)
+	if (*node == NULL || (*node)->next == NULL)
 		return ;
 	tmp = (*node)->value;
 	(*node)->value = (*node)->next->value;
