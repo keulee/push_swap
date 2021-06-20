@@ -30,4 +30,7 @@ void	insert_value(t_node **node, int value);
 void	find_double(t_node *node, int value);
 void	print_node(t_node *node);
 
+void	swap_ab(t_node **node);
+void	swap_ss(t_node **a, t_node **b);
+
 #endif

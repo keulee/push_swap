@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/19 23:03:53 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/20 23:37:30 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,20 @@ int	main(int ac, char **av)
 		while(info.tmp[j])
 		{
 			value_check(info.tmp[j], &info);
-			printf("int value : %ld\n", info.arg);
+			// printf("int value : %ld\n", info.arg);
 			insert_value(&info.stack_a, info.arg);
 			find_double(info.stack_a, info.arg);
 			info.listsize++;
 			j++;
 		}
-		print_node(info.stack_a);
 		ft_free_tab2(info.tmp);
 		i++;
 	}
+	print_node(info.stack_a);
+	print_node(info.stack_b);
+	swap_ab(&info.stack_a);
+	printf("-------------------\n");
+	print_node(info.stack_a);
+	print_node(info.stack_b);
 	return (EXIT_SUCCESS);
 }

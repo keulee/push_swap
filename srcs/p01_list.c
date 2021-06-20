@@ -13,7 +13,7 @@ void	insert_value(t_node **node, int value)
 	new->prev = NULL;
 	new->value = value;
 	
-	printf("value in node : %d\n", value);
+	// printf("value in node : %d\n", value);
 
 	//if there's no node.
 	if (tmp == NULL)
@@ -50,4 +50,21 @@ void		print_node(t_node *node)
 		node = node->next;
 		i++;
 	}
+}
+
+void	swap_ab(t_node **node)
+{
+	int	tmp;
+
+	if (*node == NULL | (*node)->next == NULL)
+		return ;
+	tmp = (*node)->value;
+	(*node)->value = (*node)->next->value;
+	(*node)->next->value = tmp;
+}
+
+void	swap_ss(t_node **a, t_node **b)
+{
+	swap_ab(a);
+	swap_ab(b);
 }
