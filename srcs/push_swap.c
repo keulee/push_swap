@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/21 00:29:16 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/21 22:03:21 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	main(int ac, char **av)
 	}
 	print_node(info.stack_a);
 	print_node(info.stack_b);
-	// swap_ab(&info.stack_a);
 	swap_ss(&info.stack_a, &info.stack_b);
 	printf("-------------------\n");
 	print_node(info.stack_a);
