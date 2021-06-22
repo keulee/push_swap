@@ -70,3 +70,8 @@ void	swap_ss(t_node **a, t_node **b)
 	swap_ab(a);
 	swap_ab(b);
 }
+
+void	push_ab(t_node **a, t_node **b)
+{
+	
+}
