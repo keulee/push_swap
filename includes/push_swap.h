@@ -28,9 +28,11 @@ int		count_arg(char *str);
 void	value_check(char *str, t_info *info);
 void	insert_value(t_node **node, int value);
 void	find_double(t_node *node, int value);
-void	print_node(t_node *node);
+void	print_node_a(t_node *node);
+void	print_node_b(t_node *node);
 
 void	swap_ab(t_node **node);
 void	swap_ss(t_node **a, t_node **b);
+void	push_ab(t_node **dest, t_node **src);
 
 #endif
