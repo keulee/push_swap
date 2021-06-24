@@ -1,11 +1,20 @@
 #include "../includes/push_swap.h"
 
+t_node	*creat_node()
+{
+	t_node *new;
+
+	new = (t_node *)malloc(sizeof(t_node));
+	return (new);
+}
+
 void	insert_value(t_node **node, int value)
 {
 	t_node *new;
 	t_node *tmp;
 
-	new = (t_node *)malloc(sizeof(t_node));
+	// new = (t_node *)malloc(sizeof(t_node));
+	new = creat_node();
 	tmp = *node;
 
 	//init t_node new
