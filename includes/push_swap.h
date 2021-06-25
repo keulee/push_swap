@@ -32,11 +32,12 @@ void	print_node_b(t_node *node);
 void	print_node(t_node *node);
 
 t_node	*creat_node();
-void	insert_value(t_node **node, int value);
+void	insert_node(t_node **node, int value);
 void	find_double(t_node *node, int value);
 void	swap_ab(t_node **node);
 void	swap_ss(t_node **a, t_node **b);
 void	push_ab(t_node **dest, t_node **src);
+void	rotate_ab(t_node **a);
 
 
 #endif

@@ -8,7 +8,7 @@ t_node	*creat_node()
 	return (new);
 }
 
-void	insert_value(t_node **node, int value)
+void	insert_node(t_node **node, int value)
 {
 	t_node *new;
 	t_node *tmp;
@@ -48,6 +48,10 @@ void		find_double(t_node *node, int value)
 	}
 }
 
+/* swap ab
+** swap the first 2 elements at the top of stack a(or b).
+** Do nothing if there is only one or no elements).
+*/
 void	swap_ab(t_node **node)
 {
 	int	tmp;
@@ -59,12 +63,20 @@ void	swap_ab(t_node **node)
 	(*node)->next->value = tmp;
 }
 
+/*
+** sa and sb at the same time.
+*/
 void	swap_ss(t_node **a, t_node **b)
 {
 	swap_ab(a);
 	swap_ab(b);
 }
 
+
+/*
+** take the first element at the top of b and put it at the top of a. \
+** Do nothing if b is empty.
+*/
 void	push_ab(t_node **dest, t_node **src)
 {
 	t_node *tmp;
@@ -74,13 +86,26 @@ void	push_ab(t_node **dest, t_node **src)
 	tmp = *src;
 	*src = tmp->next;
 	tmp->next = *dest;
-	(*dest)->prev = tmp;
+	if (*dest != NULL)
+		(*dest)->prev = tmp;
 	*dest = tmp;
 }
 
-// void	rotate_ab(t_node **a)
-// {
-// 	t_node *tmp;
+/*
+**  shift up all elements of stack a by 1.
+** The first element becomes the last one.
+*/
+void	rotate_ab(t_node **a)
+{
+	t_node *tmp;
+	t_node *tmp2;
 
-// 	tmp = 
-// }
+	tmp = *a;
+	*a = tmp->next;
+	tmp2 = *a;
+	while (tmp2->next != NULL)
+		tmp2 = tmp2->next;
+	tmp2->next = tmp;
+	tmp->next = NULL;
+	tmp->prev = tmp2;
+}

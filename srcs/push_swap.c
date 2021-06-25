@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/25 12:41:10 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/25 16:48:43 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 		{
 			value_check(info.tmp[j], &info);
 			// printf("int value : %ld\n", info.arg);
-			insert_value(&info.stack_a, info.arg);
+			insert_node(&info.stack_a, info.arg);
 			find_double(info.stack_a, info.arg);
 			info.listsize++;
 			j++;
@@ -38,15 +38,17 @@ int	main(int ac, char **av)
 		ft_free_tab2(info.tmp);
 		i++;
 	}
-	insert_value(&info.stack_b, 122);
-	insert_value(&info.stack_b, 0);
+	// insert_node(&info.stack_b, 122);
+	// insert_node(&info.stack_b, 0);
 	print_node_a(info.stack_a);
 	print_node_b(info.stack_b);
 	// swap_ab(&info.stack_a);
-	swap_ss(&info.stack_a, &info.stack_b);
+	// swap_ss(&info.stack_a, &info.stack_b);
 	// push_ab(&info.stack_b, &info.stack_a);
 	// push_ab(&info.stack_a, &info.stack_b);
 	// push_ab(&info.stack_b, &info.stack_a);
+	// rotate_ab(&info.stack_a);
+	// rotate_ab(&info.stack_b);
 	printf("---------after---------\n");
 	print_node_a(info.stack_a);
 	print_node_b(info.stack_b);
