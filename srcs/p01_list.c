@@ -119,3 +119,8 @@ void	push_ab(t_node **dest, t_node **src)
 	(*dest)->prev = tmp;
 	*dest = tmp;
 }
+
+void	rotate_ab(t_node **a)
+{
+	
+}
