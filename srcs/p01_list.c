@@ -113,22 +113,9 @@ void	push_ab(t_node **dest, t_node **src)
 
 	if (*src == NULL)
 		return ;
-	// tmp = *src;
-	// *dest = tmp;
-	// (*dest)->prev = tmp;
-	// free((*src)->next);
-	// (*src)->next->prev = NULL;	
-	// if ((*dest)->prev == NULL)
-	// {
-		// (*src)->value = (*src)->value;
-		// new->next = *dest;
-		// (*dest)->prev = new;
-	// }
 	tmp = *src;
+	*src = tmp->next;
 	tmp->next = *dest;
 	(*dest)->prev = tmp;
-	// free((*src)->next->prev);
-	// free(*src);
-	(*src)->next->prev = NULL;  
-
+	*dest = tmp;
 }
