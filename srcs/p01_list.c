@@ -48,48 +48,6 @@ void		find_double(t_node *node, int value)
 	}
 }
 
-void		print_node_a(t_node *node)
-{
-	int i;
-
-	i = 0;
-	if (node == NULL)
-	{
-		printf("[node a empty]\n");
-		return ;
-	}
-	while (node != NULL)
-	{
-		printf("[%d] : %d\n", i, node->value);
-		node = node->next;
-		i++;
-	}
-	printf("---------\n");
-	printf(" node a\n");
-
-}
-
-void		print_node_b(t_node *node)
-{
-	int i;
-
-	i = 0;
-	if (node == NULL)
-	{
-		printf("[node b empty]\n");
-		return ;
-	}
-	while (node != NULL)
-	{
-		printf("[%d] : %d\n", i, node->value);
-		node = node->next;
-		i++;
-	}
-	printf("---------\n");
-	printf(" node b\n");
-
-}
-
 void	swap_ab(t_node **node)
 {
 	int	tmp;
@@ -120,7 +78,9 @@ void	push_ab(t_node **dest, t_node **src)
 	*dest = tmp;
 }
 
-void	rotate_ab(t_node **a)
-{
-	
-}
+// void	rotate_ab(t_node **a)
+// {
+// 	t_node *tmp;
+
+// 	tmp = 
+// }
