@@ -37,7 +37,7 @@ void	find_double(t_node *node, int value);
 void	swap_ab(t_node **node);
 void	swap_ss(t_node **a, t_node **b);
 void	push_ab(t_node **dest, t_node **src);
-void	rotate_ab(t_node **a);
-
+void	rotate_ab(t_node **node);
+void	rotate_rr(t_node **a, t_node **b);
 
 #endif

@@ -95,17 +95,25 @@ void	push_ab(t_node **dest, t_node **src)
 **  shift up all elements of stack a by 1.
 ** The first element becomes the last one.
 */
-void	rotate_ab(t_node **a)
+void	rotate_ab(t_node **node)
 {
 	t_node *tmp;
 	t_node *tmp2;
 
-	tmp = *a;
-	*a = tmp->next;
-	tmp2 = *a;
+	if (*node == NULL || (*node)->next == NULL)
+		return ;
+	tmp = *node;
+	*node = tmp->next;
+	tmp2 = *node;
 	while (tmp2->next != NULL)
 		tmp2 = tmp2->next;
 	tmp2->next = tmp;
 	tmp->next = NULL;
 	tmp->prev = tmp2;
+}
+
+void	rotate_rr(t_node **a, t_node **b)
+{
+	rotate_ab(a);
+	rotate_ab(b);
 }

@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/25 16:48:43 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/25 16:54:35 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ int	main(int ac, char **av)
 		ft_free_tab2(info.tmp);
 		i++;
 	}
-	// insert_node(&info.stack_b, 122);
-	// insert_node(&info.stack_b, 0);
+	insert_node(&info.stack_b, 122);
+	insert_node(&info.stack_b, 0);
+	insert_node(&info.stack_b, -42);
 	print_node_a(info.stack_a);
 	print_node_b(info.stack_b);
 	// swap_ab(&info.stack_a);
@@ -49,6 +50,7 @@ int	main(int ac, char **av)
 	// push_ab(&info.stack_b, &info.stack_a);
 	// rotate_ab(&info.stack_a);
 	// rotate_ab(&info.stack_b);
+	rotate_rr(&info.stack_a, &info.stack_b);
 	printf("---------after---------\n");
 	print_node_a(info.stack_a);
 	print_node_b(info.stack_b);
