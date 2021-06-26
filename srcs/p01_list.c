@@ -117,3 +117,18 @@ void	rotate_rr(t_node **a, t_node **b)
 	rotate_ab(a);
 	rotate_ab(b);
 }
+
+void	rev_rotate_ab(t_node **node)
+{
+	t_node *tmp;
+
+	if (*node == NULL || (*node)->next == NULL)
+		return ;
+	tmp = *node;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->prev->next = NULL;
+	tmp->next = *node;
+	tmp->prev = NULL;
+	*node = tmp;
+}

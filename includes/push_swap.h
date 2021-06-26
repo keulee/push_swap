@@ -39,5 +39,6 @@ void	swap_ss(t_node **a, t_node **b);
 void	push_ab(t_node **dest, t_node **src);
 void	rotate_ab(t_node **node);
 void	rotate_rr(t_node **a, t_node **b);
+void	rev_rotate_ab(t_node **node);
 
 #endif
