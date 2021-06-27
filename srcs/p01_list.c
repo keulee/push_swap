@@ -132,3 +132,9 @@ void	rev_rotate_ab(t_node **node)
 	tmp->prev = NULL;
 	*node = tmp;
 }
+
+void	rotate_rrr(t_node **a, t_node **b)
+{
+	rev_rotate_ab(a);
+	rev_rotate_ab(b);
+}
