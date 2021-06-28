@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/26 23:01:56 by keulee           ###   ########.fr       */
+/*   Updated: 2021/06/28 22:49:43 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int ac, char **av)
 		while(info.tmp[j])
 		{
 			value_check(info.tmp[j], &info);
-			// printf("int value : %ld\n", info.arg);
 			insert_node(&info.stack_a, info.arg);
 			find_double(info.stack_a, info.arg);
 			info.listsize++;
@@ -53,7 +52,14 @@ int	main(int ac, char **av)
 	// rotate_rr(&info.stack_a, &info.stack_b);
 	// rev_rotate_ab(&info.stack_a);
 	// rev_rotate_ab(&info.stack_b);
-	rotate_rrr(&info.stack_a, &info.stack_b);
+	// rotate_rrr(&info.stack_a, &info.stack_b);
+	push_ab(&info.stack_b, &info.stack_a);
+	push_ab(&info.stack_b, &info.stack_a);
+	swap_ab(&info.stack_a);
+	rotate_ab(&info.stack_a);
+	push_ab(&info.stack_a, &info.stack_b);
+	rotate_ab(&info.stack_a);
+	push_ab(&info.stack_a, &info.stack_b);
 	printf("---------after---------\n");
 	print_node_a(info.stack_a);
 	print_node_b(info.stack_b);
