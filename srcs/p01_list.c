@@ -112,12 +112,19 @@ void	rotate_ab(t_node **node)
 	tmp->prev = tmp2;
 }
 
+/*
+** ra and rb at the same time.
+*/
 void	rotate_rr(t_node **a, t_node **b)
 {
 	rotate_ab(a);
 	rotate_ab(b);
 }
 
+/*
+** shift down all elements of stack a by 1.
+** The last element becomes the first one.
+*/
 void	rev_rotate_ab(t_node **node)
 {
 	t_node *tmp;
@@ -133,6 +140,9 @@ void	rev_rotate_ab(t_node **node)
 	*node = tmp;
 }
 
+/*
+** rra and rrb at the same time.
+*/
 void	rotate_rrr(t_node **a, t_node **b)
 {
 	rev_rotate_ab(a);
