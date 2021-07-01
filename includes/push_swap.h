@@ -15,6 +15,8 @@ typedef struct s_node{
 }				t_node;
 
 typedef struct s_info {
+	int		i;
+	int		j;
 	char	**tmp;
 	long	arg;
 	int		listsize;
@@ -23,6 +25,7 @@ typedef struct s_info {
 }				t_info;
 
 void	ft_init(t_info *info);
+void	putnbr_stack(t_info *info, char **av);
 int		check_double(char **s1, char *s2);
 int		count_arg(char *str);
 void	value_check(char *str, t_info *info);

@@ -2,6 +2,8 @@
 
 void	ft_init(t_info *info)
 {
+	info->i = 1;
+	info->j = 0;
 	info->tmp = NULL;
 	info->stack_a = NULL;
 	info->stack_b = NULL;

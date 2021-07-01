@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/29 21:29:55 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/01 15:46:02 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,13 @@
 int	main(int ac, char **av)
 {
 	t_info	info;
-	int		i;
-	int		j;
 
 	ft_init(&info);
-	i = 1;
 	if (ac == 1)
 		exit(0);
-	while (av[i])
-	{
-		info.tmp = ft_split(av[i], ' ');
-		j = 0;
-		while(info.tmp[j])
-		{
-			value_check(info.tmp[j], &info);
-			insert_node(&info.stack_a, info.arg);
-			find_double(info.stack_a, info.arg);
-			info.listsize++;
-			j++;
-		}
-		ft_free_tab2(info.tmp);
-		i++;
-	}
-	// insert_node(&info.stack_b, 122);
+	putnbr_stack(&info, av);
+	printf("---------before---------\n");
+	insert_node(&info.stack_b, 122);
 	print_node_a(info.stack_a);
 	print_node_b(info.stack_b);
 	// swap_ab(&info.stack_a);
@@ -51,15 +35,27 @@ int	main(int ac, char **av)
 	// rev_rotate_ab(&info.stack_a);
 	// rev_rotate_ab(&info.stack_b);
 	// rotate_rrr(&info.stack_a, &info.stack_b);
-	push_ab(&info.stack_b, &info.stack_a);
-	push_ab(&info.stack_b, &info.stack_a);
-	swap_ab(&info.stack_a);
-	rotate_ab(&info.stack_a);
-	push_ab(&info.stack_a, &info.stack_b);
-	rotate_ab(&info.stack_a);
-	push_ab(&info.stack_a, &info.stack_b);
 	printf("---------after---------\n");
 	print_node_a(info.stack_a);
 	print_node_b(info.stack_b);
 	return (EXIT_SUCCESS);
+}
+
+void	putnbr_stack(t_info *info, char **av)
+{
+	while (av[info->i])
+	{
+		info->tmp = ft_split(av[info->i], ' ');
+		info->j = 0;
+		while(info->tmp[info->j])
+		{
+			value_check(info->tmp[info->j], info);
+			insert_node(&info->stack_a, info->arg);
+			find_double(info->stack_a, info->arg);
+			info->listsize++;
+			info->j++;
+		}
+		ft_free_tab2(info->tmp);
+		info->i++;
+	}
 }
