@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_ver1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/06/10 19:18:59 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/02 16:18:48 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,3 +90,33 @@ int	main(int ac, char **av)
 	free(info.string);
 	return (EXIT_SUCCESS);
 }
+
+// int		check_double(char **s1, char *s2)
+// {
+// 	int i;
+
+// 	i = 0;
+// 	while (s1[i])
+// 	{
+// 		if (ft_strcmp(s1[i], s2) == 0) //if two string is the same, it returns 0
+// 			return (0);
+// 		i++;
+// 	}
+// 	return (i);
+// }
+
+// int	count_arg(char *str)
+// {
+// 	int i;
+// 	int count;
+
+// 	i = 0;
+// 	count = 0;
+// 	while(str[i])
+// 	{
+// 		if (str[i] == ' ')
+// 			count++;
+// 		i++;
+// 	}
+// 	return (count);
+// }
