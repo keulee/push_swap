@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/07/01 16:59:52 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/03 22:07:45 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	ft_init(&info);
 	if (ac == 1)
 		exit(0);
-	putnbr_stack(&info, av);
+	create_stack(&info, av);
 	// printf("---------before---------\n");
 	// insert_node(&info.stack_b, 122);
 	// print_node_a(info.stack_a);
@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 	return (EXIT_SUCCESS);
 }
 
-void	putnbr_stack(t_info *info, char **av)
+void	create_stack(t_info *info, char **av)
 {
 	while (av[info->i])
 	{
