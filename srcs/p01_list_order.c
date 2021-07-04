@@ -32,16 +32,33 @@ void	sort_a_to_b(t_node **a, t_node **b, t_info *info)
 		{
 			rotate_ab(a);
 			ft_putstr("ra\n");
+			info->ra++;
 		}
 		else
 		{
 			push_ab(b, a);
 			ft_putstr("pb\n");
+			info->pb++;
 		}
-		print_node_a(*a);
-		print_node_b(*b);
+		// print_node_a(*a);
+		// print_node_b(*b);
 		i++;
 	}
+	i = 0;
+		printf("ra: %d\n", info->ra);
+
+	while (i < info->ra)
+	{
+		// printf("ra: %d\n", info->ra);
+		// exit(0);
+		rev_rotate_ab(a);
+		ft_putstr("rra\n");
+		// print_node_a(*a);
+
+		i++;
+	}
+	// print_node_a(*a);
+
 }
 
 // void	set_in_order_two(t_node **a)

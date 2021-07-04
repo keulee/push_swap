@@ -19,7 +19,7 @@ void		print_node(t_node *node)
 	printf("---------\n");
 }
 
-void		print_node_a(t_node *node)
+void		print_node_a(t_node *node, t_info *info)
 {
 	int i;
 
@@ -29,9 +29,11 @@ void		print_node_a(t_node *node)
 		printf("[node a empty]\n");
 		return ;
 	}
-	while (node != NULL)
+	// while (node != NULL)
+	while (i < info->listsize)
 	{
 		printf("[%d] : %d\n", i, node->value);
+		printf("- \n value = %d \n prev = %p \n next = %p \n - \n", node->value, node->prev, node->next);
 		node = node->next;
 		i++;
 	}

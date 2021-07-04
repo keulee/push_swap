@@ -9,4 +9,6 @@ void	ft_init(t_info *info)
 	info->stack_b = NULL;
 	info->arg = 0;
 	info->listsize= 0;
+	info->ra = 0;
+	info->pb = 0;
 }
