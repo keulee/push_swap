@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/07/03 22:07:45 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/04 14:37:32 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,4 @@ int	main(int ac, char **av)
 	// print_node_a(info.stack_a);
 	// print_node_b(info.stack_b);
 	return (EXIT_SUCCESS);
-}
-
-void	create_stack(t_info *info, char **av)
-{
-	while (av[info->i])
-	{
-		info->tmp = ft_split(av[info->i], ' ');
-		info->j = 0;
-		while(info->tmp[info->j])
-		{
-			value_check(info->tmp[info->j], info);
-			insert_node(&info->stack_a, info->arg);
-			find_double(info->stack_a, info->arg);
-			info->listsize++;
-			info->j++;
-		}
-		ft_free_tab2(info->tmp);
-		info->i++;
-	}
 }
