@@ -46,5 +46,8 @@ void	rev_rotate_ab(t_node **node);
 void	rotate_rrr(t_node **a, t_node **b);
 
 int		check_order(t_node **node);
+void	sort_a_to_b(t_node **a, t_node **b, t_info *info);
+// void	set_in_order_two(t_node **n1);
+// void	set_in_order_three(t_node **a, t_info *info);
 
 #endif
