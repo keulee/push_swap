@@ -21,8 +21,6 @@ void	insert_node(t_node **node, int value)
 	new->next = NULL;
 	new->prev = NULL;
 	new->value = value;
-	
-	// printf("value in node : %d\n", value);
 
 	//if there's no node.
 	if (tmp == NULL)
@@ -136,7 +134,7 @@ void	rev_rotate_ab(t_node **node)
 		tmp = tmp->next;
 	// printf("- \n value = %d \n prev = %p \n next = %p \n - \n", tmp->value, tmp->prev, tmp->next);
 	// if (tmp->prev)
-		tmp->prev->next = NULL;
+		tmp->prev->next = NULL; // bug?
 	tmp->next = *node;
 	tmp->prev = NULL;
 	*node = tmp;
