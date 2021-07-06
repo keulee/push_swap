@@ -32,8 +32,8 @@ int		check_double(char **s1, char *s2);
 int		count_arg(char *str);
 void	value_check(char *str, t_info *info);
 
-// void	print_node_a(t_node *node);
-void	print_node_a(t_node *node, t_info *info);
+void	print_node_a(t_node *node);
+// void	print_node_a(t_node *node, t_info *info);
 void	print_node_b(t_node *node);
 void	print_node(t_node *node);
 

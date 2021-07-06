@@ -132,14 +132,11 @@ void	rev_rotate_ab(t_node **node)
 	tmp = *node;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
-	// printf("- \n value = %d \n prev = %p \n next = %p \n - \n", tmp->value, tmp->prev, tmp->next);
-	// if (tmp->prev)
-		tmp->prev->next = NULL; // bug?
+	tmp->prev->next = NULL; // bug?
 	tmp->next = *node;
 	tmp->prev = NULL;
 	*node = tmp;
-	// printf("- \n value = %d \n prev = %p \n next = %p \n - \n", tmp->value, tmp->prev, tmp->next);
-
+	(*node)->next->prev = tmp;
 }
 
 /*

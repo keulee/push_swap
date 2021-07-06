@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/07/04 21:37:27 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/06 19:01:12 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 		exit(0);
 	create_stack(&info, av);
 	printf("---------before---------\n");
-	print_node_a(info.stack_a, &info);
+	print_node_a(info.stack_a);//, &info);
 	print_node_b(info.stack_b);
 	rev_rotate_ab(&info.stack_a);
 	rev_rotate_ab(&info.stack_a);
@@ -42,7 +42,7 @@ int	main(int ac, char **av)
 	// 	sort_a_to_b(&info.stack_a, &info.stack_b, &info);
 	// }
 	printf("---------after---------\n");
-	print_node_a(info.stack_a, &info);
+	print_node_a(info.stack_a);//, &info);
 	print_node_b(info.stack_b);
 	// return (EXIT_SUCCESS);
 	exit(0);
