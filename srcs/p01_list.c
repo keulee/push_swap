@@ -13,8 +13,8 @@ void	insert_node(t_node **node, int value)
 	t_node *new;
 	t_node *tmp;
 
-	// new = (t_node *)malloc(sizeof(t_node));
-	new = creat_node();
+	new = (t_node *)malloc(sizeof(t_node));
+	// new = creat_node();
 	tmp = *node;
 
 	//init t_node new

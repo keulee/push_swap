@@ -22,9 +22,17 @@ typedef struct s_info {
 	int		listsize;
 	int		ra;
 	int		pb;
+	int		rb;
+	int		pa;
+	int		pivot_a1;
+	int		pivot_a2;
+	int		pivot_b1;
+	int		pivot_b2;
 	t_node	*stack_a;
 	t_node	*stack_b;
 }				t_info;
+
+void	free_stack(t_node **a, t_node **b);
 
 void	ft_init(t_info *info);
 void	create_stack(t_info *info, char **av);

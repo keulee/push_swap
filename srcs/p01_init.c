@@ -11,4 +11,6 @@ void	ft_init(t_info *info)
 	info->listsize= 0;
 	info->ra = 0;
 	info->pb = 0;
+	info->rb = 0;
+	info->pa = 0;
 }

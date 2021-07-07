@@ -18,7 +18,7 @@ void	sort_a_to_b(t_node **a, t_node **b, t_info *info)
 {
 	int 	pivot;
 	t_node	*tmp;
-	int i;
+	int 	i;
 
 	i = 0;
 	tmp = *a;
@@ -40,25 +40,57 @@ void	sort_a_to_b(t_node **a, t_node **b, t_info *info)
 			ft_putstr("pb\n");
 			info->pb++;
 		}
-		// print_node_a(*a);
-		// print_node_b(*b);
 		i++;
 	}
 	i = 0;
-		printf("ra: %d\n", info->ra);
-
 	while (i < info->ra)
 	{
-		// printf("ra: %d\n", info->ra);
-		// exit(0);
 		rev_rotate_ab(a);
 		ft_putstr("rra\n");
-		// print_node_a(*a);
-
 		i++;
 	}
-	// print_node_a(*a);
+	// sort_a_to_b(a, b, info);
+}
 
+void	sort_b_to_a(t_node **a, t_node **b, t_info *info)
+{
+	int		pivot;
+	t_node	*tmp;
+	int		i;
+	int		size;
+
+	i = 0;
+	tmp = *b;
+	size = 1;
+	while (tmp->next != NULL)
+	{
+		tmp = tmp->next;
+		size++;
+	}
+	pivot = tmp->value;
+	printf("pivot: %d\n", pivot);
+	while (i < size)
+	{
+		if ((*b)->value > pivot)
+		{
+			rotate_ab(b);
+			ft_putstr("rb\n");
+			info->rb++;
+		}
+		else
+		{
+			push_ab(a, b);
+			ft_putstr("pa\n");
+			info->pa++;
+		}
+	}
+	i = 0;
+	while (i < info->ra)
+	{
+		rev_rotate_ab(a);
+		ft_putstr("rra\n");
+		i++;
+	}
 }
 
 // void	set_in_order_two(t_node **a)
