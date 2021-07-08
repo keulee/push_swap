@@ -32,8 +32,6 @@ typedef struct s_info {
 	t_node	*stack_b;
 }				t_info;
 
-void	free_stack(t_node **a, t_node **b);
-
 void	ft_init(t_info *info);
 void	create_stack(t_info *info, char **av);
 int		check_double(char **s1, char *s2);
@@ -44,7 +42,6 @@ void	print_node_a(t_node *node);
 void	print_node_b(t_node *node);
 void	print_node(t_node *node);
 
-t_node	*creat_node();
 void	insert_node(t_node **node, int value);
 void	find_double(t_node *node, int value);
 void	swap_ab(t_node **node);
@@ -59,5 +56,8 @@ int		check_order(t_node **node);
 void	sort_a_to_b(t_node **a, t_node **b, t_info *info);
 // void	set_in_order_two(t_node **n1);
 // void	set_in_order_three(t_node **a, t_info *info);
+
+void	free_node(t_node *node);
+void	free_stack(t_node *a, t_node *b);
 
 #endif

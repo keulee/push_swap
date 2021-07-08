@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/07/07 15:51:31 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/08 16:47:20 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	main(int ac, char **av)
 	print_node_a(info.stack_a);//, &info);
 	print_node_b(info.stack_b);
 	if (check_order(&info.stack_a))
+	{
+		free_stack(info.stack_a, info.stack_b);
 		return (EXIT_SUCCESS);
+	}
 	else
 	{
 		sort_a_to_b(&info.stack_a, &info.stack_b, &info);

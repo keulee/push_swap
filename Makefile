@@ -6,14 +6,15 @@
 #    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 18:18:39 by keulee            #+#    #+#              #
-#    Updated: 2021/07/07 15:43:06 by keulee           ###   ########.fr        #
+#    Updated: 2021/07/08 16:47:38 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 SRCS = srcs/push_swap.c srcs/p01_init.c srcs/p01_utiles.c srcs/p01_list.c \
-		srcs/p01_print_list.c srcs/p01_sort_stack.c srcs/p01_create_stack.c
+		srcs/p01_print_list.c srcs/p01_sort_stack.c srcs/p01_create_stack.c \
+		srcs/p01_free.c
 
 OBJS = $(SRCS:.c=.o)
 
