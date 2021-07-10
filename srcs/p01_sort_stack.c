@@ -14,13 +14,23 @@ int		check_order(t_node **node)
 	return (0);
 }
 
+// void	sort(t_node **a, t_node *b)
+// {
+// 	int		count;
+
+// 	count = 0;
+// 	sort_a_to_b(a, b, )
+// }
+
 void	sort_a_to_b(t_node **a, t_node **b, t_info *info)
 {
+	int		count;
 	int 	pivot;
 	t_node	*tmp;
 	int 	i;
 
 	i = 0;
+	count = 0;
 	tmp = *a;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
@@ -52,46 +62,46 @@ void	sort_a_to_b(t_node **a, t_node **b, t_info *info)
 	// sort_a_to_b(a, b, info);
 }
 
-void	sort_b_to_a(t_node **a, t_node **b, t_info *info)
-{
-	int		pivot;
-	t_node	*tmp;
-	int		i;
-	int		size;
+// void	sort_b_to_a(t_node **a, t_node **b, t_info *info)
+// {
+// 	int		pivot;
+// 	t_node	*tmp;
+// 	int		i;
+// 	int		size;
 
-	i = 0;
-	tmp = *b;
-	size = 1;
-	while (tmp->next != NULL)
-	{
-		tmp = tmp->next;
-		size++;
-	}
-	pivot = tmp->value;
-	printf("pivot: %d\n", pivot);
-	while (i < size)
-	{
-		if ((*b)->value > pivot)
-		{
-			rotate_ab(b);
-			ft_putstr("rb\n");
-			info->rb++;
-		}
-		else
-		{
-			push_ab(a, b);
-			ft_putstr("pa\n");
-			info->pa++;
-		}
-	}
-	i = 0;
-	while (i < info->ra)
-	{
-		rev_rotate_ab(a);
-		ft_putstr("rra\n");
-		i++;
-	}
-}
+// 	i = 0;
+// 	tmp = *b;
+// 	size = 1;
+// 	while (tmp->next != NULL)
+// 	{
+// 		tmp = tmp->next;
+// 		size++;
+// 	}
+// 	pivot = tmp->value;
+// 	printf("pivot: %d\n", pivot);
+// 	while (i < size)
+// 	{
+// 		if ((*b)->value > pivot)
+// 		{
+// 			rotate_ab(b);
+// 			ft_putstr("rb\n");
+// 			info->rb++;
+// 		}
+// 		else
+// 		{
+// 			push_ab(a, b);
+// 			ft_putstr("pa\n");
+// 			info->pa++;
+// 		}
+// 	}
+// 	i = 0;
+// 	while (i < info->ra)
+// 	{
+// 		rev_rotate_ab(a);
+// 		ft_putstr("rra\n");
+// 		i++;
+// 	}
+// }
 
 // void	set_in_order_two(t_node **a)
 // {
