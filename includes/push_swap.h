@@ -65,7 +65,7 @@ void	sort_b_to_a(int size, t_node **a, t_node **b);
 void	free_node(t_node *node);
 void	free_stack(t_node *a, t_node *b);
 
-void	get_max_pivot(t_node **a, t_call *call);
-void	get_min_pivot(t_node **a, t_call *call);
+void	get_max_pivot(int size, t_node **a, t_call *call);
+void	get_min_pivot(int size, t_node **a, t_call *call);
 
 #endif

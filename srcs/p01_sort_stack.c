@@ -21,14 +21,14 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	int		i;
 
 	i = 0;
-	s_tmp = size;
+	if (size <= 3)
+		return ;
 	call_init(&call);
-	get_max_pivot(a, &call);
-	get_min_pivot(a, &call);
+	get_max_pivot(size, a, &call);
+	get_min_pivot(size, a, &call);
 	printf("pivot: %ld\n", call.p_max);
 	printf("pivot: %ld\n", call.p_min);
-	if (s_tmp < 3)
-	 return ;
+	s_tmp = size;
 	while (s_tmp)
 	{
 		if ((*a)->value >= call.p_max)
@@ -53,19 +53,37 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	}
 	printf("ra: %d\n", call.ra);
 	printf("pb: %d\n", call.pb);
-	i = 0;
-	while (i < call.ra)
+	if (call.ra > call.rb)
 	{
-		rev_rotate_ab(a);
-		ft_putstr("rra\n");
-		i++;
+		i = call.rb;
+		while (i)
+		{
+			rotate_rrr(a, b);
+			ft_putstr("rrr\n");
+			i--;
+		}
+		while (i < call.ra - call.rb)
+		{
+			rotate_ab(a);
+			ft_putstr("ra\n");
+			i++;
+		}
 	}
-	i = 0;
-	while (i < call.rb)
+	else
 	{
-		rev_rotate_ab(b);
-		ft_putstr("rrb\n");
-		i++;
+		i = call.ra;
+		while (i)
+		{
+			rotate_rrr(a, b);
+			ft_putstr("rrr\n");
+			i--;
+		}
+		while (i < call.rb - call.ra)
+		{
+			rotate_ab(b);
+			ft_putstr("rb\n");
+			i++;
+		}
 	}
 	sort_a_to_b(call.ra, a, b);
 	sort_b_to_a(call.rb, a, b);
@@ -79,17 +97,17 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 	int 	i;
 
 	i = 0;
-	s_tmp = size;
+	if (size < 3)
+		return ;
 	call_init(&call);
-	get_max_pivot(b, &call);
-	get_min_pivot(b, &call);
+	get_max_pivot(size, b, &call);
+	get_min_pivot(size, b, &call);
+	s_tmp = size;
 	printf("pivot: %ld\n", call.p_max);
 	printf("pivot: %ld\n", call.p_min);
-	if (s_tmp < 3)
-	 return ;
 	while (s_tmp)
 	{
-		if ((*b)->value < call.p_min)
+		if ((*b)->value <= call.p_min)
 		{
 			rotate_ab(b);
 			ft_putstr("rb\n");
@@ -100,10 +118,7 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 			push_ab(a, b);
 			ft_putstr("pa\n");
 			call.pa++;
-			// printf("b top : %d\n", (*b)->value);
-			// print_node_a(*a);
-			// print_node_b(*b);
-			if (*b && (*b)->value < call.p_max)
+			if ((*b)->value <= call.p_max)
 			{
 				rotate_ab(a);
 				ft_putstr("ra\n");
@@ -112,23 +127,39 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 		}
 		s_tmp--;
 	}
-	printf("ra: %d\n", call.ra);
-	printf("pb: %d\n", call.pb);
 	sort_a_to_b(call.pb - call.ra, a, b);
-	i = 0;
-	while (i < call.ra)
+	if (call.ra > call.rb)
 	{
-		rev_rotate_ab(a);
-		ft_putstr("rra\n");
-		i++;
+		i = call.rb;
+		while (i)
+		{
+			rotate_rrr(a, b);
+			ft_putstr("rrr\n");
+			i--;
+		}
+		while (i < call.ra - call.rb)
+		{
+			rotate_ab(a);
+			ft_putstr("ra\n");
+			i++;
+		}
 	}
-	i = 0;
-	while (i < call.rb)
+	else
 	{
-		rev_rotate_ab(b);
-		ft_putstr("rrb\n");
-		i++;
+		i = call.ra;
+		while (i)
+		{
+			rotate_rrr(a, b);
+			ft_putstr("rrr\n");
+			i--;
+		}
+		while (i < call.rb - call.ra)
+		{
+			rotate_ab(b);
+			ft_putstr("rb\n");
+			i++;
+		}
 	}
 	sort_a_to_b(call.ra, a, b);
-	// sort_b_to_a(call.rb, a, b);
+	sort_b_to_a(call.rb, a, b);
 }

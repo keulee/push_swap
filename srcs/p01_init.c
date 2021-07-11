@@ -9,10 +9,6 @@ void	ft_init(t_info *info)
 	info->stack_b = NULL;
 	info->arg = 0;
 	info->listsize= 0;
-	// info->ra = 0;
-	// info->pb = 0;
-	// info->rb = 0;
-	// info->pa = 0;
 }
 
 void	call_init(t_call *call)
@@ -21,6 +17,6 @@ void	call_init(t_call *call)
 	call->pb = 0;
 	call->ra = 0;
 	call->rb = 0;
-	call->p_max = 0;
-	call->p_min = 0;
+	// call->p_max = 0;
+	// call->p_min = 0;
 }
