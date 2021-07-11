@@ -24,10 +24,6 @@ typedef struct s_info {
 	int		pb;
 	int		rb;
 	int		pa;
-	int		pivot_a1;
-	int		pivot_a2;
-	int		pivot_b1;
-	int		pivot_b2;
 	t_node	*stack_a;
 	t_node	*stack_b;
 }				t_info;

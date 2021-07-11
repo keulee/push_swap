@@ -14,14 +14,6 @@ int		check_order(t_node **node)
 	return (0);
 }
 
-// void	sort(t_node **a, t_node *b)
-// {
-// 	int		count;
-
-// 	count = 0;
-// 	sort_a_to_b(a, b, )
-// }
-
 void	sort_a_to_b(t_node **a, t_node **b, t_info *info)
 {
 	int		count;
