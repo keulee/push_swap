@@ -8,11 +8,23 @@
 
 # include "../libft/libft.h"
 
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
+
 typedef struct s_node{
     int value;
     struct s_node *prev;
     struct s_node *next;
 }				t_node;
+
+typedef struct s_call{
+	int		ra;
+	int		pb;
+	int		rb;
+	int		pa;
+	long	p_max;
+	long	p_min;
+}				t_call;
 
 typedef struct s_info {
 	int		i;
@@ -20,15 +32,13 @@ typedef struct s_info {
 	char	**tmp;
 	long	arg;
 	int		listsize;
-	int		ra;
-	int		pb;
-	int		rb;
-	int		pa;
 	t_node	*stack_a;
 	t_node	*stack_b;
 }				t_info;
 
 void	ft_init(t_info *info);
+void	call_init(t_call *call);
+
 void	create_stack(t_info *info, char **av);
 int		check_double(char **s1, char *s2);
 int		count_arg(char *str);
@@ -48,12 +58,13 @@ void	rotate_rr(t_node **a, t_node **b);
 void	rev_rotate_ab(t_node **node);
 void	rotate_rrr(t_node **a, t_node **b);
 
-int		check_order(t_node **node);
-void	sort_a_to_b(t_node **a, t_node **b, t_info *info);
-// void	set_in_order_two(t_node **n1);
-// void	set_in_order_three(t_node **a, t_info *info);
+int		check_sorted(t_node **node);
+void	sort_a_to_b(int size, t_node **a, t_node **b);
 
 void	free_node(t_node *node);
 void	free_stack(t_node *a, t_node *b);
+
+void	get_max_pivot(t_node **a, t_call *call);
+void	get_min_pivot(t_node **a, t_call *call);
 
 #endif

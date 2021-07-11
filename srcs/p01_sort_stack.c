@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-int		check_order(t_node **node)
+int		check_sorted(t_node **node)
 {
 	t_node *tmp;
 
@@ -14,119 +14,109 @@ int		check_order(t_node **node)
 	return (0);
 }
 
-void	sort_a_to_b(t_node **a, t_node **b, t_info *info)
+void	sort_a_to_b(int size, t_node **a, t_node **b)
 {
-	int		count;
-	int 	pivot;
-	t_node	*tmp;
+	t_call	call;
 	int 	i;
 
 	i = 0;
-	count = 0;
-	tmp = *a;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	pivot = tmp->value;
-	printf("pivot: %d\n", pivot);
-	while (i < info->listsize)
+	call_init(&call);
+	get_max_pivot(a, &call);
+	get_min_pivot(a, &call);
+	printf("pivot: %ld\n", call.p_max);
+	printf("pivot: %ld\n", call.p_min);
+	if (size < 3)
+	 return ;
+	while (i < size)
 	{
-		if ((*a)->value > pivot)
+		if ((*a)->value >= call.p_max)
 		{
 			rotate_ab(a);
 			ft_putstr("ra\n");
-			info->ra++;
+			call.ra++;
 		}
 		else
 		{
 			push_ab(b, a);
 			ft_putstr("pb\n");
-			info->pb++;
+			call.pb++;
+			if ((*b)->value >= call.p_min)
+			{
+				rotate_ab(b);
+				ft_putstr("rb\n");
+				call.rb++;
+			}
 		}
 		i++;
 	}
+	printf("ra: %d\n", call.ra);
+	printf("pb: %d\n", call.pb);
 	i = 0;
-	while (i < info->ra)
+	while (i < call.ra)
 	{
 		rev_rotate_ab(a);
 		ft_putstr("rra\n");
 		i++;
 	}
+	i = 0;
+	while (i < call.rb)
+	{
+		rev_rotate_ab(b);
+		ft_putstr("rrb\n");
+		i++;
+	}
 	// sort_a_to_b(a, b, info);
 }
 
-// void	sort_b_to_a(t_node **a, t_node **b, t_info *info)
-// {
-// 	int		pivot;
-// 	t_node	*tmp;
-// 	int		i;
-// 	int		size;
+void	sort_b_to_a(int size, t_node **a, t_node **b)
+{
+	t_call	call;
+	int 	i;
 
-// 	i = 0;
-// 	tmp = *b;
-// 	size = 1;
-// 	while (tmp->next != NULL)
-// 	{
-// 		tmp = tmp->next;
-// 		size++;
-// 	}
-// 	pivot = tmp->value;
-// 	printf("pivot: %d\n", pivot);
-// 	while (i < size)
-// 	{
-// 		if ((*b)->value > pivot)
-// 		{
-// 			rotate_ab(b);
-// 			ft_putstr("rb\n");
-// 			info->rb++;
-// 		}
-// 		else
-// 		{
-// 			push_ab(a, b);
-// 			ft_putstr("pa\n");
-// 			info->pa++;
-// 		}
-// 	}
-// 	i = 0;
-// 	while (i < info->ra)
-// 	{
-// 		rev_rotate_ab(a);
-// 		ft_putstr("rra\n");
-// 		i++;
-// 	}
-// }
-
-// void	set_in_order_two(t_node **a)
-// {
-// 	swap_ab(a);
-// 	ft_putstr("sa\n");
-// }
-
-// void	set_in_order_three(t_node **a, t_info *info)
-// {
-// 	int i;
-// 	t_node	*tmp;
-
-// 	i = 0;
-// 	while (i < info->listsize)
-// 	{
-// 		tmp = *a;
-// 		while (tmp->next != NULL)
-// 		{
-// 			if (tmp->value > tmp->next->value && i == 0)
-// 			{
-// 				swap_ab(a);
-// 				ft_putstr("sa\n");
-// 			}
-// 			if (tmp->value > tmp->next->value && i == 1)
-// 			{
-// 				swap_ab(a);
-// 				ft_putstr("sa\n");
-// 				rotate_ab(a);
-// 				ft_putstr("ra\n");
-// 			}
-// 			tmp = tmp->next;
-// 		}
-// 		i++;
-// 	}
-	 
-// }
+	i = 0;
+	call_init(&call);
+	get_max_pivot(b, &call);
+	get_min_pivot(b, &call);
+	printf("pivot: %ld\n", call.p_max);
+	printf("pivot: %ld\n", call.p_min);
+	if (size < 3)
+	 return ;
+	while (i < size)
+	{
+		if ((*b)->value < call.p_min)
+		{
+			rotate_ab(b);
+			ft_putstr("rb\n");
+			call.rb++;
+		}
+		else
+		{
+			push_ab(a, b);
+			ft_putstr("pa\n");
+			call.pa++;
+			if ((*b)->value >= call.p_max)
+			{
+				rotate_ab(a);
+				ft_putstr("ra\n");
+				call.ra++;
+			}
+		}
+		i++;
+	}
+	printf("ra: %d\n", call.ra);
+	printf("pb: %d\n", call.pb);
+	i = 0;
+	while (i < call.ra)
+	{
+		rev_rotate_ab(a);
+		ft_putstr("rra\n");
+		i++;
+	}
+	i = 0;
+	while (i < call.rb)
+	{
+		rev_rotate_ab(b);
+		ft_putstr("rrb\n");
+		i++;
+	}
+}

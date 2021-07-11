@@ -9,19 +9,13 @@ void	value_check(char *str, t_info *info)
 	i = 0;
 	neg = 1;
 	arg = 0;
-	// if (ft_strncmp(&str[i], "-", 1) == 0)
-	// 	neg = 1;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i++] == '-')
 			neg = neg * -1;
-	}
-	// if (neg == 1)
-	// {
-		// i++;
 		if (str[i] == '\0' || str[i] == '0')
 			ft_exit_msg("ERROR: Arguemnt not correct");
-	// }
+	}
 	if (!ft_only_digit(&str[i]))
 		ft_exit_msg("ERROR: Argument not int");
 	while (ft_digit(str[i]))
