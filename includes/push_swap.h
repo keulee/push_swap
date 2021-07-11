@@ -11,6 +11,10 @@
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
 
+# define A 0
+# define B 1
+# define AB 2
+
 typedef struct s_node{
     int value;
     struct s_node *prev;
@@ -50,13 +54,13 @@ void	print_node(t_node *node);
 
 void	insert_node(t_node **node, int value);
 void	find_double(t_node *node, int value);
-void	swap_ab(t_node **node);
-void	swap_ss(t_node **a, t_node **b);
-void	push_ab(t_node **dest, t_node **src);
-void	rotate_ab(t_node **node);
-void	rotate_rr(t_node **a, t_node **b);
-void	rev_rotate_ab(t_node **node);
-void	rotate_rrr(t_node **a, t_node **b);
+void	swap_ab(t_node **node, int stack);
+void	swap_ss(t_node **a, t_node **b, int stack);
+void	push_ab(t_node **dest, t_node **src, int stack);
+void	rotate_ab(t_node **node, int stack);
+void	rotate_rr(t_node **a, t_node **b, int stack);
+void	rev_rotate_ab(t_node **node, int stack);
+void	rotate_rrr(t_node **a, t_node **b, int stack);
 
 int		check_sorted(t_node **node);
 void	sort_a_to_b(int size, t_node **a, t_node **b);
@@ -67,5 +71,7 @@ void	free_stack(t_node *a, t_node *b);
 
 void	get_max_pivot(int size, t_node **a, t_call *call);
 void	get_min_pivot(int size, t_node **a, t_call *call);
+
+int		stack_a_three(int size, t_node *a, t_call *call);
 
 #endif

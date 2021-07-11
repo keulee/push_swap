@@ -22,6 +22,10 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 
 	i = 0;
 	if (size <= 3)
+	// {
+	// 	stack_a_three(size, a, &call);
+
+	// }
 		return ;
 	call_init(&call);
 	get_max_pivot(size, a, &call);
@@ -33,19 +37,16 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	{
 		if ((*a)->value >= call.p_max)
 		{
-			rotate_ab(a);
-			ft_putstr("ra\n");
+			rotate_ab(a, A);
 			call.ra++;
 		}
 		else
 		{
-			push_ab(b, a);
-			ft_putstr("pb\n");
+			push_ab(b, a, B);
 			call.pb++;
 			if ((*b)->value >= call.p_min)
 			{
-				rotate_ab(b);
-				ft_putstr("rb\n");
+				rotate_ab(b, B);
 				call.rb++;
 			}
 		}
@@ -58,14 +59,12 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 		i = call.rb;
 		while (i)
 		{
-			rotate_rrr(a, b);
-			ft_putstr("rrr\n");
+			rotate_rrr(a, b, AB);
 			i--;
 		}
 		while (i < call.ra - call.rb)
 		{
-			rotate_ab(a);
-			ft_putstr("ra\n");
+			rotate_ab(a, A);
 			i++;
 		}
 	}
@@ -74,14 +73,12 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 		i = call.ra;
 		while (i)
 		{
-			rotate_rrr(a, b);
-			ft_putstr("rrr\n");
+			rotate_rrr(a, b, AB);
 			i--;
 		}
 		while (i < call.rb - call.ra)
 		{
-			rotate_ab(b);
-			ft_putstr("rb\n");
+			rotate_ab(b, B);
 			i++;
 		}
 	}
@@ -109,19 +106,16 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 	{
 		if ((*b)->value <= call.p_min)
 		{
-			rotate_ab(b);
-			ft_putstr("rb\n");
+			rotate_ab(b, B);
 			call.rb++;
 		}
 		else
 		{
-			push_ab(a, b);
-			ft_putstr("pa\n");
+			push_ab(a, b, A);
 			call.pa++;
 			if ((*b)->value <= call.p_max)
 			{
-				rotate_ab(a);
-				ft_putstr("ra\n");
+				rotate_ab(a, A);
 				call.ra++;
 			}
 		}
@@ -133,14 +127,12 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 		i = call.rb;
 		while (i)
 		{
-			rotate_rrr(a, b);
-			ft_putstr("rrr\n");
+			rotate_rrr(a, b, AB);
 			i--;
 		}
 		while (i < call.ra - call.rb)
 		{
-			rotate_ab(a);
-			ft_putstr("ra\n");
+			rotate_ab(a, A);
 			i++;
 		}
 	}
@@ -149,14 +141,12 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 		i = call.ra;
 		while (i)
 		{
-			rotate_rrr(a, b);
-			ft_putstr("rrr\n");
+			rotate_rrr(a, b, AB);
 			i--;
 		}
 		while (i < call.rb - call.ra)
 		{
-			rotate_ab(b);
-			ft_putstr("rb\n");
+			rotate_ab(b, B);
 			i++;
 		}
 	}

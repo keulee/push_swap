@@ -43,7 +43,7 @@ void		find_double(t_node *node, int value)
 ** swap the first 2 elements at the top of stack a(or b).
 ** Do nothing if there is only one or no elements).
 */
-void	swap_ab(t_node **node)
+void	swap_ab(t_node **node, int stack)
 {
 	int	tmp;
 
@@ -52,23 +52,28 @@ void	swap_ab(t_node **node)
 	tmp = (*node)->value;
 	(*node)->value = (*node)->next->value;
 	(*node)->next->value = tmp;
+	if (stack == A)
+		ft_putstr("sa\n");
+	if (stack == B)
+		ft_putstr("sb\n");
 }
 
 /*
 ** sa and sb at the same time.
 */
-void	swap_ss(t_node **a, t_node **b)
+void	swap_ss(t_node **a, t_node **b, int stack)
 {
-	swap_ab(a);
-	swap_ab(b);
+	swap_ab(a, stack);
+	swap_ab(b, stack);
+	if (stack == AB)
+		ft_putstr("ss\n");
 }
-
 
 /*
 ** take the first element at the top of b and put it at the top of a. \
 ** Do nothing if b is empty.
 */
-void	push_ab(t_node **dest, t_node **src)
+void	push_ab(t_node **dest, t_node **src, int stack)
 {
 	t_node *tmp;
 
@@ -80,13 +85,17 @@ void	push_ab(t_node **dest, t_node **src)
 	if (*dest != NULL)
 		(*dest)->prev = tmp;
 	*dest = tmp;
+	if (stack == A)
+		ft_putstr("pa\n");
+	if (stack == B)
+		ft_putstr("pb\n");
 }
 
 /*
 **  shift up all elements of stack a by 1.
 ** The first element becomes the last one.
 */
-void	rotate_ab(t_node **node)
+void	rotate_ab(t_node **node, int stack)
 {
 	t_node *tmp;
 	t_node *tmp2;
@@ -101,22 +110,28 @@ void	rotate_ab(t_node **node)
 	tmp2->next = tmp;
 	tmp->next = NULL;
 	tmp->prev = tmp2;
+	if (stack == A)
+		ft_putstr("ra\n");
+	if (stack == B)
+		ft_putstr("rb\n");
 }
 
 /*
 ** ra and rb at the same time.
 */
-void	rotate_rr(t_node **a, t_node **b)
+void	rotate_rr(t_node **a, t_node **b, int stack)
 {
-	rotate_ab(a);
-	rotate_ab(b);
+	rotate_ab(a, stack);
+	rotate_ab(b, stack);
+	if (stack == AB)
+		ft_putstr("rr\n");
 }
 
 /*
 ** shift down all elements of stack a by 1.
 ** The last element becomes the first one.
 */
-void	rev_rotate_ab(t_node **node)
+void	rev_rotate_ab(t_node **node, int stack)
 {
 	t_node *tmp;
 
@@ -130,13 +145,19 @@ void	rev_rotate_ab(t_node **node)
 	tmp->prev = NULL;
 	*node = tmp;
 	(*node)->next->prev = tmp;
+	if (stack == A)
+		ft_putstr("rra\n");
+	if (stack == B)
+		ft_putstr("rrb\n");
 }
 
 /*
 ** rra and rrb at the same time.
 */
-void	rotate_rrr(t_node **a, t_node **b)
+void	rotate_rrr(t_node **a, t_node **b, int stack)
 {
-	rev_rotate_ab(a);
-	rev_rotate_ab(b);
+	rev_rotate_ab(a, stack);
+	rev_rotate_ab(b, stack);
+	if (stack == AB)
+		ft_putstr("rrr\n");
 }
