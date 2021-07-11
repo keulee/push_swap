@@ -17,17 +17,19 @@ int		check_sorted(t_node **node)
 void	sort_a_to_b(int size, t_node **a, t_node **b)
 {
 	t_call	call;
-	int 	i;
+	int		s_tmp;
+	int		i;
 
 	i = 0;
+	s_tmp = size;
 	call_init(&call);
 	get_max_pivot(a, &call);
 	get_min_pivot(a, &call);
 	printf("pivot: %ld\n", call.p_max);
 	printf("pivot: %ld\n", call.p_min);
-	if (size < 3)
+	if (s_tmp < 3)
 	 return ;
-	while (i < size)
+	while (s_tmp)
 	{
 		if ((*a)->value >= call.p_max)
 		{
@@ -47,7 +49,7 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 				call.rb++;
 			}
 		}
-		i++;
+		s_tmp--;
 	}
 	printf("ra: %d\n", call.ra);
 	printf("pb: %d\n", call.pb);
@@ -65,23 +67,27 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 		ft_putstr("rrb\n");
 		i++;
 	}
-	// sort_a_to_b(a, b, info);
+	sort_a_to_b(call.ra, a, b);
+	sort_b_to_a(call.rb, a, b);
+	sort_b_to_a(call.pb - call.rb, a, b);
 }
 
 void	sort_b_to_a(int size, t_node **a, t_node **b)
 {
 	t_call	call;
+	int		s_tmp;
 	int 	i;
 
 	i = 0;
+	s_tmp = size;
 	call_init(&call);
 	get_max_pivot(b, &call);
 	get_min_pivot(b, &call);
 	printf("pivot: %ld\n", call.p_max);
 	printf("pivot: %ld\n", call.p_min);
-	if (size < 3)
+	if (s_tmp < 3)
 	 return ;
-	while (i < size)
+	while (s_tmp)
 	{
 		if ((*b)->value < call.p_min)
 		{
@@ -94,17 +100,21 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 			push_ab(a, b);
 			ft_putstr("pa\n");
 			call.pa++;
-			if ((*b)->value >= call.p_max)
+			// printf("b top : %d\n", (*b)->value);
+			// print_node_a(*a);
+			// print_node_b(*b);
+			if (*b && (*b)->value < call.p_max)
 			{
 				rotate_ab(a);
 				ft_putstr("ra\n");
 				call.ra++;
 			}
 		}
-		i++;
+		s_tmp--;
 	}
 	printf("ra: %d\n", call.ra);
 	printf("pb: %d\n", call.pb);
+	sort_a_to_b(call.pb - call.ra, a, b);
 	i = 0;
 	while (i < call.ra)
 	{
@@ -119,4 +129,6 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 		ft_putstr("rrb\n");
 		i++;
 	}
+	sort_a_to_b(call.ra, a, b);
+	// sort_b_to_a(call.rb, a, b);
 }

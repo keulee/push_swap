@@ -21,4 +21,6 @@ void	call_init(t_call *call)
 	call->pb = 0;
 	call->ra = 0;
 	call->rb = 0;
+	call->p_max = 0;
+	call->p_min = 0;
 }

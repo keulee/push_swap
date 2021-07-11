@@ -60,6 +60,7 @@ void	rotate_rrr(t_node **a, t_node **b);
 
 int		check_sorted(t_node **node);
 void	sort_a_to_b(int size, t_node **a, t_node **b);
+void	sort_b_to_a(int size, t_node **a, t_node **b);
 
 void	free_node(t_node *node);
 void	free_stack(t_node *a, t_node *b);
