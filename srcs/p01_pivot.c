@@ -1,13 +1,12 @@
 #include "../includes/push_swap.h"
 
-void		get_max_pivot(int size, t_node **node, t_call *call)
+long		get_max(int size, t_node **node)
 {
 	t_node *tmp;
 	long	nbr;
 
 	tmp = *node;
 	nbr = tmp->value;
-	// while (tmp != NULL)
 	while(size)
 	{
 		if (nbr < tmp->value)
@@ -18,18 +17,16 @@ void		get_max_pivot(int size, t_node **node, t_call *call)
 			break ;
 		size--;
 	}
-	call->p_max = nbr;
+	return (nbr);
 }
 
-void		get_min_pivot(int size, t_node **node, t_call *call)
+long		get_min(int size, t_node **node)
 {
 	t_node *tmp;
 	long	nbr;
-
-
+	
 	tmp = *node;
 	nbr = tmp->value;
-	// while (tmp != NULL)
 	while (size)
 	{
 		if (nbr > tmp->value)
@@ -40,5 +37,16 @@ void		get_min_pivot(int size, t_node **node, t_call *call)
 			break ;
 		size--;
 	}
-	call->p_min = nbr;
+	return (nbr);
+}
+
+void	get_pivot(int size, t_node **node, t_call *call)
+{
+	long	min;
+	long	max;
+
+	min = get_min(size, node);
+	max = get_max(size, node);
+	call->p_big = (min + max) / 2;
+	call->p_small = (min + call->p_big) / 2;
 }

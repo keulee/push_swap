@@ -26,8 +26,8 @@ typedef struct s_call{
 	int		pb;
 	int		rb;
 	int		pa;
-	long	p_max;
-	long	p_min;
+	long	p_big;
+	long	p_small;
 }				t_call;
 
 typedef struct s_info {
@@ -69,8 +69,9 @@ void	sort_b_to_a(int size, t_node **a, t_node **b);
 void	free_node(t_node *node);
 void	free_stack(t_node *a, t_node *b);
 
-void	get_max_pivot(int size, t_node **a, t_call *call);
-void	get_min_pivot(int size, t_node **a, t_call *call);
+long	get_max(int size, t_node **node);
+long	get_min(int size, t_node **node);
+void	get_pivot(int size, t_node **node, t_call *call);
 
 int		stack_a_three(int size, t_node *a, t_call *call);
 

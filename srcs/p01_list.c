@@ -54,7 +54,7 @@ void	swap_ab(t_node **node, int stack)
 	(*node)->next->value = tmp;
 	if (stack == A)
 		ft_putstr("sa\n");
-	if (stack == B)
+	else if (stack == B)
 		ft_putstr("sb\n");
 }
 
@@ -87,7 +87,7 @@ void	push_ab(t_node **dest, t_node **src, int stack)
 	*dest = tmp;
 	if (stack == A)
 		ft_putstr("pa\n");
-	if (stack == B)
+	else if (stack == B)
 		ft_putstr("pb\n");
 }
 
@@ -112,7 +112,7 @@ void	rotate_ab(t_node **node, int stack)
 	tmp->prev = tmp2;
 	if (stack == A)
 		ft_putstr("ra\n");
-	if (stack == B)
+	else if (stack == B)
 		ft_putstr("rb\n");
 }
 
@@ -147,7 +147,7 @@ void	rev_rotate_ab(t_node **node, int stack)
 	(*node)->next->prev = tmp;
 	if (stack == A)
 		ft_putstr("rra\n");
-	if (stack == B)
+	else if (stack == B)
 		ft_putstr("rrb\n");
 }
 
