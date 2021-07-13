@@ -52,6 +52,7 @@ void	print_node_a(t_node *node);
 void	print_node_b(t_node *node);
 void	print_node(t_node *node);
 
+int		get_listsize(t_node **a);
 void	insert_node(t_node **node, int value);
 void	find_double(t_node *node, int value);
 void	swap_ab(t_node **node, int stack);
@@ -73,7 +74,9 @@ long	get_max(int size, t_node **node);
 long	get_min(int size, t_node **node);
 void	get_pivot(int size, t_node **node, t_call *call);
 
-void	stack_max_three(int size, t_node **a);
+void	sort_max_three(int size, t_node **a);
+void	sort_max_five(int size, t_node **a, t_node **b);
 long	get_last_value(t_node **node);
+long	get_mid_value(t_node **node);
 
 #endif

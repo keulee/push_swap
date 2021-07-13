@@ -161,3 +161,18 @@ void	rotate_rrr(t_node **a, t_node **b, int stack)
 	if (stack == AB)
 		ft_putstr("rrr\n");
 }
+
+int		get_listsize(t_node **a)
+{
+	t_node	*tmp;
+	int		size;
+
+	tmp = *a;
+	size = 0;
+	while (tmp)
+	{
+		size++;
+		tmp = tmp->next;
+	}
+	return (size);
+}

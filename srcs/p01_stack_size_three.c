@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-void		stack_max_three(int size, t_node **a)
+void		sort_max_three(int size, t_node **a)
 {
 	long	max;
 	long	min;
@@ -15,7 +15,7 @@ void		stack_max_three(int size, t_node **a)
 		if ((*a)->value == max)
 			swap_ab(a, A);
 	}
-	if (size == 3)
+	else if (size == 3 && !check_sorted(a))
 	{
 		if ((*a)->next->value == min)
 		{
@@ -23,15 +23,13 @@ void		stack_max_three(int size, t_node **a)
 				rotate_ab(a, A);
 			else
 				swap_ab(a, A);
-			return ;
 		}
-		if ((*a)->value == min)
+		else if ((*a)->value == min)
 		{
 			swap_ab(a, A);
 			rotate_ab(a, A);
-			return ;
 		}
-		if (last == min)
+		else if (last == min)
 		{
 			if ((*a)->value == max)
 				swap_ab(a, A);

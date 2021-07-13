@@ -62,3 +62,11 @@ long	get_last_value(t_node **node)
 	last = tmp->value;
 	return (last);
 }
+
+long	get_mid_value(t_node **node)
+{
+	long	mid;
+
+	mid = (*node)->next->value;
+	return (mid);
+}
