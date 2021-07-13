@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/07/12 23:40:00 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/13 17:23:15 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		sort_a_to_b(info.listsize, &info.stack_a, &info.stack_b);
+		if (info.listsize <= 3)
+			stack_size_three(info.listsize, info.stack_a);
+		// sort_a_to_b(info.listsize, &info.stack_a, &info.stack_b);
 	}
 	
 	printf("---------after---------\n");
