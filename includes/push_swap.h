@@ -74,5 +74,6 @@ long	get_min(int size, t_node **node);
 void	get_pivot(int size, t_node **node, t_call *call);
 
 void	stack_size_three(int size, t_node **a);
+long	get_last_value(t_node **node);
 
 #endif
