@@ -16,6 +16,8 @@ void	sort_max_five(int size, t_node **a, t_node **b)
 	if (size == 3)
 	{
 		sort_max_three(size, a);
+		if (!*b)
+			return ;
 		max = get_max(size, a);
 		mid = get_mid_value(a);
 		min = get_min(size, a);
