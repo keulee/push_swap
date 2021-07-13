@@ -73,6 +73,6 @@ long	get_max(int size, t_node **node);
 long	get_min(int size, t_node **node);
 void	get_pivot(int size, t_node **node, t_call *call);
 
-void	stack_size_three(int size, t_node *a);
+void	stack_size_three(int size, t_node **a);
 
 #endif
