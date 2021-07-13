@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-void		stack_size_three(int size, t_node **a)
+void		stack_max_three(int size, t_node **a)
 {
 	long	max;
 	long	min;
@@ -9,7 +9,7 @@ void		stack_size_three(int size, t_node **a)
 	max = get_max(size, a);
 	min = get_min(size, a);
 	last = get_last_value(a);
-	printf("max nbr : %ld\n", max);
+	// printf("max nbr : %ld\n", max);
 	if (size == 2)
 	{
 		if ((*a)->value == max)
@@ -35,8 +35,6 @@ void		stack_size_three(int size, t_node **a)
 		{
 			if ((*a)->value == max)
 				swap_ab(a, A);
-				// rev_rotate_ab(a, A);
-			// else
 			rev_rotate_ab(a, A);
 		}
 	}
