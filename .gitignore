@@ -3,3 +3,4 @@ push_swap
 .DS_Store
 *.a
 push_swap.dSYM/
+push_swap_tester/
