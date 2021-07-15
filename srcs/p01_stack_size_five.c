@@ -1,5 +1,11 @@
 #include "../includes/push_swap.h"
 
+void	sort_two(t_node **a)
+{
+	if ((*a)->value > (*a)->next->value)
+		swap_ab(a, A);
+}
+
 void	sort_max_five(int size, t_node **a, t_node **b)
 {
 	long	max;
@@ -10,7 +16,7 @@ void	sort_max_five(int size, t_node **a, t_node **b)
 	min = get_min(size, a);
 	if (size == 2)
 	{
-		if ((*a)->value == max)
+		if ((*a)->value > (*a)->next->value)
 			swap_ab(a, A);
 		return ;
 	}
