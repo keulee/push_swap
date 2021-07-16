@@ -4,6 +4,8 @@ void	sort_two(t_node **a)
 {
 	if ((*a)->value > (*a)->next->value)
 		swap_ab(a, A);
+	else
+		return ;
 }
 
 void	sort_max_five(int size, t_node **a, t_node **b)
