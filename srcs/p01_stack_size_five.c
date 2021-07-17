@@ -11,12 +11,12 @@ void	sort_five(int size, t_node **a, t_node **b)
 	min = get_min(size, a);
 	mid = (max + min) / 2;
 	call_init(&call);
-	printf("max value : %d\n", max);
-	printf("mid value : %d\n", mid);
-	printf("min value : %d\n", min);
+	// printf("max value : %d\n", max);
+	// printf("mid value : %d\n", mid);
+	// printf("min value : %d\n", min);
 	while (size)
 	{
-		if ((*a)->value <= mid)
+		if ((*a)->value < mid)
 		{
 			push_ab(b, a, B);
 			call.pb++;
