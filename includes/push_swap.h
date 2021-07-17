@@ -80,5 +80,7 @@ void	sort_three(int size, t_node **a);
 void	sort_five(int size, t_node **a, t_node **b);
 long	get_last_value(t_node **node);
 long	get_mid_value(t_node **node);
+int		ft_sort_int_tab(int *tab, int size);
+int		mid_value_in_five(t_node **a, int size);
 
 #endif

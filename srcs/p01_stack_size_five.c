@@ -1,114 +1,76 @@
 #include "../includes/push_swap.h"
 
+int		mid_value_in_five(t_node **a, int size)
+{
+	t_node	*tmp;
+	int		tab[size];
+	int		i;
+
+	tmp = *a;
+	i = 0;
+	while (i < size && tmp)
+	{
+		tab[i] = tmp->value;
+		tmp = tmp->next;
+		i++;
+	}
+	return (ft_sort_int_tab(tab, size));	
+}
+
+int		ft_sort_int_tab(int *tab, int size)
+{
+	int tmp;
+	int i;
+	int k;
+
+	k = 0;
+	size = size - 1;
+	while (k++ < size)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (tab[i] > tab[i + 1])
+			{
+				tmp = tab[i];
+				tab[i] = tab[i + 1];
+				tab[i + 1] = tmp;
+				i++;
+			}
+			else
+				i++;
+		}
+	}
+	return (tab[2]);
+}
+
 void	sort_five(int size, t_node **a, t_node **b)
 {
-	int		max;
 	int		mid;
-	int		min;
-	t_call	call;
+	int		size_a;
+	int		size_b;
 
-	max = get_max(size, a);
-	min = get_min(size, a);
-	mid = (max + min) / 2;
-	call_init(&call);
-	// printf("max value : %d\n", max);
-	// printf("mid value : %d\n", mid);
-	// printf("min value : %d\n", min);
+	mid = mid_value_in_five(a, size);
 	while (size)
 	{
 		if ((*a)->value < mid)
-		{
 			push_ab(b, a, B);
-			call.pb++;
-		}
 		else
-		{
 			rotate_ab(a, A);
-			call.ra++;
-		}
 		size--;
 	}
-	if (call.ra == 2)
+	size_a = get_listsize(a);
+	size_b = get_listsize(b); 
+	if (size_a == 2 && !check_sorted(a))
 		sort_two(a, A);
-	else
-		sort_three(call.ra, a);
-	if (call.pb == 2)
+	else if (size_a == 3 && !check_sorted(a))
+		sort_three(3, a);
+	if (size_b == 2)
 	{
 		sort_two(b, B);
-		while (call.pb--)
+		while (size_b--)
 			push_ab(a, b, A);
 	}
 	else
-	{
-		if (!check_sorted(b))
-			sort_three(3, b);
-		swap_ab(b, B);
-		rev_rotate_ab(b, B);
-		while (call.pb--)
-			push_ab(a, b, A);
-	}
-
-
-	
-
-
-
-
-	// if (size == 3)
-	// {
-	// 	sort_three(size, a);
-	// 	if (!*b)
-	// 		return ;
-	// 	max = get_max(size, a);
-	// 	mid = get_mid_value(a);
-	// 	min = get_min(size, a);
-	// 	if ((*b)->next != NULL)
-	// 	{	
-	// 		if ((*b)->value < (*b)->next->value)
-	// 			swap_ab(b, B);
-	// 	}
-	// 	// printf("max value : %ld\n", max);
-	// 	// printf("mid value : %ld\n", mid);
-	// 	// printf("min value : %ld\n", min);
-	// 	// printf("b value : %d\n", (*b)->value);
-	// 	while (*b)
-	// 	{
-	// 		if ((*b)->value < min)
-	// 			push_ab(a, b, A);
-	// 		else if (min < (*b)->value && mid > (*b)->value)
-	// 		{
-	// 			rotate_ab(a, A);
-	// 			push_ab(a, b, A);
-	// 			rev_rotate_ab(a, A);
-	// 			// printf("here1\n");
-
-	// 		}
-	// 		else if (mid < (*b)->value && max > (*b)->value)
-	// 		{
-	// 			rev_rotate_ab(a, A);
-	// 			push_ab(a, b, A);
-	// 			if (*b && mid < (*b)->value)
-	// 			{
-	// 				push_ab(a, b, A);
-	// 				rotate_ab(a, A);
-	// 			}
-	// 			rotate_ab(a, A);
-	// 			rotate_ab(a, A);
-	// 			// printf("here2\n");
-	// 		}
-	// 		else if (max < (*b)->value)
-	// 		{
-	// 			push_ab(a, b, A);
-	// 			if (*b && (*b)->value < max && (*b)->value > mid)
-	// 			{
-	// 				rev_rotate_ab(a, A);
-	// 				push_ab(a, b, A);
-	// 				rotate_ab(a, A);
-	// 				rotate_ab(a, A);
-	// 			}
-	// 			rotate_ab(a, A);
-	// 			// printf("here3\n");
-	// 		}
-	// 	}
-	// }
+		push_ab(a, b, A);
 }
