@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/07/15 23:09:24 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/17 17:31:42 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ int	main(int ac, char **av)
 	create_stack(&info, av);
 
 	o_size = info.listsize;
-	printf("---------before---------\n");
-	print_node_a(info.stack_a);
-	print_node_b(info.stack_b);
+	// printf("---------before---------\n");
+	// print_node_a(info.stack_a);
+	// print_node_b(info.stack_b);
 	
 	if (check_sorted(&info.stack_a))
 	{
@@ -37,11 +37,11 @@ int	main(int ac, char **av)
 	{
 		printf("SORTING...\n");
 		if (info.listsize == 2)
-			sort_two(&info.stack_a);
+			sort_two(&info.stack_a, A);
 		else if (info.listsize == 3)
-			sort_max_three(info.listsize, &info.stack_a);
-		// if (info.listsize <= 5)
-		// 	sort_max_five(info.listsize, &info.stack_a, &info.stack_b);
+			sort_three(info.listsize, &info.stack_a);
+		else if (info.listsize <= 5)
+			sort_five(info.listsize, &info.stack_a, &info.stack_b);
 		// sort_a_to_b(info.listsize, &info.stack_a, &info.stack_b);
 	}
 

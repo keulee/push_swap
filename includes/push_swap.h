@@ -74,9 +74,10 @@ long	get_max(int size, t_node **node);
 long	get_min(int size, t_node **node);
 void	get_pivot(int size, t_node **node, t_call *call);
 
-void	sort_two(t_node **a);
-void	sort_max_three(int size, t_node **a);
-void	sort_max_five(int size, t_node **a, t_node **b);
+void	sort_two(t_node **node, int stack);
+// void	sort_rev_two(t_node **node, int stack);
+void	sort_three(int size, t_node **a);
+void	sort_five(int size, t_node **a, t_node **b);
 long	get_last_value(t_node **node);
 long	get_mid_value(t_node **node);
 
