@@ -2,9 +2,9 @@
 
 void		sort_three(int size, t_node **a)
 {
-	long	max;
-	long	min;
-	long	last;
+	int	max;
+	int	min;
+	int	last;
 	
 	max = get_max(size, a);
 	min = get_min(size, a);

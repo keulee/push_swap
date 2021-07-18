@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/07/18 00:07:40 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/18 22:58:24 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		// printf("SORTING...\n");
 		if (info.listsize == 2)
 			sort_two(&info.stack_a, A);
 		else if (info.listsize == 3)
@@ -44,17 +43,17 @@ int	main(int ac, char **av)
 			sort_five(info.listsize, &info.stack_a, &info.stack_b);
 	}
 
-	// if (!check_sorted(&info.stack_a) || o_size != get_listsize(&info.stack_a))
-	// {
-	// 	printf("KO - SORT AGAIN\n");
-	// 	printf("listsize = %d\n", get_listsize(&info.stack_a));
-	// }
-	// else
-		// printf("OK - SORT SUCCESS\n");
+	if (!check_sorted(&info.stack_a) || o_size != get_listsize(&info.stack_a))
+	{
+		printf("KO - SORT AGAIN\n");
+		printf("listsize = %d\n", get_listsize(&info.stack_a));
+	}
+	else
+		printf("OK - SORT SUCCESS\n");
 	
-	// printf("---------after---------\n");
-	// print_node_a(info.stack_a);
-	// print_node_b(info.stack_b);
+	printf("---------after---------\n");
+	print_node_a(info.stack_a);
+	print_node_b(info.stack_b);
 	
 	free_stack(info.stack_a, info.stack_b);
 	return (EXIT_SUCCESS);

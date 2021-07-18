@@ -1,9 +1,9 @@
 #include "../includes/push_swap.h"
 
-long		get_max(int size, t_node **node)
+int		get_max(int size, t_node **node)
 {
 	t_node *tmp;
-	long	nbr;
+	int	nbr;
 
 	tmp = *node;
 	nbr = tmp->value;
@@ -20,10 +20,10 @@ long		get_max(int size, t_node **node)
 	return (nbr);
 }
 
-long		get_min(int size, t_node **node)
+int		get_min(int size, t_node **node)
 {
 	t_node *tmp;
-	long	nbr;
+	int	nbr;
 	
 	tmp = *node;
 	nbr = tmp->value;
@@ -51,9 +51,9 @@ void	get_pivot(int size, t_node **node, t_call *call)
 	call->p_small = (min + call->p_big) / 2;
 }
 
-long	get_last_value(t_node **node)
+int		get_last_value(t_node **node)
 {
-	long	last;
+	int	last;
 	t_node	*tmp;
 
 	tmp = *node;
@@ -63,10 +63,10 @@ long	get_last_value(t_node **node)
 	return (last);
 }
 
-long	get_mid_value(t_node **node)
-{
-	long	mid;
+// long	get_mid_value(t_node **node)
+// {
+// 	long	mid;
 
-	mid = (*node)->next->value;
-	return (mid);
-}
+// 	mid = (*node)->next->value;
+// 	return (mid);
+// }
