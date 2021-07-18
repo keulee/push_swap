@@ -3,17 +3,21 @@
 void	sort_five(int size, t_node **a, t_node **b)
 {
 	int		mid;
+	int		pb;
 	int		size_a;
 	int		size_b;
 
+	pb = 0;
 	mid = get_mid_value_in_five(a, size);
-	while (size)
+	while (size--)
 	{
 		if ((*a)->value < mid)
+		{
 			push_ab(b, a, B);
+			pb++;
+		}
 		else
 			rotate_ab(a, A);
-		size--;
 	}
 	size_a = get_listsize(a);
 	size_b = get_listsize(b); 
