@@ -1,12 +1,5 @@
 #include "../includes/push_swap.h"
 
-// void	sort_a_to_b(int size, t_node **A, t_node **b)
-// {
-// 	if (size <= 5)
-
-
-// }
-
 void	sort_a_to_b(int size, t_node **a, t_node **b)
 {
 	t_call	call;
