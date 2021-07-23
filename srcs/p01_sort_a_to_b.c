@@ -3,11 +3,9 @@
 void	sort_a_to_b(int size, t_node **a, t_node **b)
 {
 	t_call call;
-	int *tab;
-	int i = 0;
 
-	(void)a;
-	(void)b;
+	// (void)a;
+	// (void)b;
 	call_init(&call);
 	printf("ra: %d\n", call.ra);
 	printf("rb: %d\n", call.rb);
@@ -18,19 +16,35 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	if (size <= 5)
 	{
 		printf("sort a (to be)under 5\n");
+		sort_five(size, a, b);
 		return ;
 	}
-	else
+	get_pivots(a, size, &call);
+	while (size--)
 	{
-		printf("sort\n");
-		tab = node_in_tab_sort(a, size);
-		get_pivot(tab, size, &call);
-		while (i < size)
-			printf("%d\n", tab[i++]);
-		printf("pivot: %d\n", call.pivot);
-		printf("big pivot: %d\n", call.big_p);
-		printf("small pivot: %d\n", call.small_p);
+		if ((*a)->value >= call.big_p)
+		{
+			rotate_ab(a, A);
+			call.ra++;
+		}
+		else if ((*a)->value < call.big_p)
+		{
+			push_ab(b, a, B);
+			call.pb++;
+			if ((*b)->value >= call.pivot)
+			{
+				rotate_ab(b, B);
+				call.rb++;
+			}
+		}
 	}
+	printf("pivot: %d\n", call.pivot);
+	printf("big pivot: %d\n", call.big_p);
+	printf("small pivot: %d\n", call.small_p);
+	printf("ra: %d\n", call.ra);
+	printf("rb: %d\n", call.rb);
+	printf("pa: %d\n", call.pa);
+	printf("pb: %d\n", call.pb);
 }
 
 // void	sort_a_to_b(int size, t_node **a, t_node **b)
