@@ -51,12 +51,12 @@ int		get_mid_value_in_five(t_node **a, int size)
 		tmp = tmp->next;
 		i++;
 	}
-	mid = ft_sort_int_tab(tab, size);
+	mid = sort_tab_get_mid(tab, size);
 	free(tab);
 	return (mid);	
 }
 
-int		ft_sort_int_tab(int *tab, int size)
+int		sort_tab_get_mid(int *tab, int size)
 {
 	int tmp;
 	int i;

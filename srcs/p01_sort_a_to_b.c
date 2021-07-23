@@ -23,10 +23,13 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	else
 	{
 		printf("sort\n");
-		tab = node_in_tab(a, size);
-
+		tab = node_in_tab_sort(a, size);
+		get_pivot(tab, size, &call);
 		while (i < size)
 			printf("%d\n", tab[i++]);
+		printf("pivot: %d\n", call.pivot);
+		printf("big pivot: %d\n", call.big_p);
+		printf("small pivot: %d\n", call.small_p);
 	}
 }
 
