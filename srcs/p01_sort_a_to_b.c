@@ -1,25 +1,40 @@
 #include "../includes/push_swap.h"
 
+int		exceptions_under_3(int size, t_node **a)
+{
+	if (size == 2)
+	{
+		sort_two(a, A);
+		return (1);
+	}
+	else if (size == 3)
+	{
+		sort_three(size, a);
+		return (1);
+	}
+	return (0);
+}
+
 void	sort_a_to_b(int size, t_node **a, t_node **b)
 {
 	t_call call;
 
 	// (void)a;
 	// (void)b;
+	
+	if (exceptions_under_3(size, a))
+	{
+		return ;
+	}
 	call_init(&call);
+	get_pivots(a, size, &call);
 	printf("ra: %d\n", call.ra);
 	printf("rb: %d\n", call.rb);
 	printf("pa: %d\n", call.pa);
 	printf("pb: %d\n", call.pb);
+	printf("pivot: %d\n", call.pivot);
 	printf("big pivot: %d\n", call.big_p);
 	printf("small pivot: %d\n", call.small_p);
-	if (size <= 5)
-	{
-		printf("sort a (to be)under 5\n");
-		sort_five(size, a, b);
-		return ;
-	}
-	get_pivots(a, size, &call);
 	while (size--)
 	{
 		if ((*a)->value >= call.big_p)
@@ -45,6 +60,29 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	printf("rb: %d\n", call.rb);
 	printf("pa: %d\n", call.pa);
 	printf("pb: %d\n", call.pb);
+	int rrr = 0;
+	int	ra = 0;
+	int rb = 0;;
+
+	if (call.ra >= call.rb)
+	{
+		rrr = call.rb;
+		ra = call.ra - rrr;
+		while (rrr--)
+			rotate_rrr(a, b, AB);
+		while (ra--)
+			rev_rotate_ab(a, A);
+	}
+	else
+	{
+		rrr = call.ra;
+		rb = call.rb - rrr;
+		while (rrr--)
+			rotate_rrr(a, b, AB);
+		while (rb--)
+			rev_rotate_ab(b, B);
+	}
+	sort_a_to_b(call.ra, a, b);
 }
 
 // void	sort_a_to_b(int size, t_node **a, t_node **b)
