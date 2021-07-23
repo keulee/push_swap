@@ -1,12 +1,12 @@
 #include "../includes/push_swap.h"
 
-void	get_pivots(t_node **a, int size, t_call *call)
+void	get_pivots(t_node **node, int size, t_call *call)
 {
 	int	i;
 	int	*tab;
 
 	i = 0;
-	tab = node_in_tab_sort(a, size);
+	tab = node_in_tab_sort(node, size);
 	while (i < size)
 	{
 		if (i == (int)(size / 2))
