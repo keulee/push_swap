@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 	if (check_sorted(&info.stack_a))
 	{
 		free_stack(info.stack_a, info.stack_b);
-		// printf("OK - ALREADY SORTED\n");
+		printf("OK - ALREADY SORTED\n");
 		return (EXIT_SUCCESS);
 	}
 	else
