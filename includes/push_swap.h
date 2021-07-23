@@ -26,8 +26,8 @@ typedef struct s_call{
 	int		pb;
 	int		rb;
 	int		pa;
-	long	p_big;
-	long	p_small;
+	int		big_p;
+	int		small_p;
 }				t_call;
 
 typedef struct s_info {
@@ -81,5 +81,7 @@ int		get_last_value(t_node **node);
 // long	get_mid_value(t_node **node);
 int		get_mid_value_in_five(t_node **a, int size);
 int		ft_sort_int_tab(int *tab, int size);
+
+int     *node_in_tab(t_node **a, int size);
 
 #endif

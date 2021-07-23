@@ -13,15 +13,16 @@
 NAME = push_swap
 
 SRCS = srcs/push_swap.c srcs/p01_init.c srcs/p01_utiles.c srcs/p01_list.c \
-		srcs/p01_print_list.c srcs/p01_sort_stack.c srcs/p01_create_stack.c \
-		srcs/p01_free.c srcs/p01_pivot.c srcs/p01_stack_size_three.c \
-		srcs/p01_stack_size_five.c srcs/p01_stack_size_two.c srcs/p01_stack_sorted.c
+		srcs/p01_print_list.c srcs/p01_sort_a_to_b.c srcs/p01_create_stack.c \
+		srcs/p01_free.c srcs/p01_get_max_min.c srcs/p01_stack_size_three.c \
+		srcs/p01_stack_size_five.c srcs/p01_stack_size_two.c srcs/p01_stack_sorted.c \
+		srcs/p01_pivot.c
 
 OBJS = $(SRCS:.c=.o)
 
 CC = clang
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
 
 LIBFT = libft.a
 

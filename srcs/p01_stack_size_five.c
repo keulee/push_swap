@@ -38,10 +38,12 @@ void	sort_five(int size, t_node **a, t_node **b)
 int		get_mid_value_in_five(t_node **a, int size)
 {
 	t_node	*tmp;
-	int		tab[size];
+	int		*tab;
 	int		i;
+	int		mid;
 
 	tmp = *a;
+	tab = malloc(sizeof(int) * size);
 	i = 0;
 	while (i < size && tmp)
 	{
@@ -49,7 +51,9 @@ int		get_mid_value_in_five(t_node **a, int size)
 		tmp = tmp->next;
 		i++;
 	}
-	return (ft_sort_int_tab(tab, size));	
+	mid = ft_sort_int_tab(tab, size);
+	free(tab);
+	return (mid);	
 }
 
 int		ft_sort_int_tab(int *tab, int size)
@@ -70,10 +74,8 @@ int		ft_sort_int_tab(int *tab, int size)
 				tmp = tab[i];
 				tab[i] = tab[i + 1];
 				tab[i + 1] = tmp;
-				i++;
 			}
-			else
-				i++;
+			i++;
 		}
 	}
 	return (tab[2]);
