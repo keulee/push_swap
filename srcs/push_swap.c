@@ -50,7 +50,6 @@ int	main(int ac, char **av)
 		else
 			sort_a_to_b(info.listsize, &info.stack_a, &info.stack_b);
 	}
-
 	if (!check_sorted(&info.stack_a) || o_size != get_listsize(&info.stack_a))
 	{
 		printf("KO - SORT AGAIN\n");
