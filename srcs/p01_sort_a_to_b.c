@@ -10,7 +10,7 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 		return ;
 	}
 	call_init(&call);
-	get_pivots(a, size, &call);
+	get_pivots_in_a(a, size, &call);
 	printf("ra: %d\n", call.ra);
 	printf("rb: %d\n", call.rb);
 	printf("pa: %d\n", call.pa);
@@ -25,7 +25,7 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 			rotate_ab(a, A);
 			call.ra++;
 		}
-		else// if ((*a)->value < call.big_p)
+		else
 		{
 			push_ab(b, a, B);
 			call.pb++;
@@ -67,10 +67,15 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	}
 	sort_a_to_b(call.ra, a, b);
 	sort_b_to_a(call.rb, a, b);
+	sort_b_to_a(call.pb - call.rb, a, b);
 }
 
 int		exceptions_under_3_a(int size, t_node **a)
 {
+	if (size == 1)
+	{
+		return (1);
+	}
 	if (size == 2)
 	{
 		sort_two(a, A);

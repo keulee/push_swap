@@ -83,7 +83,8 @@ int		sort_tab_get_mid(int *tab, int size);
 
 int     *node_in_tab_sort(t_node **a, int size);
 int		*sort_tab(int *tab, int size);
-void     get_pivots(t_node **node, int size, t_call *call);
+void     get_pivots_in_a(t_node **node, int size, t_call *call);
+void     get_pivots_in_b(t_node **node, int size, t_call *call);
 
 int		exceptions_under_3_a(int size, t_node **a);
 

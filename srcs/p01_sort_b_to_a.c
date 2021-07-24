@@ -11,7 +11,7 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 		return ;
 	}
     call_init(&call);
-	get_pivots(b, size, &call);
+	get_pivots_in_b(b, size, &call);
 	printf("ra: %d\n", call.ra);
 	printf("rb: %d\n", call.rb);
 	printf("pa: %d\n", call.pa);
@@ -26,7 +26,7 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
             rotate_ab(b, B);
             call.rb++;
         }
-        else// if ((*b)->value >= call.small_p)
+        else
         {
             push_ab(a, b, A);
             call.pa++;
@@ -64,7 +64,8 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 		while (rb--)
 			rev_rotate_ab(b, B);
 	}
-    // sort_a_to_b(call.ra, a, b);
+    sort_a_to_b(call.ra, a, b);
+    sort_b_to_a(call.rb, a, b);
 }
 
 int     exceptions_under_3_b(int size, t_node **a, t_node **b)
@@ -124,81 +125,3 @@ int     exceptions_under_3_b(int size, t_node **a, t_node **b)
     }
     return (0);
 }
-
-
-
-
-
-
-
-// void	sort_b_to_a(int size, t_node **a, t_node **b)
-// {
-// 	t_call	call;
-// 	int		s_tmp;
-// 	int 	i;
-
-// 	i = 0;
-// 	printf("-- operating b to a in --\n");
-// 	printf("size = %d\n", size);
-// 	if (size < 3)
-// 	{
-// 		// push_ab(a, b, A);
-// 		// push_ab(a, b, A);
-// 		return ;
-// 	}
-// 	call_init(&call);
-// 	get_pivot(size, b, &call);
-// 	s_tmp = size;
-// 	printf("big pivot in b: %ld\n", call.p_big);
-// 	printf("small pivot in b: %ld\n", call.p_small);
-// 	while (s_tmp)
-// 	{
-// 		if ((*b)->value < call.p_small)
-// 		{
-// 			rotate_ab(b, B);
-// 			call.rb++;
-// 		}
-// 		else
-// 		{
-// 			push_ab(a, b, A);
-// 			call.pa++;
-// 			// if ((*b)->value < call.p_big)
-// 			if ((*a)->value < call.p_big)
-// 			{
-// 				rotate_ab(a, A);
-// 				call.ra++;
-// 			}
-// 		}
-// 		s_tmp--;
-// 	}
-// 	sort_a_to_b(call.pa - call.ra, a, b);
-// 	if (call.ra > call.rb)
-// 	{
-// 		i = call.rb;
-// 		while (i)
-// 		{
-// 			rotate_rrr(a, b, AB);
-// 			i--;
-// 		}
-// 		while (i < call.ra - call.rb)
-// 		{
-// 			rev_rotate_ab(a, A);
-// 			i++;
-// 		}
-// 	}
-// 	else
-// 	{
-// 		i = call.ra;
-// 		while (i)
-// 		{
-// 			rotate_rrr(a, b, AB);
-// 			i--;
-// 		}
-// 	}
-// 	printf("-- operating b to a --\n");
-// 	print_node_a(*a);
-// 	print_node_b(*b);
-// 	printf("-----------------------\n");
-// 	sort_a_to_b(call.ra, a, b);
-// 	sort_b_to_a(call.rb, a, b);
-// }
