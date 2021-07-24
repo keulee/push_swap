@@ -4,20 +4,19 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 {
 	t_call call;
 
-	printf("size: %d\n", size);	
 	if (exceptions_under_3_a(size, a))
 	{
 		return ;
 	}
 	call_init(&call);
 	get_pivots_in_a(a, size, &call);
-	printf("ra: %d\n", call.ra);
-	printf("rb: %d\n", call.rb);
-	printf("pa: %d\n", call.pa);
-	printf("pb: %d\n", call.pb);
-	printf("pivot: %d\n", call.pivot);
-	printf("big pivot: %d\n", call.big_p);
-	printf("small pivot: %d\n", call.small_p);
+	// printf("ra: %d\n", call.ra);
+	// printf("rb: %d\n", call.rb);
+	// printf("pa: %d\n", call.pa);
+	// printf("pb: %d\n", call.pb);
+	// printf("pivot: %d\n", call.pivot);
+	// printf("big pivot: %d\n", call.big_p);
+	// printf("small pivot: %d\n", call.small_p);
 	while (size--)
 	{
 		if ((*a)->value >= call.big_p)
@@ -36,13 +35,13 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 			}
 		}
 	}
-	printf("pivot: %d\n", call.pivot);
-	printf("big pivot: %d\n", call.big_p);
-	printf("small pivot: %d\n", call.small_p);
-	printf("ra: %d\n", call.ra);
-	printf("rb: %d\n", call.rb);
-	printf("pa: %d\n", call.pa);
-	printf("pb: %d\n", call.pb);
+	// printf("pivot: %d\n", call.pivot);
+	// printf("big pivot: %d\n", call.big_p);
+	// printf("small pivot: %d\n", call.small_p);
+	// printf("ra: %d\n", call.ra);
+	// printf("rb: %d\n", call.rb);
+	// printf("pa: %d\n", call.pa);
+	// printf("pb: %d\n", call.pb);
 	int rrr = 0;
 	int	ra = 0;
 	int rb = 0;;
@@ -72,11 +71,11 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 
 int		exceptions_under_3_a(int size, t_node **a)
 {
-	if (size == 1)
-	{
+	if (check_sorted(a))
+		return(1);
+	else if (size == 1)
 		return (1);
-	}
-	if (size == 2)
+	else if (size == 2)
 	{
 		sort_two(a, A);
 		return (1);
