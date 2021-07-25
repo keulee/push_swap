@@ -40,17 +40,6 @@ int		get_min(int size, t_node **node)
 	return (nbr);
 }
 
-// void	get_pivot(int size, t_node **node, t_call *call)
-// {
-// 	long	min;
-// 	long	max;
-
-// 	min = get_min(size, node);
-// 	max = get_max(size, node);
-// 	call->p_big = (min + max) / 2;
-// 	call->p_small = (min + call->p_big) / 2;
-// }
-
 int		get_last_value(t_node **node)
 {
 	int	last;
