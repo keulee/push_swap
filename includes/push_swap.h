@@ -88,7 +88,8 @@ void     get_pivots_in_b(t_node **node, int size, t_call *call);
 
 int		exceptions_under_3_a(int size, t_node **a, t_call *call);
 
-int		check_sorted_descending(t_node **node);
+int		check_sorted_descending(t_node **node, int size);
+int		check_sorted_with_size(t_node **node, int size);
 int     exceptions_under_3_b(int size, t_node **a, t_node **b, t_call *call);
 
 void	set_pivots(t_node **node, int size, t_call *call);

@@ -14,14 +14,32 @@ int		check_sorted(t_node **node)
 	return (0);
 }
 
-int		check_sorted_descending(t_node **node)
+int		check_sorted_descending(t_node **node, int size)
 {
 	t_node *tmp;
+	int i;
 
 	tmp = *node;
+	i = 0;
 	if (*node == NULL)
 		exit(0);
-	while (tmp->next != NULL && tmp->value > tmp->next->value)
+	while (i < size && tmp->next != NULL && tmp->value > tmp->next->value)
+		tmp=tmp->next;
+	if (tmp->next == NULL)
+		return (1);
+	return (0);
+}
+
+int		check_sorted_with_size(t_node **node, int size)
+{
+	t_node *tmp;
+	int i;
+
+	tmp = *node;
+	i = 0;
+	if (*node == NULL)
+		exit(0);
+	while (i++ < size && tmp->next != NULL && tmp->value < tmp->next->value)
 		tmp=tmp->next;
 	if (tmp->next == NULL)
 		return (1);

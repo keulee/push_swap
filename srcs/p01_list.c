@@ -140,7 +140,7 @@ void	rev_rotate_ab(t_node **node, int stack)
 	tmp = *node;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
-	tmp->prev->next = NULL; // bug?
+	tmp->prev->next = NULL;
 	tmp->next = *node;
 	tmp->prev = NULL;
 	*node = tmp;

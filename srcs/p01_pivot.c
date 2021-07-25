@@ -37,8 +37,8 @@ void	get_big_pivot(t_node **node, int size, t_call *call)
 		if (i == (int)((size / 3) * 2))
 		{
 			call->big_p = tab[i];
-			printf("size: %d\n", size);
-			printf("big pivot index: %d\n", i);
+			// printf("size: %d\n", size);
+			// printf("big pivot index: %d\n", i);
 			break ;
 		}
 		i++;
@@ -58,8 +58,8 @@ void	get_small_pivot(t_node **node, int size, t_call *call)
 		if (i == (int)((size / 3)))
 		{
 			call->small_p = tab[i];
-			printf("size: %d\n", size);
-			printf("small pivot index: %d\n", i);
+			// printf("size: %d\n", size);
+			// printf("small pivot index: %d\n", i);
 			break ;
 		}
 		i++;

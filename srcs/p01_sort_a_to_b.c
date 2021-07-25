@@ -5,8 +5,8 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	t_call call;
 
 
-    printf("==============in a to b================\n");
-    printf("size: %d\n", size);
+    // printf("==============in a to b================\n");
+    // printf("size in a: %d\n", size);
 	call_init(&call);
 	if (exceptions_under_3_a(size, a, &call))
 	{
@@ -18,8 +18,8 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	// printf("pa: %d\n", call.pa);
 	// printf("pb: %d\n", call.pb);
 	// printf("pivot: %d\n", call.pivot);
-	printf("big pivot: %d\n", call.big_p);
-	printf("small pivot: %d\n", call.small_p);
+	// printf("big pivot: %d\n", call.big_p);
+	// printf("small pivot: %d\n", call.small_p);
 	while (size--)
 	{
 		if ((*a)->value >= call.big_p)
@@ -27,7 +27,7 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 			rotate_ab(a, A);
 			call.ra++;
 		}
-		else
+		else if ((*a)->value < call.big_p)
 		{
 			push_ab(b, a, B);
 			call.pb++;
@@ -41,7 +41,6 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	int rrr = 0;
 	int	ra = 0;
 	int rb = 0;;
-
 	if (call.ra >= call.rb)
 	{
 		rrr = call.rb;
@@ -60,11 +59,15 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 		while (rb--)
 			rev_rotate_ab(b, B);
 	}
-	printf("ra == next size a to b: %d\n", call.ra);
-	printf("rb == next size b to a: %d\n", call.rb);
-	printf("pa: %d\n", call.pa);
-	printf("pb: %d\n", call.pb);
+	// printf("ra == next size a to b: %d\n", call.ra);
+	// printf("rb == next size b to a: %d\n", call.rb);
+	// printf("pa: %d\n", call.pa);
+	// printf("pb: %d\n", call.pb);
+	// print_node_a(*a);
+	// print_node_a(*b);
 	sort_a_to_b(call.ra, a, b);
+	// print_node_a(*a);
+	// print_node_a(*b);
 	sort_b_to_a(call.rb, a, b);
 	sort_b_to_a(call.pb - call.rb, a, b);
 }
@@ -77,8 +80,8 @@ int		exceptions_under_3_a(int size, t_node **a, t_call *call)
 	(void)call;
 	max = get_max(size, a);
 	min = get_min(size, a);
-	if (check_sorted(a))
-		return(1);
+	if (check_sorted_with_size(a, size))
+		return (1);
 	else if (size == 1)
 		return (1);
 	else if (size == 2)
