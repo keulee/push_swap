@@ -39,8 +39,11 @@ int		check_sorted_with_size(t_node **node, int size)
 	i = 0;
 	if (*node == NULL)
 		exit(0);
-	while (i++ < size && tmp->next != NULL && tmp->value < tmp->next->value)
-		tmp=tmp->next;
+	while (i++ < size - 1)
+	{
+		if (tmp->value < tmp->next->value)
+			tmp=tmp->next;
+	}
 	if (tmp->next == NULL)
 		return (1);
 	return (0);

@@ -6,10 +6,14 @@ void	sort_two(t_node **node, int stack)
 	{
 		if ((*node)->value > (*node)->next->value)
 			swap_ab(node, A);
+		else
+			return ;
 	}
 	else if (stack == B)
 	{
 		if ((*node)->value < (*node)->next->value)
 			swap_ab(node, B);
+		else
+			return ;
 	}
 }

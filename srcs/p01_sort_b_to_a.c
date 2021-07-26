@@ -7,28 +7,28 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
     // printf("==============in b to a================\n");
     // printf("size in b: %d\n", size);
     call_init(&call);
+    set_pivots(b, size, &call);
 	if (exceptions_under_3_b(size, a, b, &call))
 	{
 		return ;
 	}
-    set_pivots(b, size, &call);
 	// printf("big pivot: %d\n", call.big_p);
 	// printf("small pivot: %d\n", call.small_p);
     while (size--)
     {
         if ((*b)->value < call.small_p)
         {
-            rotate_ab(b, B);
             call.rb++;
+            rotate_ab(b, B);
         }
         else if ((*b)->value >= call.small_p)
         {
-            push_ab(a, b, A);
             call.pa++;
+            push_ab(a, b, A);
             if ((*a)->value < call.big_p)
             {
-                rotate_ab(a, A);
                 call.ra++;
+                rotate_ab(a, A);
             }
         }
     }
@@ -37,13 +37,9 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 	// printf("pa: %d\n", call.pa);
 	// printf("pb: %d\n", call.pb);
     // printf("pa-ra: %d\n", call.pa - call.ra);
-
+	// print_node_a(*a);
+	// print_node_a(*b);
     sort_a_to_b((call.pa - call.ra), a, b);
-
-    // printf("ra: %d\n", call.ra);
-	// printf("rb: %d\n", call.rb);
-	// printf("pa: %d\n", call.pa);
-	// printf("pb: %d\n", call.pb);
     int rrr = 0;
     int ra = 0;
     int rb = 0;
@@ -65,6 +61,12 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 		while (rb--)
 			rev_rotate_ab(b, B);
 	}
+    // printf("ra == next size a to b: %d\n", call.ra);
+	// printf("rb == next size b to a: %d\n", call.rb);
+	// printf("pa: %d\n", call.pa);
+	// printf("pb: %d\n", call.pb);
+    // print_node_a(*a);
+	// print_node_a(*b);
     sort_a_to_b(call.ra, a, b);
     sort_b_to_a(call.rb, a, b);
 }
@@ -77,13 +79,7 @@ int     exceptions_under_3_b(int size, t_node **a, t_node **b, t_call *call)
     (void)call;
     max = get_max(size, b);
     min = get_min(size, b);
-    if (check_sorted_descending(b, size))
-    {
-        while (size--)
-            push_ab(a, b, A);
-        return (1);
-    }
-    else if (size == 1)
+    if (size == 1)
     {
         push_ab(a, b, A);
         return (1);
@@ -95,7 +91,7 @@ int     exceptions_under_3_b(int size, t_node **a, t_node **b, t_call *call)
 		push_ab(a, b, A);
         return (1);
     }
-    else if (size == 3)
+    else if (size == 3 && get_listsize(b) == 3)
     {
         if ((*b)->next->next->value == max)
         {
