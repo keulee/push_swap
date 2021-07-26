@@ -112,15 +112,18 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b, t_call *call)
 				swap_ab(a, A);
 				push_ab(a, b, A);
 			}
-			else
+			else if ((*a)->next->next->value == max)
 				swap_ab(a, A);
 			return (1);
 		}
 		else if ((*a)->value == min)
 		{
-			push_ab(b, a, B);
-			swap_ab(a, A);
-			push_ab(a, b, A);
+			if ((*a)->next->value == max)
+			{
+				push_ab(b, a, B);
+				swap_ab(a, A);
+				push_ab(a, b, A);
+			}
 			return (1);
 		}
 		else if ((*a)->next->next->value == min)

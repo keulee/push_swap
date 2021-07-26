@@ -112,7 +112,7 @@ int     exceptions_under_3_b(int size, t_node **a, t_node **b, t_call *call)
         {
             if ((*b)->next->next->value == min)
                 swap_ab(b, B);
-            else
+            else if ((*b)->value == min)
                 rotate_ab(b, B);
         }
         push_ab(a, b, A);
