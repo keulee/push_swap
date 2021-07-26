@@ -94,7 +94,10 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b, t_call *call)
 	}
 	else if (size == 3 && get_listsize(a) == 3)
 	{
-		sort_three(3, a);
+		if (check_sorted(a))
+			return (1);
+		else
+			sort_three(3, a);
 		return (1);
 	}
 	else if (size == 3)
