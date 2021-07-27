@@ -9,7 +9,7 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
     // printf("size in a: %d\n", size);
 	call_init(&call);
 	set_pivots(a, size, &call);
-	if (exceptions_under_3_a(size, a, b, &call))
+	if (exceptions_under_3_a(size, a, b))
 	{
 		return ;
 	}
@@ -76,15 +76,16 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	sort_b_to_a(call.pb - call.rb, a, b);
 }
 
-int		exceptions_under_3_a(int size, t_node **a, t_node **b, t_call *call)
+int		exceptions_under_3_a(int size, t_node **a, t_node **b)
 {
 	int	max;
 	int	min;
 	
-	(void)call;
+	(void)b;
 	max = get_max(size, a);
 	min = get_min(size, a);
-	// printf("get list size a : %d\n", get_listsize(a));
+	if (check_sorted(a))
+		return (1);
 	if (size == 1)
 		return (1);
 	else if (size == 2)
@@ -100,6 +101,7 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b, t_call *call)
 			sort_three(3, a);
 		return (1);
 	}
+	/*
 	else if (size == 3)
 	{
 		if (check_sorted_with_size(a, 3))
@@ -152,6 +154,7 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b, t_call *call)
 			}
 			return (1);
 		}
-	}
+		
+	}*/
 	return (0);
 }
