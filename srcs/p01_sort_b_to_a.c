@@ -78,6 +78,11 @@ int     exceptions_under_3_b(int size, t_node **a, t_node **b)
 
     max = get_max(size, b);
     min = get_min(size, b);
+    // if (size == 1)
+    // {
+    //     push_ab(a, b, A);
+    //     return (1);
+    // }
     if (size == 2)
     {
         sort_two(b, B);
