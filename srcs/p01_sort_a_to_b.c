@@ -89,7 +89,7 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b)
 		return (1);
 	else if (size == 2)
 	{
-		sort_two(a, A);
+		sort_two(a, b, A);
 		return (1);
 	}
 	else if (size == 3 && get_listsize(a) == 3)

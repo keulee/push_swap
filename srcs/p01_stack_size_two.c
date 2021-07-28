@@ -1,19 +1,17 @@
 #include "../includes/push_swap.h"
 
-void	sort_two(t_node **node, int stack)
+void	sort_two(t_node **a, t_node **b, int stack)
 {
 	if (stack == A)
 	{
-		if ((*node)->value > (*node)->next->value)
-			swap_ab(node, A);
-		else
-			return ;
+		if ((*a)->value > (*a)->next->value)
+			swap_ab(a, A);
 	}
 	else if (stack == B)
 	{
-		if ((*node)->value < (*node)->next->value)
-			swap_ab(node, B);
-		else
-			return ;
+		if ((*b)->value < (*b)->next->value)
+			swap_ab(b, B);
+		push_ab(a, b, A);
+		push_ab(a, b, A);
 	}
 }

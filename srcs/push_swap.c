@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/07/28 19:06:26 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/28 22:38:18 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort_less_five(t_info *info)
 {
 	if (info->listsize == 2)
-		sort_two(&info->stack_a, A);
+		sort_two(&info->stack_a, &info->stack_b, A);
 	else if (info->listsize == 3)
 		sort_three(info->listsize, &info->stack_a);
 	else if (info->listsize <= 5)
@@ -46,6 +46,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
+		// if (info.listsize <= 5)
 		if (info.listsize <= 5)
 			sort_less_five(&info);
 		else

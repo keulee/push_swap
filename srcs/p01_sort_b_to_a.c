@@ -85,9 +85,9 @@ int     exceptions_under_3_b(int size, t_node **a, t_node **b)
     // }
     if (size == 2)
     {
-        sort_two(b, B);
-		push_ab(a, b, A);
-		push_ab(a, b, A);
+        sort_two(a, b, B);
+		// push_ab(a, b, A);
+		// push_ab(a, b, A);
         return (1);
     }
     if (size == 3)

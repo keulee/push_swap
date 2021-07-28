@@ -9,22 +9,29 @@ void		sort_three(int size, t_node **a)
 	max = get_max(size, a);
 	min = get_min(size, a);
 	last = get_last_value(a);
-	if ((*a)->next->value == min)
+	if ((*a)->value == min)
+	{
+		if ((*a)->next->value == max)
+		{
+			rev_rotate_ab(a, A);
+			swap_ab(a, A);
+		}
+	}
+	else if ((*a)->next->value == min)
 	{
 		if ((*a)->value == max)
 			rotate_ab(a, A);
 		else
 			swap_ab(a, A);
 	}
-	else if ((*a)->value == min)
-	{
-		swap_ab(a, A);
-		rotate_ab(a, A);
-	}
-	else if (last == min)
+	else if ((*a)->next->next->value == min)
 	{
 		if ((*a)->value == max)
+		{
 			swap_ab(a, A);
-		rev_rotate_ab(a, A);
+			rev_rotate_ab(a, A);
+		}
+		else
+			rev_rotate_ab(a, A);
 	}
 }

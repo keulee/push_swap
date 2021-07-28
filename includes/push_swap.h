@@ -74,7 +74,7 @@ void	free_stack(t_node *a, t_node *b);
 int		get_max(int size, t_node **node);
 int		get_min(int size, t_node **node);
 
-void	sort_two(t_node **node, int stack);
+void	sort_two(t_node **a, t_node **b, int stack);
 void	sort_three(int size, t_node **a);
 void	sort_five(int size, t_node **a, t_node **b);
 int		get_last_value(t_node **node);
