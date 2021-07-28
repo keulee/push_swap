@@ -96,4 +96,7 @@ void	set_pivots(t_node **node, int size, t_call *call);
 void	get_big_pivot(t_node **node, int size, t_call *call);
 void	get_small_pivot(t_node **node, int size, t_call *call);
 
+void	rra_rrb_rrr_a(t_node **a, t_node **b, t_call *call, int *flag);
+void	rra_rrb_rrr_b(t_node **a, t_node **b, t_call *call);
+
 #endif
