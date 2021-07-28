@@ -40,27 +40,6 @@ void	sort_a_to_b(int size, t_node **a, t_node **b, int *flag)
 	// printf("rb == next size b to a: %d\n", call.rb);
 	// printf("pa: %d\n", call.pa);
 	// printf("pb: %d\n", call.pb);
-	// int rrr = 0;
-	// int	rra = 0;
-	// int rrb = 0;
-	// if (call.ra >= call.rb)
-	// {
-	// 	rrr = call.rb;
-	// 	rra = call.ra - rrr;
-	// 	while (rrr--)
-	// 		rotate_rrr(a, b, AB);
-	// 	while (rra--)
-	// 		rev_rotate_ab(a, A);
-	// }
-	// else
-	// {
-	// 	rrr = call.ra;
-	// 	rrb = call.rb - rrr;
-	// 	while (rrr--)
-	// 		rotate_rrr(a, b, AB);
-	// 	while (rrb--)
-	// 		rev_rotate_ab(b, B);
-	// }
 	rra_rrb_rrr_a(a, b, &call, flag);
 	// printf("ra == next size a to b: %d\n", call.ra);
 	// printf("rb == next size b to a: %d\n", call.rb);
@@ -168,6 +147,10 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b)
 			swap_ab(a, A);
 		}
 		return (1);
+	}
+	else if (size == 5)
+	{
+		
 	}
 	return (0);
 }

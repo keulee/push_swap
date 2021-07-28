@@ -41,27 +41,6 @@ void	sort_b_to_a(int size, t_node **a, t_node **b, int *flag)
 	// print_node_a(*a);
 	// print_node_a(*b);
 	sort_a_to_b((call.pa - call.ra), a, b, flag);
-	// int rrr = 0;
-	// int rra = 0;
-	// int rrb = 0;
-	// if (call.ra >= call.rb)
-	// {
-	// 	rrr = call.rb;
-	// 	rra = call.ra - rrr;
-	// 	while (rrr--)
-	// 		rotate_rrr(a, b, AB);
-	// 	while (rra--)
-	// 		rev_rotate_ab(a, A);
-	// }
-	// else
-	// {
-	// 	rrr = call.ra;
-	// 	rrb = call.rb - rrr;
-	// 	while (rrr--)
-	// 		rotate_rrr(a, b, AB);
-	// 	while (rrb--)
-	// 		rev_rotate_ab(b, B);
-	// }
 	rra_rrb_rrr_b(a, b, &call);
 	// rra_rrb_rrr_b(a, b, &call);
 	// printf("ra == next size a to b: %d\n", call.ra);
@@ -113,7 +92,7 @@ int	exceptions_under_3_b(int size, t_node **a, t_node **b, int *flag)
 		sort_two(a, b, B);
 		return (1);
 	}
-	if (size == 3)
+	else if (size == 3)
 	{
 		push_ab(a, b, A);
 		push_ab(a, b, A);
@@ -121,7 +100,7 @@ int	exceptions_under_3_b(int size, t_node **a, t_node **b, int *flag)
 		sort_a_to_b(3, a, b, flag);
 		return (1);
 	}
-	if (check_sorted_descending(b, size))
+	else if (check_sorted_descending(b, size))
 	{
 		while (size)
 		{
