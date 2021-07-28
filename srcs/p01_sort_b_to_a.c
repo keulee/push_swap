@@ -78,11 +78,6 @@ int     exceptions_under_3_b(int size, t_node **a, t_node **b)
 
     max = get_max(size, b);
     min = get_min(size, b);
-    // if (size == 1)
-    // {
-    //     push_ab(a, b, A);
-    //     return (1);
-    // }
     if (size == 2)
     {
         sort_two(b, B);
@@ -90,35 +85,6 @@ int     exceptions_under_3_b(int size, t_node **a, t_node **b)
 		push_ab(a, b, A);
         return (1);
     }
-    // if (size == 3 && get_listsize(b) == 3)
-    // {
-    //     if ((*b)->next->next->value == max)
-    //     {
-    //         if((*b)->next->value == min)
-    //             rev_rotate_ab(b, B);
-    //         else if ((*b)->value == min)
-    //         {
-    //             swap_ab(b, B);
-    //             rev_rotate_ab(b, B);
-    //         }
-    //     }
-    //     else if ((*b)->value == max)
-    //     {
-    //         swap_ab(b, B);
-    //         rotate_ab(b, B);
-    //     }
-    //     else if ((*b)->next->value == max)
-    //     {
-    //         if ((*b)->next->next->value == min)
-    //             swap_ab(b, B);
-    //         else if ((*b)->value == min)
-    //             rotate_ab(b, B);
-    //     }
-    //     push_ab(a, b, A);
-    //     push_ab(a, b, A);
-    //     push_ab(a, b, A);
-    //     return (1);
-    // }
     if (size == 3)
     {
         push_ab(a, b, A);
