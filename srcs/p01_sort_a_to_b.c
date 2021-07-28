@@ -81,7 +81,6 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b)
 	int	max;
 	int	min;
 	
-	(void)b;
 	max = get_max(size, a);
 	min = get_min(size, a);
 	if (check_sorted(a))
@@ -101,60 +100,31 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b)
 			sort_three(3, a);
 		return (1);
 	}
-	/*
 	else if (size == 3)
 	{
 		if (check_sorted_with_size(a, 3))
 			return (1);
-		else if ((*a)->next->value == min)
+		else if ((*a)->next->next->value == max)
 		{
-			if ((*a)->value == max)
-			{
-				push_ab(b, a, B);
-				push_ab(b, a, B);
-				swap_ab(b, B);
-				push_ab(a, b, A);
-				swap_ab(a, A);
-				push_ab(a, b, A);
-			}
-			else if ((*a)->next->next->value == max)
-				swap_ab(a, A);
+			swap_ab(a, A);
 			return (1);
 		}
-		else if ((*a)->value == min)
+		if ((*a)->value == max)
+			swap_ab(a, A);
+		if ((*a)->value == min)
 		{
-			if ((*a)->next->value == max)
-			{
-				push_ab(b, a, B);
-				swap_ab(a, A);
-				push_ab(a, b, A);
-			}
-			return (1);
+			rotate_ab(a, A);
+			swap_ab(a, A);
+			rev_rotate_ab(a, A);
 		}
-		else if ((*a)->next->next->value == min)
+		else
 		{
-			if ((*a)->value == max)
-			{
-				swap_ab(a, A);
-				push_ab(b, a, B);
-				swap_ab(a, A);
-				push_ab(b, a, B);
-				swap_ab(b, B);
-				push_ab(a, b, A);
-				push_ab(a, b, A);
-			}
-			else if ((*a)->next->value == max)
-			{
-				push_ab(b, a, B);
-				swap_ab(a, A);
-				push_ab(b, a, B);
-				swap_ab(b, B);
-				push_ab(a, b, A);
-				push_ab(a, b, A);
-			}
-			return (1);
+			push_ab(b, a, B);
+			swap_ab(a, A);
+			push_ab(a, b, A);
+			swap_ab(a, A);
 		}
-		
-	}*/
+		return (1);
+	}
 	return (0);
 }

@@ -8,7 +8,7 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
     // printf("size in b: %d\n", size);
     call_init(&call);
     set_pivots(b, size, &call);
-	if (exceptions_under_3_b(size, a, b, &call))
+	if (exceptions_under_3_b(size, a, b))
 	{
 		return ;
 	}
@@ -71,53 +71,69 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
     sort_b_to_a(call.rb, a, b);
 }
 
-int     exceptions_under_3_b(int size, t_node **a, t_node **b, t_call *call)
+int     exceptions_under_3_b(int size, t_node **a, t_node **b)
 {
     int max;
     int min;
 
-    (void)call;
     max = get_max(size, b);
     min = get_min(size, b);
-    if (size == 1)
-    {
-        push_ab(a, b, A);
-        return (1);
-    }
-    else if (size == 2)
+    // if (size == 1)
+    // {
+    //     push_ab(a, b, A);
+    //     return (1);
+    // }
+    if (size == 2)
     {
         sort_two(b, B);
 		push_ab(a, b, A);
 		push_ab(a, b, A);
         return (1);
     }
-    else if (size == 3 && get_listsize(b) == 3)
+    // if (size == 3 && get_listsize(b) == 3)
+    // {
+    //     if ((*b)->next->next->value == max)
+    //     {
+    //         if((*b)->next->value == min)
+    //             rev_rotate_ab(b, B);
+    //         else if ((*b)->value == min)
+    //         {
+    //             swap_ab(b, B);
+    //             rev_rotate_ab(b, B);
+    //         }
+    //     }
+    //     else if ((*b)->value == max)
+    //     {
+    //         swap_ab(b, B);
+    //         rotate_ab(b, B);
+    //     }
+    //     else if ((*b)->next->value == max)
+    //     {
+    //         if ((*b)->next->next->value == min)
+    //             swap_ab(b, B);
+    //         else if ((*b)->value == min)
+    //             rotate_ab(b, B);
+    //     }
+    //     push_ab(a, b, A);
+    //     push_ab(a, b, A);
+    //     push_ab(a, b, A);
+    //     return (1);
+    // }
+    if (size == 3)
     {
-        if ((*b)->next->next->value == max)
-        {
-            if((*b)->next->value == min)
-                rev_rotate_ab(b, B);
-            else if ((*b)->value == min)
-            {
-                swap_ab(b, B);
-                rev_rotate_ab(b, B);
-            }
-        }
-        else if ((*b)->value == max)
-        {
-            swap_ab(b, B);
-            rotate_ab(b, B);
-        }
-        else if ((*b)->next->value == max)
-        {
-            if ((*b)->next->next->value == min)
-                swap_ab(b, B);
-            else if ((*b)->value == min)
-                rotate_ab(b, B);
-        }
         push_ab(a, b, A);
         push_ab(a, b, A);
         push_ab(a, b, A);
+        sort_a_to_b(3, a, b);
+        return (1);
+    }
+    if (check_sorted_descending(b, size))
+    {
+        while (size)
+        {
+            push_ab(a, b, A);
+            size--;
+        }
         return (1);
     }
     return (0);

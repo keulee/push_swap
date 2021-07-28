@@ -6,7 +6,7 @@
 #    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 18:18:39 by keulee            #+#    #+#              #
-#    Updated: 2021/07/27 16:50:14 by keulee           ###   ########.fr        #
+#    Updated: 2021/07/28 18:08:06 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ OBJS = $(SRCS:.c=.o)
 
 CC = clang
 
-CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 LIBFT = libft.a
 

@@ -6,7 +6,7 @@
 /*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 17:51:16 by keulee            #+#    #+#             */
-/*   Updated: 2021/07/26 04:16:47 by keulee           ###   ########.fr       */
+/*   Updated: 2021/07/28 19:06:26 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ int	main(int ac, char **av)
 	create_stack(&info, av);
 
 	o_size = info.listsize;
+
 	// printf("---------before---------\n");
 	// print_node_a(info.stack_a);
 	// print_node_b(info.stack_b);
-	
+
 	if (check_sorted(&info.stack_a))
 	{
 		free_stack(info.stack_a, info.stack_b);
@@ -50,6 +51,7 @@ int	main(int ac, char **av)
 		else
 			sort_a_to_b(info.listsize, &info.stack_a, &info.stack_b);
 	}
+	
 	// if (!check_sorted(&info.stack_a) || o_size != get_listsize(&info.stack_a))
 	// {
 	// 	printf("KO - SORT AGAIN\n");
