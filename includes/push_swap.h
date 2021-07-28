@@ -26,7 +26,6 @@ typedef struct s_call{
 	int		pb;
 	int		rb;
 	int		pa;
-	int		pivot;
 	int		big_p;
 	int		small_p;
 }				t_call;
@@ -65,8 +64,8 @@ void	rev_rotate_ab(t_node **node, int stack);
 void	rotate_rrr(t_node **a, t_node **b, int stack);
 
 int		check_sorted(t_node **node);
-void	sort_a_to_b(int size, t_node **a, t_node **b);
-void	sort_b_to_a(int size, t_node **a, t_node **b);
+void	sort_a_to_b(int size, t_node **a, t_node **b, int *flag);
+void	sort_b_to_a(int size, t_node **a, t_node **b, int *flag);
 
 void	free_node(t_node *node);
 void	free_stack(t_node *a, t_node *b);
@@ -83,17 +82,17 @@ int		sort_tab_get_mid(int *tab, int size);
 
 int     *node_in_tab_sort(t_node **a, int size);
 int		*sort_tab(int *tab, int size);
-void     get_pivots_in_a(t_node **node, int size, t_call *call);
-void     get_pivots_in_b(t_node **node, int size, t_call *call);
+// void     get_pivots_in_a(t_node **node, int size, t_call *call);
+// void     get_pivots_in_b(t_node **node, int size, t_call *call);
 
 int		exceptions_under_3_a(int size, t_node **a, t_node **b);
 
 int		check_sorted_descending(t_node **node, int size);
 int		check_sorted_with_size(t_node **node, int size);
-int     exceptions_under_3_b(int size, t_node **a, t_node **b);
+int     exceptions_under_3_b(int size, t_node **a, t_node **b, int *flag);
 
 void	set_pivots(t_node **node, int size, t_call *call);
-void	get_pivot(t_node **node, int size, t_call *call);
+// void	get_pivot(t_node **node, int size, t_call *call);
 void	get_big_pivot(t_node **node, int size, t_call *call);
 void	get_small_pivot(t_node **node, int size, t_call *call);
 

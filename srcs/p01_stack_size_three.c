@@ -4,11 +4,9 @@ void		sort_three(int size, t_node **a)
 {
 	int	max;
 	int	min;
-	int	last;
 	
 	max = get_max(size, a);
 	min = get_min(size, a);
-	last = get_last_value(a);
 	if ((*a)->value == min)
 	{
 		if ((*a)->next->value == max)

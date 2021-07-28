@@ -1,14 +1,15 @@
 #include "../includes/push_swap.h"
 
-void	sort_b_to_a(int size, t_node **a, t_node **b)
+void	sort_b_to_a(int size, t_node **a, t_node **b, int *flag)
 {
 	t_call call;
 
+    (*flag)++;
     // printf("==============in b to a================\n");
     // printf("size in b: %d\n", size);
     call_init(&call);
     set_pivots(b, size, &call);
-	if (exceptions_under_3_b(size, a, b))
+	if (exceptions_under_3_b(size, a, b, flag))
 	{
 		return ;
 	}
@@ -39,7 +40,7 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
     // printf("pa-ra: %d\n", call.pa - call.ra);
 	// print_node_a(*a);
 	// print_node_a(*b);
-    sort_a_to_b((call.pa - call.ra), a, b);
+    sort_a_to_b((call.pa - call.ra), a, b, flag);
     int rrr = 0;
     int ra = 0;
     int rb = 0;
@@ -67,27 +68,20 @@ void	sort_b_to_a(int size, t_node **a, t_node **b)
 	// printf("pb: %d\n", call.pb);
     // print_node_a(*a);
 	// print_node_a(*b);
-    sort_a_to_b(call.ra, a, b);
-    sort_b_to_a(call.rb, a, b);
+    sort_a_to_b(call.ra, a, b, flag);
+    sort_b_to_a(call.rb, a, b, flag);
 }
 
-int     exceptions_under_3_b(int size, t_node **a, t_node **b)
+int     exceptions_under_3_b(int size, t_node **a, t_node **b, int *flag)
 {
     int max;
     int min;
 
     max = get_max(size, b);
     min = get_min(size, b);
-    // if (size == 1)
-    // {
-    //     push_ab(a, b, A);
-    //     return (1);
-    // }
     if (size == 2)
     {
         sort_two(a, b, B);
-		// push_ab(a, b, A);
-		// push_ab(a, b, A);
         return (1);
     }
     if (size == 3)
@@ -95,7 +89,7 @@ int     exceptions_under_3_b(int size, t_node **a, t_node **b)
         push_ab(a, b, A);
         push_ab(a, b, A);
         push_ab(a, b, A);
-        sort_a_to_b(3, a, b);
+        sort_a_to_b(3, a, b, flag);
         return (1);
     }
     if (check_sorted_descending(b, size))

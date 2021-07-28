@@ -1,9 +1,8 @@
 #include "../includes/push_swap.h"
 
-void	sort_a_to_b(int size, t_node **a, t_node **b)
+void	sort_a_to_b(int size, t_node **a, t_node **b, int *flag)
 {
 	t_call call;
-
 
     // printf("==============in a to b================\n");
     // printf("size in a: %d\n", size);
@@ -68,12 +67,12 @@ void	sort_a_to_b(int size, t_node **a, t_node **b)
 	// printf("pb: %d\n", call.pb);
 	// print_node_a(*a);
 	// print_node_a(*b);
-	sort_a_to_b(call.ra, a, b);
+	sort_a_to_b(call.ra, a, b, flag);
 	// print_node_a(*a);
 	// print_node_a(*b);
-	sort_b_to_a(call.rb, a, b);
+	sort_b_to_a(call.rb, a, b, flag);
 	// printf("pb - rb: %d\n", call.pb - call.rb);
-	sort_b_to_a(call.pb - call.rb, a, b);
+	sort_b_to_a(call.pb - call.rb, a, b, flag);
 }
 
 int		exceptions_under_3_a(int size, t_node **a, t_node **b)

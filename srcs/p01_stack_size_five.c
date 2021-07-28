@@ -21,32 +21,6 @@ void	sort_five(int size, t_node **a, t_node **b)
 	}
 	sort_three(3, a);
 	sort_two(a, b, B);
-	// push_ab(a, b, A);
-	// push_ab(a, b, A);
-	// while (size--)
-	// {
-	// 	if ((*a)->value < mid)
-	// 	{
-	// 		push_ab(b, a, B);
-	// 		pb++;
-	// 	}
-	// 	else
-	// 		rotate_ab(a, A);
-	// }
-	// size_a = get_listsize(a);
-	// size_b = get_listsize(b); 
-	// if (size_a == 2 && !check_sorted(a))
-	// 	sort_two(a, A);
-	// else if (size_a == 3 && !check_sorted(a))
-	// 	sort_three(3, a);
-	// if (size_b == 2)
-	// {
-	// 	sort_two(b, B);
-	// 	while (size_b--)
-	// 		push_ab(a, b, A);
-	// }
-	// else
-	// 	push_ab(a, b, A);
 }
 
 int		get_mid_value_in_five(t_node **a, int size)
