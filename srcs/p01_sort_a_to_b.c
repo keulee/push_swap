@@ -6,13 +6,14 @@ void	sort_a_to_b(int size, t_node **a, t_node **b, int *flag)
 
     // printf("==============in a to b================\n");
     // printf("size in a: %d\n", size);
-
-	if (exceptions_under_3_a(size, a, b, flag))
+	// printf("flag : %d\n", (*flag));
+	if (exceptions_under_3_a(size, a, b))
 	{
 		return ;
 	}
 	call_init(&call);
 	set_pivots(a, size, &call);
+	// set_pivots_a(a, size, &call);
 	// printf("ra: %d\n", call.ra);
 	// printf("rb: %d\n", call.rb);
 	// printf("pa: %d\n", call.pa);
@@ -99,13 +100,13 @@ void	rra_rrb_rrr_a(t_node **a, t_node **b, t_call *call, int *flag)
 	}
 }
 
-int		exceptions_under_3_a(int size, t_node **a, t_node **b, int *flag)
+int		exceptions_under_3_a(int size, t_node **a, t_node **b)
 {
-	int	max;
-	int	min;
+	// int	max;
+	// int	min;
 	
-	max = get_max(size, a);
-	min = get_min(size, a);
+	// max = get_max(size, a);
+	// min = get_min(size, a);
 	if (check_sorted(a))
 		return (1);
 	if (size == 1)
@@ -115,38 +116,31 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b, int *flag)
 		sort_two(a, b, A);
 		return (1);
 	}
-	// else if (size == 3 && get_listsize(a) == 3)
-	// {
-	// 	if (check_sorted(a))
-	// 		return (1);
-	// 	else
-	// 		sort_three(3, a);
-	// 	return (1);
-	// }
 	else if (size == 3)
 	{
-		if (check_sorted_with_size(a, 3))
-			return (1);
-		else if ((*a)->next->next->value == max)
-		{
-			swap_ab(a, A);
-			return (1);
-		}
-		if ((*a)->value == max)
-			swap_ab(a, A);
-		if ((*a)->value == min)
-		{
-			rotate_ab(a, A);
-			swap_ab(a, A);
-			rev_rotate_ab(a, A);
-		}
-		else
-		{
-			push_ab(b, a, B);
-			swap_ab(a, A);
-			push_ab(a, b, A);
-			swap_ab(a, A);
-		}
+		under_node_3_a(a, b, size);
+		// if (check_sorted_with_size(a, 3))
+		// 	return (1);
+		// else if ((*a)->next->next->value == max)
+		// {
+		// 	swap_ab(a, A);
+		// 	return (1);
+		// }
+		// if ((*a)->value == max)
+		// 	swap_ab(a, A);
+		// if ((*a)->value == min)
+		// {
+		// 	rotate_ab(a, A);
+		// 	swap_ab(a, A);
+		// 	rev_rotate_ab(a, A);
+		// }
+		// else
+		// {
+		// 	push_ab(b, a, B);
+		// 	swap_ab(a, A);
+		// 	push_ab(a, b, A);
+		// 	swap_ab(a, A);
+		// }
 		return (1);
 	}
 	else if (size == 5)
@@ -171,9 +165,42 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b, int *flag)
 		}
 		while (ra--)
 			rev_rotate_ab(a, A);
-		sort_a_to_b(3, a, b, flag);
-		sort_b_to_a(2, a, b, flag);
+		// sort_a_to_b(3, a, b, flag);
+		under_node_3_a(a, b, 3);
+		sort_two(a, b, B);
 		return (1);
 	}
 	return (0);
+}
+
+void	under_node_3_a(t_node **a, t_node **b, int size)
+{
+	int max;
+	int min;
+
+	max = get_max(size, a);
+	min = get_min(size, a);
+	if (check_sorted_with_size(a, 3))
+		return ;
+	else if ((*a)->next->next->value == max)
+	{
+		swap_ab(a, A);
+		return ;
+	}
+	if ((*a)->value == max)
+		swap_ab(a, A);
+	if ((*a)->value == min)
+	{
+		rotate_ab(a, A);
+		swap_ab(a, A);
+		rev_rotate_ab(a, A);
+	}
+	else
+	{
+		push_ab(b, a, B);
+		swap_ab(a, A);
+		push_ab(a, b, A);
+		swap_ab(a, A);
+	}
+	return ;
 }

@@ -6,24 +6,36 @@ void	set_pivots(t_node **node, int size, t_call *call)
 	get_small_pivot(node, size, call);
 }
 
-// void	get_pivot(t_node **node, int size, t_call *call)
+// void	set_pivots_a(t_node **node, int size, t_call *call)
 // {
-// 	int i;
-// 	int *tab;
-
-// 	i = 0;
-// 	tab = node_in_tab_sort(node, size);
-// 	while (i < size)
-// 	{
-// 		if (i == (int)(size / 2))
-// 		{
-// 			call->pivot = tab[i];
-// 			break ;
-// 		}
-// 		i++;
-// 	}
-// 	free(tab);
+// 	get_big_pivot(node, size, call);
+// 	get__pivot(node, size, call);
 // }
+
+// void	set_pivots_b(t_node **node, int size, t_call *call)
+// {
+// 	get_small_pivot(node, size, call);
+// 	get_pivot(node, size, call);
+// }
+
+void	get_pivot(t_node **node, int size, t_call *call)
+{
+	int i;
+	int *tab;
+
+	i = 0;
+	tab = node_in_tab_sort(node, size);
+	while (i < size)
+	{
+		if (i == (int)(size / 2))
+		{
+			call->pivot = tab[i];
+			break ;
+		}
+		i++;
+	}
+	free(tab);
+}
 
 void	get_big_pivot(t_node **node, int size, t_call *call)
 {
@@ -62,42 +74,6 @@ void	get_small_pivot(t_node **node, int size, t_call *call)
 	}
 	free(tab);
 }
-
-// void	get_pivots_in_a(t_node **node, int size, t_call *call)
-// {
-// 	int	i;
-// 	int	*tab;
-
-// 	i = 0;
-// 	tab = node_in_tab_sort(node, size);
-// 	while (i < size)
-// 	{
-// 		if (i == (int)(((size / 4) * 3) + 0.5))
-// 			call->big_p = tab[i];
-// 		else if (i == (int)(size / 2))
-// 			call->pivot = tab[i];
-// 		i++;
-// 	}
-// 	free(tab);
-// }
-
-// void	get_pivots_in_b(t_node **node, int size, t_call *call)
-// {
-// 	int	i;
-// 	int	*tab;
-
-// 	i = 0;
-// 	tab = node_in_tab_sort(node, size);
-// 	while (i < size)
-// 	{
-// 		if (i == (int)((size / 4) + 0.5))
-// 			call->small_p = tab[i];
-// 		else if (i == (int)(size / 2))
-// 			call->pivot = tab[i];
-// 		i++;
-// 	}
-// 	free(tab);
-// }
 
 int	*node_in_tab_sort(t_node **a, int size)
 {

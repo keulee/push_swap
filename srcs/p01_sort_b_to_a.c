@@ -5,6 +5,7 @@ void	sort_b_to_a(int size, t_node **a, t_node **b, int *flag)
 	t_call call;
 
 	(*flag)++;
+	// printf("flag : %d\n", (*flag));
 	// printf("==============in b to a================\n");
 	// printf("size in b: %d\n", size);
 	if (exceptions_under_3_b(size, a, b, flag))
@@ -13,6 +14,7 @@ void	sort_b_to_a(int size, t_node **a, t_node **b, int *flag)
 	}
 	call_init(&call);
 	set_pivots(b, size, &call);
+	// set_pivots_b(b, size, &call);
 	// printf("big pivot: %d\n", call.big_p);
 	// printf("small pivot: %d\n", call.small_p);
 	while (size--)
@@ -82,11 +84,11 @@ void	rra_rrb_rrr_b(t_node **a, t_node **b, t_call *call)
 
 int	exceptions_under_3_b(int size, t_node **a, t_node **b, int *flag)
 {
-	int max;
-	int min;
+	// int max;
+	// int min;
 
-	max = get_max(size, b);
-	min = get_min(size, b);
+	// max = get_max(size, b);
+	// min = get_min(size, b);
 	if (size == 2)
 	{
 		sort_two(a, b, B);

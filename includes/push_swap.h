@@ -77,27 +77,29 @@ int		get_min(int size, t_node **node);
 void	sort_two(t_node **a, t_node **b, int stack);
 void	sort_three(int size, t_node **a);
 void	sort_five(int size, t_node **a, t_node **b);
-// int		get_last_value(t_node **node);
 int		get_mid_value_in_five(t_node **a, int size);
 int		sort_tab_get_mid(int *tab, int size);
 
 int     *node_in_tab_sort(t_node **a, int size);
 int		*sort_tab(int *tab, int size);
-// void     get_pivots_in_a(t_node **node, int size, t_call *call);
-// void     get_pivots_in_b(t_node **node, int size, t_call *call);
 
-int		exceptions_under_3_a(int size, t_node **a, t_node **b, int *flag);
+int		exceptions_under_3_a(int size, t_node **a, t_node **b);
 
 int		check_sorted_descending(t_node **node, int size);
 int		check_sorted_with_size(t_node **node, int size);
 int     exceptions_under_3_b(int size, t_node **a, t_node **b, int *flag);
 
 void	set_pivots(t_node **node, int size, t_call *call);
-// void	get_pivot(t_node **node, int size, t_call *call);
+void	set_pivots_a(t_node **node, int size, t_call *call);
+void	set_pivots_b(t_node **node, int size, t_call *call);
+
+void	get_pivot(t_node **node, int size, t_call *call);
 void	get_big_pivot(t_node **node, int size, t_call *call);
 void	get_small_pivot(t_node **node, int size, t_call *call);
 
 void	rra_rrb_rrr_a(t_node **a, t_node **b, t_call *call, int *flag);
 void	rra_rrb_rrr_b(t_node **a, t_node **b, t_call *call);
+
+void	under_node_3_a(t_node **a, t_node **b, int size);
 
 #endif
