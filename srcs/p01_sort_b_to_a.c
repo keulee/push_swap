@@ -8,7 +8,7 @@ void	sort_b_to_a(int size, t_node **a, t_node **b, int *flag)
 	// printf("flag : %d\n", (*flag));
 	// printf("==============in b to a================\n");
 	// printf("size in b: %d\n", size);
-	if (exceptions_under_3_b(size, a, b, flag))
+	if (exceptions_under_5_b(size, a, b, flag))
 	{
 		return ;
 	}
@@ -82,13 +82,13 @@ void	rra_rrb_rrr_b(t_node **a, t_node **b, t_call *call)
 }
 
 
-int	exceptions_under_3_b(int size, t_node **a, t_node **b, int *flag)
+int	exceptions_under_5_b(int size, t_node **a, t_node **b, int *flag)
 {
-	// int max;
-	// int min;
+	int max;
+	int min;
 
-	// max = get_max(size, b);
-	// min = get_min(size, b);
+	max = get_max(size, b);
+	min = get_min(size, b);
 	if (size == 2)
 	{
 		sort_two(a, b, B);
@@ -125,7 +125,7 @@ int	exceptions_under_3_b(int size, t_node **a, t_node **b, int *flag)
 		while (rb--)
 			rev_rotate_ab(b, B);
 		sort_a_to_b(3, a, b, flag);
-		sort_b_to_a(2, a, b, flag);
+		sort_two(a, b, B);
 		return (1);
 	}
 	else if (check_sorted_descending(b, size))

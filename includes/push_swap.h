@@ -83,11 +83,11 @@ int		sort_tab_get_mid(int *tab, int size);
 int     *node_in_tab_sort(t_node **a, int size);
 int		*sort_tab(int *tab, int size);
 
-int		exceptions_under_3_a(int size, t_node **a, t_node **b);
+int		exceptions_under_5_a(int size, t_node **a, t_node **b, int *flag);
 
 int		check_sorted_descending(t_node **node, int size);
 int		check_sorted_with_size(t_node **node, int size);
-int     exceptions_under_3_b(int size, t_node **a, t_node **b, int *flag);
+int     exceptions_under_5_b(int size, t_node **a, t_node **b, int *flag);
 
 void	set_pivots(t_node **node, int size, t_call *call);
 void	set_pivots_a(t_node **node, int size, t_call *call);
