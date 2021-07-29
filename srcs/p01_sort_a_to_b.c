@@ -152,31 +152,33 @@ int		exceptions_under_5_a(int size, t_node **a, t_node **b, int *flag)
 		}
 		return (1);
 	}
-	else if (size == 5)
-	{
-		int mid = get_mid_value_in_five(a, size);
-		int pb = 0;
-		int ra = 0;
-		while (size--)
-		{
-			if ((*a)->value < mid)
-			{
-				push_ab(b, a, B);
-				pb++;
-			}
-			else if ((*a)->value >= mid)
-			{
-				rotate_ab(a, A);
-				ra++;
-			}
-			if (pb == 2)
-				break ;
-		}
-		while (ra--)
-			rev_rotate_ab(a, A);
-		sort_a_to_b(3, a, b, flag);
-		sort_two(a, b, B);
-		return (1);
-	}
+	// else if (size == 5)
+	// {
+	// 	int mid = get_mid_value_in_five(a, size);
+	// 	int pb = 0;
+	// 	int ra = 0;
+	// 	if (check_sorted_with_size(a, 5))
+	// 		return (1);
+	// 	while (size--)
+	// 	{
+	// 		if ((*a)->value < mid)
+	// 		{
+	// 			push_ab(b, a, B);
+	// 			pb++;
+	// 		}
+	// 		else if ((*a)->value >= mid)
+	// 		{
+	// 			rotate_ab(a, A);
+	// 			ra++;
+	// 		}
+	// 		if (pb == 2)
+	// 			break ;
+	// 	}
+	// 	while (ra--)
+	// 		rev_rotate_ab(a, A);
+	// 	sort_a_to_b(3, a, b, flag);
+	// 	sort_two(a, b, B);
+	// 	return (1);
+	// }
 	return (0);
 }
