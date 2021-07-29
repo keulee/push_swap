@@ -6,12 +6,13 @@ void	sort_a_to_b(int size, t_node **a, t_node **b, int *flag)
 
     // printf("==============in a to b================\n");
     // printf("size in a: %d\n", size);
-	call_init(&call);
-	set_pivots(a, size, &call);
-	if (exceptions_under_3_a(size, a, b))
+
+	if (exceptions_under_3_a(size, a, b, flag))
 	{
 		return ;
 	}
+	call_init(&call);
+	set_pivots(a, size, &call);
 	// printf("ra: %d\n", call.ra);
 	// printf("rb: %d\n", call.rb);
 	// printf("pa: %d\n", call.pa);
@@ -98,7 +99,7 @@ void	rra_rrb_rrr_a(t_node **a, t_node **b, t_call *call, int *flag)
 	}
 }
 
-int		exceptions_under_3_a(int size, t_node **a, t_node **b)
+int		exceptions_under_3_a(int size, t_node **a, t_node **b, int *flag)
 {
 	int	max;
 	int	min;
@@ -114,14 +115,14 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b)
 		sort_two(a, b, A);
 		return (1);
 	}
-	else if (size == 3 && get_listsize(a) == 3)
-	{
-		if (check_sorted(a))
-			return (1);
-		else
-			sort_three(3, a);
-		return (1);
-	}
+	// else if (size == 3 && get_listsize(a) == 3)
+	// {
+	// 	if (check_sorted(a))
+	// 		return (1);
+	// 	else
+	// 		sort_three(3, a);
+	// 	return (1);
+	// }
 	else if (size == 3)
 	{
 		if (check_sorted_with_size(a, 3))
@@ -150,7 +151,29 @@ int		exceptions_under_3_a(int size, t_node **a, t_node **b)
 	}
 	else if (size == 5)
 	{
-		
+		int mid = get_mid_value_in_five(a, size);
+		int pb = 0;
+		int ra = 0;
+		while (size--)
+		{
+			if ((*a)->value < mid)
+			{
+				push_ab(b, a, B);
+				pb++;
+			}
+			else if ((*a)->value >= mid)
+			{
+				rotate_ab(a, A);
+				ra++;
+			}
+			if (pb == 2)
+				break ;
+		}
+		while (ra--)
+			rev_rotate_ab(a, A);
+		sort_a_to_b(3, a, b, flag);
+		sort_b_to_a(2, a, b, flag);
+		return (1);
 	}
 	return (0);
 }

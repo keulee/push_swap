@@ -26,6 +26,7 @@ typedef struct s_call{
 	int		pb;
 	int		rb;
 	int		pa;
+	int		pivot;
 	int		big_p;
 	int		small_p;
 }				t_call;
@@ -76,7 +77,7 @@ int		get_min(int size, t_node **node);
 void	sort_two(t_node **a, t_node **b, int stack);
 void	sort_three(int size, t_node **a);
 void	sort_five(int size, t_node **a, t_node **b);
-int		get_last_value(t_node **node);
+// int		get_last_value(t_node **node);
 int		get_mid_value_in_five(t_node **a, int size);
 int		sort_tab_get_mid(int *tab, int size);
 
@@ -85,7 +86,7 @@ int		*sort_tab(int *tab, int size);
 // void     get_pivots_in_a(t_node **node, int size, t_call *call);
 // void     get_pivots_in_b(t_node **node, int size, t_call *call);
 
-int		exceptions_under_3_a(int size, t_node **a, t_node **b);
+int		exceptions_under_3_a(int size, t_node **a, t_node **b, int *flag);
 
 int		check_sorted_descending(t_node **node, int size);
 int		check_sorted_with_size(t_node **node, int size);

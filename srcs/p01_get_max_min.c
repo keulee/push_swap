@@ -40,14 +40,14 @@ int		get_min(int size, t_node **node)
 	return (nbr);
 }
 
-int		get_last_value(t_node **node)
-{
-	int	last;
-	t_node	*tmp;
+// int		get_last_value(t_node **node)
+// {
+// 	int	last;
+// 	t_node	*tmp;
 
-	tmp = *node;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	last = tmp->value;
-	return (last);
-}
+// 	tmp = *node;
+// 	while (tmp->next != NULL)
+// 		tmp = tmp->next;
+// 	last = tmp->value;
+// 	return (last);
+// }

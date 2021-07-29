@@ -7,12 +7,12 @@ void	sort_b_to_a(int size, t_node **a, t_node **b, int *flag)
 	(*flag)++;
 	// printf("==============in b to a================\n");
 	// printf("size in b: %d\n", size);
-	call_init(&call);
-	set_pivots(b, size, &call);
 	if (exceptions_under_3_b(size, a, b, flag))
 	{
 		return ;
 	}
+	call_init(&call);
+	set_pivots(b, size, &call);
 	// printf("big pivot: %d\n", call.big_p);
 	// printf("small pivot: %d\n", call.small_p);
 	while (size--)
@@ -100,13 +100,36 @@ int	exceptions_under_3_b(int size, t_node **a, t_node **b, int *flag)
 		sort_a_to_b(3, a, b, flag);
 		return (1);
 	}
+	else if (size == 5)
+	{
+		int mid = get_mid_value_in_five(b, size);
+		int pa = 0;
+		int rb = 0;
+		while (size--)
+		{
+			if ((*b)->value >= mid)
+			{
+				push_ab(a, b, A);
+				pa++;
+			}
+			else if ((*a)->value < mid)
+			{
+				rotate_ab(b, B);
+				rb++;
+			}
+			if (pa == 3)
+				break ;
+		}
+		while (rb--)
+			rev_rotate_ab(b, B);
+		sort_a_to_b(3, a, b, flag);
+		sort_b_to_a(2, a, b, flag);
+		return (1);
+	}
 	else if (check_sorted_descending(b, size))
 	{
-		while (size)
-		{
+		while (size--)
 			push_ab(a, b, A);
-			size--;
-		}
 		return (1);
 	}
 	return (0);
