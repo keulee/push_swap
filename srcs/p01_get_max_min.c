@@ -1,13 +1,13 @@
 #include "../includes/push_swap.h"
 
-int		get_max(int size, t_node **node)
+int	get_max(int size, t_node **node)
 {
-	t_node *tmp;
-	int	nbr;
+	t_node	*tmp;
+	int		nbr;
 
 	tmp = *node;
 	nbr = tmp->value;
-	while(size)
+	while (size)
 	{
 		if (nbr < tmp->value)
 			nbr = tmp->value;
@@ -20,11 +20,11 @@ int		get_max(int size, t_node **node)
 	return (nbr);
 }
 
-int		get_min(int size, t_node **node)
+int	get_min(int size, t_node **node)
 {
-	t_node *tmp;
-	int	nbr;
-	
+	t_node	*tmp;
+	int		nbr;
+
 	tmp = *node;
 	nbr = tmp->value;
 	while (size)
@@ -39,15 +39,3 @@ int		get_min(int size, t_node **node)
 	}
 	return (nbr);
 }
-
-// int		get_last_value(t_node **node)
-// {
-// 	int	last;
-// 	t_node	*tmp;
-
-// 	tmp = *node;
-// 	while (tmp->next != NULL)
-// 		tmp = tmp->next;
-// 	last = tmp->value;
-// 	return (last);
-// }

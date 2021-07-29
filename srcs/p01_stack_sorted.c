@@ -1,24 +1,24 @@
 #include "../includes/push_swap.h"
 
-int		check_sorted(t_node **node)
+int	check_sorted(t_node **node)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	tmp = *node;
 	if (*node)
 	{
 		while (tmp->next != NULL && tmp->value < tmp->next->value)
-			tmp=tmp->next;
+			tmp = tmp->next;
 	}
 	if (tmp->next == NULL)
 		return (1);
 	return (0);
 }
 
-int		check_sorted_with_size(t_node **node, int size)
+int	check_sorted_with_size(t_node **node, int size)
 {
-	t_node *tmp;
-	int i;
+	t_node	*tmp;
+	int		i;
 
 	tmp = *node;
 	i = 0;
@@ -37,10 +37,10 @@ int		check_sorted_with_size(t_node **node, int size)
 	return (1);
 }
 
-int		check_sorted_descending(t_node **node, int size)
+int	check_sorted_descending(t_node **node, int size)
 {
-	t_node *tmp;
-	int i;
+	t_node	*tmp;
+	int		i;
 
 	tmp = *node;
 	i = 0;
@@ -58,4 +58,3 @@ int		check_sorted_descending(t_node **node, int size)
 		return (0);
 	return (1);
 }
-

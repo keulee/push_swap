@@ -26,7 +26,6 @@ typedef struct s_call{
 	int		pb;
 	int		rb;
 	int		pa;
-	int		pivot;
 	int		big_p;
 	int		small_p;
 }				t_call;

@@ -2,8 +2,8 @@
 
 void	sort_five(int size, t_node **a, t_node **b)
 {
-	int		mid;
-	int		pb;
+	int	mid;
+	int	pb;
 
 	pb = 0;
 	mid = get_mid_value_in_five(a, size);
@@ -23,7 +23,7 @@ void	sort_five(int size, t_node **a, t_node **b)
 	sort_two(a, b, B);
 }
 
-int		get_mid_value_in_five(t_node **a, int size)
+int	get_mid_value_in_five(t_node **a, int size)
 {
 	t_node	*tmp;
 	int		*tab;
@@ -41,14 +41,14 @@ int		get_mid_value_in_five(t_node **a, int size)
 	}
 	mid = sort_tab_get_mid(tab, size);
 	free(tab);
-	return (mid);	
+	return (mid);
 }
 
-int		sort_tab_get_mid(int *tab, int size)
+int	sort_tab_get_mid(int *tab, int size)
 {
-	int tmp;
-	int i;
-	int k;
+	int	tmp;
+	int	i;
+	int	k;
 
 	k = 0;
 	size = size - 1;

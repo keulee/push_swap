@@ -2,7 +2,7 @@
 
 void	free_node(t_node *node)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	while (node)
 	{
@@ -11,10 +11,10 @@ void	free_node(t_node *node)
 		else
 			tmp = NULL;
 		free(node);
-		if(tmp != NULL)
+		if (tmp != NULL)
 			node = tmp;
 		else
-			break;
+			break ;
 	}
 }
 

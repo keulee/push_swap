@@ -1,10 +1,10 @@
 #include "../includes/push_swap.h"
 
-void		sort_three(int size, t_node **a)
+void	sort_three(int size, t_node **a)
 {
 	int	max;
 	int	min;
-	
+
 	max = get_max(size, a);
 	min = get_min(size, a);
 	if ((*a)->value == min)
