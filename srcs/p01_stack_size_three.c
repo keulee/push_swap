@@ -25,11 +25,7 @@ void		sort_three(int size, t_node **a)
 	else if ((*a)->next->next->value == min)
 	{
 		if ((*a)->value == max)
-		{
 			swap_ab(a, A);
-			rev_rotate_ab(a, A);
-		}
-		else
-			rev_rotate_ab(a, A);
+		rev_rotate_ab(a, A);
 	}
 }

@@ -46,7 +46,7 @@ void	get_big_pivot(t_node **node, int size, t_call *call)
 	tab = node_in_tab_sort(node, size);
 	while (i < size)
 	{
-		if (i == (int)((size / 3) * 2))
+		if (i == (int)(size / 2))
 		{
 			call->big_p = tab[i];
 			break ;
