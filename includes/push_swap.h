@@ -101,4 +101,8 @@ void	rra_rrb_rrr_b(t_node **a, t_node **b, t_call *call);
 
 void	under_node_3_a(t_node **a, t_node **b, int size);
 
+void	rotate_push_a(t_node **a, t_node **b, t_call *call);
+void	rev_rotate_ra_flag(t_node **a, t_node **b, t_call *call, int *flag);
+void	rev_rotate_rb_flag(t_node **a, t_node **b, t_call *call, int *flag);
+
 #endif
