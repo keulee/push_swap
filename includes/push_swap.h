@@ -82,7 +82,7 @@ int		sort_tab_get_mid(int *tab, int size);
 int     *node_in_tab_sort(t_node **a, int size);
 int		*sort_tab(int *tab, int size);
 
-int		exceptions_under_5_a(int size, t_node **a, t_node **b);
+int		exceptions_a_to_b(int size, t_node **a, t_node **b);
 
 int		check_sorted_descending(t_node **node, int size);
 int		check_sorted_with_size(t_node **node, int size);
@@ -105,4 +105,7 @@ void	rotate_push_a(t_node **a, t_node **b, t_call *call);
 void	rev_rotate_ra_flag(t_node **a, t_node **b, t_call *call, int *flag);
 void	rev_rotate_rb_flag(t_node **a, t_node **b, t_call *call, int *flag);
 
+void	exception_size_3(t_node **a, t_node **b, int size);
+void	exception_size_5(t_node **a, t_node **b, int size);
+void	exception_size3_node3(t_node **a);
 #endif

@@ -4,15 +4,16 @@ void	sort_a_to_b(int size, t_node **a, t_node **b, int *flag)
 {
 	t_call	call;
 
-	if (exceptions_under_5_a(size, a, b))
-	{
+	if (exceptions_a_to_b(size, a, b))
 		return ;
-	}
 	call_init(&call);
 	set_pivots(a, size, &call);
 	while (size--)
 		rotate_push_a(a, b, &call);
-	rra_rrb_rrr_a(a, b, &call, flag);
+	if (call.ra >= call.rb)
+		rev_rotate_ra_flag(a, b, &call, flag);
+	else
+		rev_rotate_rb_flag(a, b, &call, flag);
 	sort_a_to_b(call.ra, a, b, flag);
 	sort_b_to_a(call.rb, a, b, flag);
 	sort_b_to_a(call.pb - call.rb, a, b, flag);
@@ -35,14 +36,6 @@ void	rotate_push_a(t_node **a, t_node **b, t_call *call)
 			rotate_ab(b, B);
 		}
 	}
-}
-
-void	rra_rrb_rrr_a(t_node **a, t_node **b, t_call *call, int *flag)
-{
-	if (call->ra >= call->rb)
-		rev_rotate_ra_flag(a, b, call, flag);
-	else
-		rev_rotate_rb_flag(a, b, call, flag);
 }
 
 void	rev_rotate_ra_flag(t_node **a, t_node **b, t_call *call, int *flag)
@@ -86,4 +79,33 @@ void	rev_rotate_rb_flag(t_node **a, t_node **b, t_call *call, int *flag)
 		while (rrr--)
 			rev_rotate_ab(b, B);
 	}
+}
+
+int	exceptions_a_to_b(int size, t_node **a, t_node **b)
+{
+	if (check_sorted(a))
+		return (1);
+	if (size == 1)
+		return (1);
+	else if (size == 2)
+	{
+		sort_two(a, b, A);
+		return (1);
+	}
+	else if (size == 3 && get_listsize(a) == 3)
+	{
+		exception_size3_node3(a);
+		return (1);
+	}
+	else if (size == 3)
+	{
+		exception_size_3(a, b, size);
+		return (1);
+	}
+	else if (size == 5)
+	{
+		exception_size_5(a, b, 5);
+		return (1);
+	}
+	return (0);
 }
