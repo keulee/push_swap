@@ -6,7 +6,7 @@
 #    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 18:18:39 by keulee            #+#    #+#              #
-#    Updated: 2021/07/31 14:50:41 by keulee           ###   ########.fr        #
+#    Updated: 2021/07/31 16:19:52 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS = srcs/push_swap.c srcs/p01_init.c \
 		srcs/p01_stack_size_five.c srcs/p01_stack_size_two.c srcs/p01_stack_sorted.c \
 		srcs/p01_pivot.c srcs/p01_sort_b_to_a.c srcs/p01_exception_a_to_b.c \
 		srcs/p01_op_swap.c srcs/p01_op_rotate.c srcs/p01_op_push.c srcs/p01_op_reverse.c \
-		srcs/p01_exception_b_to_a.c
+		srcs/p01_exception_b_to_a.c srcs/p01_sort_start.c
 
 OBJS = $(SRCS:.c=.o)
 
