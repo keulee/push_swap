@@ -6,17 +6,18 @@
 #    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 18:18:39 by keulee            #+#    #+#              #
-#    Updated: 2021/07/30 22:14:14 by keulee           ###   ########.fr        #
+#    Updated: 2021/07/31 13:13:07 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-SRCS = srcs/push_swap.c srcs/p01_init.c srcs/p01_utiles.c srcs/p01_list.c \
+SRCS = srcs/push_swap.c srcs/p01_init.c srcs/p01_utiles.c \
 		srcs/p01_print_list.c srcs/p01_sort_a_to_b.c srcs/p01_create_stack.c \
 		srcs/p01_free.c srcs/p01_get_max_min.c srcs/p01_stack_size_three.c \
 		srcs/p01_stack_size_five.c srcs/p01_stack_size_two.c srcs/p01_stack_sorted.c \
-		srcs/p01_pivot.c srcs/p01_sort_b_to_a.c srcs/p01_exception_a_to_b.c
+		srcs/p01_pivot.c srcs/p01_sort_b_to_a.c srcs/p01_exception_a_to_b.c \
+		srcs/p01_op_swap.c srcs/p01_op_rotate.c srcs/p01_op_push.c srcs/p01_op_reverse.c
 
 OBJS = $(SRCS:.c=.o)
 

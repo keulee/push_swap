@@ -18,3 +18,51 @@ void	create_stack(t_info *info, char **av)
 		info->i++;
 	}
 }
+
+void	insert_node(t_node **node, int value)
+{
+	t_node	*new;
+	t_node	*tmp;
+
+	new = (t_node *)malloc(sizeof(t_node));
+	if (!new)
+		ft_exit_msg("ERROR");
+	tmp = *node;
+	new->next = NULL;
+	new->prev = NULL;
+	new->value = value;
+	if (tmp == NULL)
+	{
+		*node = new;
+		return ;
+	}
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = new;
+	new->prev = tmp;
+}
+
+void	find_double(t_node *node, int value)
+{
+	while (node->next != NULL)
+	{
+		if (node->value == value)
+			ft_exit_msg("ERROR");
+		node = node->next;
+	}
+}
+
+int	get_listsize(t_node **a)
+{
+	t_node	*tmp;
+	int		size;
+
+	tmp = *a;
+	size = 0;
+	while (tmp)
+	{
+		size++;
+		tmp = tmp->next;
+	}
+	return (size);
+}
