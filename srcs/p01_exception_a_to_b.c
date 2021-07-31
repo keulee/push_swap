@@ -1,12 +1,27 @@
 #include "../includes/push_swap.h"
 
-void	exception_size3_node3(t_node **a)
+void	exception_size_under_3(t_node **a, t_node **b, int size)
 {
-	if (check_sorted(a))
+	if (size == 1)
 		return ;
-	else
-		sort_three(3, a);
-	return ;
+	else if (size == 2)
+	{
+		sort_two(a, b, A);
+		return ;
+	}
+	else if (size == 3 && get_listsize(a) == 3)
+	{
+		if (check_sorted_with_size(a, 3))
+			return ;
+		else
+			sort_three(3, a);
+		return ;
+	}
+	else if (size == 3)
+	{
+		exception_size_3(a, b, size);
+		return ;
+	}
 }
 
 void	exception_size_3(t_node **a, t_node **b, int size)
@@ -18,11 +33,17 @@ void	exception_size_3(t_node **a, t_node **b, int size)
 	min = get_min(size, a);
 	if (check_sorted_with_size(a, 3))
 		return ;
-	else if ((*a)->next->next->value == max)
+	if ((*a)->next->next->value == max)
 	{
 		swap_ab(a, A);
 		return ;
 	}
+	size_3_max_first(a, b, max, min);
+	return ;
+}
+
+void	size_3_max_first(t_node **a, t_node **b, int max, int min)
+{
 	if ((*a)->value == max)
 		swap_ab(a, A);
 	if ((*a)->value == min)
@@ -43,6 +64,16 @@ void	exception_size_3(t_node **a, t_node **b, int size)
 
 void	exception_size_5(t_node **a, t_node **b, int size)
 {
+	if (check_sorted_with_size(a, 5))
+		return ;
+	sort_size_5_a(a, b, size);
+	exception_size_3(a, b, 3);
+	sort_two(a, b, B);
+	return ;
+}
+
+void	sort_size_5_a(t_node **a, t_node **b, int size)
+{
 	int	mid;
 	int	pb;
 	int	ra;
@@ -50,8 +81,6 @@ void	exception_size_5(t_node **a, t_node **b, int size)
 	mid = get_mid_value_in_five(a, size);
 	pb = 0;
 	ra = 0;
-	if (check_sorted_with_size(a, 5))
-		return ;
 	while (size--)
 	{
 		if ((*a)->value < mid)
@@ -69,7 +98,4 @@ void	exception_size_5(t_node **a, t_node **b, int size)
 	}
 	while (ra--)
 		rev_rotate_ab(a, A);
-	exception_size_3(a, b, 3);
-	sort_two(a, b, B);
-	return ;
 }

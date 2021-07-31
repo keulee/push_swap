@@ -107,5 +107,8 @@ void	rev_rotate_rb_flag(t_node **a, t_node **b, t_call *call, int *flag);
 
 void	exception_size_3(t_node **a, t_node **b, int size);
 void	exception_size_5(t_node **a, t_node **b, int size);
-void	exception_size3_node3(t_node **a);
+void	exception_size_under_3(t_node **a, t_node **b, int size);
+void	sort_size_5_a(t_node **a, t_node **b, int size);
+void	size_3_max_first(t_node **a, t_node** b, int max, int min);
+// void	exception_size3_node3(t_node **a);
 #endif

@@ -83,23 +83,9 @@ void	rev_rotate_rb_flag(t_node **a, t_node **b, t_call *call, int *flag)
 
 int	exceptions_a_to_b(int size, t_node **a, t_node **b)
 {
-	if (check_sorted(a))
-		return (1);
-	if (size == 1)
-		return (1);
-	else if (size == 2)
+	if (size <= 3)
 	{
-		sort_two(a, b, A);
-		return (1);
-	}
-	else if (size == 3 && get_listsize(a) == 3)
-	{
-		exception_size3_node3(a);
-		return (1);
-	}
-	else if (size == 3)
-	{
-		exception_size_3(a, b, size);
+		exception_size_under_3(a, b, size);
 		return (1);
 	}
 	else if (size == 5)
