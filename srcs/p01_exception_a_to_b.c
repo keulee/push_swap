@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-void	exception_size_under_3(t_node **a, t_node **b, int size)
+void	exception_size_under_3a(t_node **a, t_node **b, int size)
 {
 	if (size == 1)
 		return ;
@@ -19,12 +19,12 @@ void	exception_size_under_3(t_node **a, t_node **b, int size)
 	}
 	else if (size == 3)
 	{
-		exception_size_3(a, b, size);
+		exception_size_3a(a, b, size);
 		return ;
 	}
 }
 
-void	exception_size_3(t_node **a, t_node **b, int size)
+void	exception_size_3a(t_node **a, t_node **b, int size)
 {
 	int	max;
 	int	min;
@@ -62,17 +62,17 @@ void	size_3_max_first(t_node **a, t_node **b, int max, int min)
 	return ;
 }
 
-void	exception_size_5(t_node **a, t_node **b, int size)
+void	exception_size_5a(t_node **a, t_node **b, int size)
 {
 	if (check_sorted_with_size(a, 5))
 		return ;
-	sort_size_5_a(a, b, size);
-	exception_size_3(a, b, 3);
+	sort_size_5a(a, b, size);
+	exception_size_3a(a, b, 3);
 	sort_two(a, b, B);
 	return ;
 }
 
-void	sort_size_5_a(t_node **a, t_node **b, int size)
+void	sort_size_5a(t_node **a, t_node **b, int size)
 {
 	int	mid;
 	int	pb;

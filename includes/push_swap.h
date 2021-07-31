@@ -101,14 +101,21 @@ void	rra_rrb_rrr_b(t_node **a, t_node **b, t_call *call);
 
 void	under_node_3_a(t_node **a, t_node **b, int size);
 
-void	rotate_push_a(t_node **a, t_node **b, t_call *call);
+void	rotate_push_b(t_node **a, t_node **b, t_call *call);
 void	rev_rotate_ra_flag(t_node **a, t_node **b, t_call *call, int *flag);
 void	rev_rotate_rb_flag(t_node **a, t_node **b, t_call *call, int *flag);
 
-void	exception_size_3(t_node **a, t_node **b, int size);
-void	exception_size_5(t_node **a, t_node **b, int size);
-void	exception_size_under_3(t_node **a, t_node **b, int size);
-void	sort_size_5_a(t_node **a, t_node **b, int size);
+void	exception_size_3a(t_node **a, t_node **b, int size);
+void	exception_size_5a(t_node **a, t_node **b, int size);
+void	exception_size_under_3a(t_node **a, t_node **b, int size);
+void	sort_size_5a(t_node **a, t_node **b, int size);
 void	size_3_max_first(t_node **a, t_node** b, int max, int min);
-// void	exception_size3_node3(t_node **a);
+
+void	reverse_rotate_ra(t_node **a, t_node **b, t_call *call);
+void	reverse_rotate_rb(t_node **a, t_node **b, t_call *call);
+void	rotate_push_a(t_node **a, t_node **b, t_call *call);
+
+void	exception_size_under_3b(t_node **a, t_node **b, int size);
+void	exception_size_5b(t_node **a, t_node **b, int size);
+
 #endif

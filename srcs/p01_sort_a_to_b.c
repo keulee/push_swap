@@ -9,7 +9,7 @@ void	sort_a_to_b(int size, t_node **a, t_node **b, int *flag)
 	call_init(&call);
 	set_pivots(a, size, &call);
 	while (size--)
-		rotate_push_a(a, b, &call);
+		rotate_push_b(a, b, &call);
 	if (call.ra >= call.rb)
 		rev_rotate_ra_flag(a, b, &call, flag);
 	else
@@ -19,7 +19,7 @@ void	sort_a_to_b(int size, t_node **a, t_node **b, int *flag)
 	sort_b_to_a(call.pb - call.rb, a, b, flag);
 }
 
-void	rotate_push_a(t_node **a, t_node **b, t_call *call)
+void	rotate_push_b(t_node **a, t_node **b, t_call *call)
 {
 	if ((*a)->value >= call->big_p)
 	{
@@ -85,12 +85,12 @@ int	exceptions_a_to_b(int size, t_node **a, t_node **b)
 {
 	if (size <= 3)
 	{
-		exception_size_under_3(a, b, size);
+		exception_size_under_3a(a, b, size);
 		return (1);
 	}
 	else if (size == 5)
 	{
-		exception_size_5(a, b, 5);
+		exception_size_5a(a, b, 5);
 		return (1);
 	}
 	return (0);
