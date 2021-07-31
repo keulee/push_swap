@@ -5,7 +5,9 @@ int	check_sorted(t_node **node)
 	t_node	*tmp;
 
 	tmp = *node;
-	if (*node)
+	if (!*node)
+		exit(0);
+	else if (*node)
 	{
 		while (tmp->next != NULL && tmp->value < tmp->next->value)
 			tmp = tmp->next;

@@ -19,10 +19,7 @@ void	value_check(char *str, t_info *info)
 	if (!ft_only_digit(&str[i]))
 		ft_exit_msg("ERROR: Argument not int");
 	while (ft_digit(str[i]))
-	{
-		arg = arg * 10 + (str[i] - 48);
-		i++;
-	}
+		arg = arg * 10 + (str[i++] - 48);
 	if (neg == -1)
 		arg *= -1;
 	if (arg > 2147483647 || arg < -2147483648)
