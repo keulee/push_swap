@@ -77,5 +77,5 @@ int		main(int ac, char **av)
 	else
 		ft_putstr("KO\n");
 	free_stack(info.stack_a, info.stack_b);
-	return (0);
+	return (EXIT_SUCCESS);
 }
