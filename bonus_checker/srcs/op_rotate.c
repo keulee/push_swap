@@ -1,4 +1,4 @@
-#include "../includes/push_swap.h"
+#include "../includes/checker.h"
 
 /*
 ** ra, rb (rotate a, rotate b)

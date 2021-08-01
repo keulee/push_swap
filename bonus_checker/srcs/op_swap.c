@@ -1,4 +1,4 @@
-#include "../includes/push_swap.h"
+#include "../includes/checker.h"
 
 /* 
 ** sa, sb (swap a, swap b)

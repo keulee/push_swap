@@ -1,4 +1,4 @@
-#include "../includes/push_swap.h"
+#include "../includes/checker.h"
 
 /*
 ** pa, pb (push a, push b)
