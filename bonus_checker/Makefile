@@ -1,7 +1,14 @@
 NAME = checker
 
 SRCS = ./srcs/checker.c \
-		./srcs/get_next_line.c
+		./srcs/get_next_line.c \
+		./srcs/op_push.c \
+		./srcs/op_reverse.c \
+		./srcs/op_rotate.c \
+		./srcs/op_swap.c \
+		./srcs/init.c \
+		./srcs/create_stack.c \
+		./srcs/free.c
 
 OBJS = $(SRCS:.c=.o)
 
