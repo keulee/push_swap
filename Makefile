@@ -6,13 +6,13 @@
 #    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 18:18:39 by keulee            #+#    #+#              #
-#    Updated: 2021/08/01 16:01:04 by keulee           ###   ########.fr        #
+#    Updated: 2021/08/01 16:31:19 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-BONUS = checker
+CHECKER = checker
 
 SRCS = srcs/push_swap.c \
 		srcs/p01_op_swap.c \
@@ -47,9 +47,9 @@ RM = rm -f
 
 all: $(NAME)
 
-bouns: re
-	$(MAKE) fclean -C ./bonus_checker
-	$(MAKE) -C ./bonus_checker
+bonus: re
+	$(MAKE) fclean -C bonus_checker
+	$(MAKE) -C bonus_checker
 	cp ./bonus_checker/checker ./checker
 
 $(NAME): $(OBJS) $(LIBFT)
@@ -61,12 +61,14 @@ $(LIBFT):
 
 clean:
 	$(MAKE) -C libft clean
+	$(MAKE) -C bonus_checker clean
 	$(RM) $(OBJS)
 
 fclean: clean
 	$(MAKE) -C libft fclean
-	$(RM) $(NAME) $(LIBFT) $(BONUS)
+	$(MAKE) -C bonus_checker fclean
+	$(RM) $(NAME) $(LIBFT) $(CHECKER)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
