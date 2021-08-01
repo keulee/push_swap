@@ -1,6 +1,6 @@
 #include "../includes/checker.h"
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_info	info;
 	char	*buf;
@@ -9,8 +9,8 @@ int		main(int ac, char **av)
 	if (ac == 1)
 		exit(0);
 	create_stack(&info, av);
-	// if (info.stack_a == NULL && info.stack_b == NULL) // case with <./checker ""> -> needed or not?
-	// 	exit(0);
+	if (info.stack_a == NULL && info.stack_b == NULL) //need or not?
+		exit(0);
 	while ((get_next_line(0, &buf)) > 0)
 	{
 		checker_process(buf, &info.stack_a, &info.stack_b);

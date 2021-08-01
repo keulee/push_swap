@@ -33,10 +33,10 @@ void	value_check(char *str, t_info *info)
 		if (str[i++] == '-')
 			neg = neg * -1;
 		if (str[i] == '\0' || str[i] == '0')
-			ft_exit_msg("ERROR: Arguemnt not correct");
+			ft_exit_msg("ERROR");
 	}
 	if (!ft_only_digit(&str[i]))
-		ft_exit_msg("ERROR: Argument not int");
+		ft_exit_msg("ERROR");
 	if (str[i] == '0' && ft_digit(str[i + 1]))
 		ft_exit_msg("ERROR");
 	while (ft_digit(str[i]))
@@ -44,7 +44,7 @@ void	value_check(char *str, t_info *info)
 	if (neg == -1)
 		arg *= -1;
 	if (arg > 2147483647 || arg < -2147483648)
-		ft_exit_msg("ERROR: int range not valid");
+		ft_exit_msg("ERROR");
 	info->arg = arg;
 }
 
