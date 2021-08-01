@@ -10,13 +10,14 @@ SRCS = ./srcs/checker.c \
 		./srcs/create_stack.c \
 		./srcs/free.c \
 		./srcs/stack_sorted.c \
+		./srcs/checker_process.c \
 		./srcs/p01_print_list.c
 
 OBJS = $(SRCS:.c=.o)
 
 CC = clang
 
-CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 LIBFT = libft.a
 

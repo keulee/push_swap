@@ -37,6 +37,8 @@ void	value_check(char *str, t_info *info)
 	}
 	if (!ft_only_digit(&str[i]))
 		ft_exit_msg("ERROR: Argument not int");
+	if (str[i] == '0' && ft_digit(str[i + 1]))
+		ft_exit_msg("ERROR");
 	while (ft_digit(str[i]))
 		arg = arg * 10 + (str[i++] - 48);
 	if (neg == -1)

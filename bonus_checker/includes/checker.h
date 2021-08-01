@@ -47,6 +47,11 @@ void	print_node_b(t_node *node);
 void	print_node(t_node *node);
 
 /*
+** checker process
+*/
+void	checker_process(char *buf, t_node **a, t_node **b);
+
+/*
 ** GNL
 */
 int		get_next_line(int fd, char **line);
