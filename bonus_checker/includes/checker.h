@@ -42,6 +42,13 @@ typedef struct s_info {
 	t_node	*stack_b;
 }				t_info;
 
+void	print_node_a(t_node *node);
+void	print_node_b(t_node *node);
+void	print_node(t_node *node);
+
+/*
+** GNL
+*/
 int		get_next_line(int fd, char **line);
 
 /*

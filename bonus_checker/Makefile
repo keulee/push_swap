@@ -8,13 +8,15 @@ SRCS = ./srcs/checker.c \
 		./srcs/op_swap.c \
 		./srcs/init.c \
 		./srcs/create_stack.c \
-		./srcs/free.c
+		./srcs/free.c \
+		./srcs/stack_sorted.c \
+		./srcs/p01_print_list.c
 
 OBJS = $(SRCS:.c=.o)
 
 CC = clang
 
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
 
 LIBFT = libft.a
 
