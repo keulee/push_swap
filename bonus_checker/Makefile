@@ -1,6 +1,7 @@
 NAME = checker
 
-SRCS = ./srcs/checker.c
+SRCS = ./srcs/checker.c \
+		./srcs/get_next_line.c
 
 OBJS = $(SRCS:.c=.o)
 
