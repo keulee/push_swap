@@ -9,7 +9,7 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		exit(0);
 	create_stack(&info, av);
-	if (info.stack_a == NULL && info.stack_b == NULL) //need or not?
+	if (info.stack_a == NULL && info.stack_b == NULL)
 		exit(0);
 	while ((get_next_line(0, &buf)) > 0)
 	{
