@@ -26,18 +26,18 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L. -lft
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L. -lft
 
 $(LIBFT):
-	$(MAKE) -C ../libft
-	mv ../libft/$(LIBFT) .
+	@$(MAKE) -C ../libft
+	@mv ../libft/$(LIBFT) .
 
 clean:
-	$(MAKE) -C ../libft clean
-	$(RM) $(OBJS)
+	@$(MAKE) -C ../libft clean
+	@$(RM) $(OBJS)
 
 fclean: clean
-	$(MAKE) -C ../libft fclean
-	$(RM) $(NAME) $(LIBFT)
+	@$(MAKE) -C ../libft fclean
+	@$(RM) $(NAME) $(LIBFT)
 
 re: fclean all

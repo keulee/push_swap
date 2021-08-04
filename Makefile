@@ -6,7 +6,7 @@
 #    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 18:18:39 by keulee            #+#    #+#              #
-#    Updated: 2021/08/02 22:28:18 by keulee           ###   ########.fr        #
+#    Updated: 2021/08/04 16:36:18 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,26 +48,26 @@ RM = rm -f
 all: $(NAME)
 
 bonus: re
-	$(MAKE) fclean -C bonus_checker
-	$(MAKE) -C bonus_checker
-	cp ./bonus_checker/checker ./checker
+	@$(MAKE) fclean -C bonus_checker
+	@$(MAKE) -C bonus_checker
+	@cp ./bonus_checker/checker ./checker
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L. -lft
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L. -lft
 
 $(LIBFT):
-	$(MAKE) -C libft
-	mv libft/$(LIBFT) .
+	@$(MAKE) -C libft
+	@mv libft/$(LIBFT) .
 
 clean:
-	$(MAKE) -C libft clean
-	$(MAKE) -C bonus_checker clean
-	$(RM) $(OBJS)
+	@$(MAKE) -C libft clean
+	@$(MAKE) -C bonus_checker clean
+	@$(RM) $(OBJS)
 
 fclean: clean
-	$(MAKE) -C libft fclean
-	$(MAKE) -C bonus_checker fclean
-	$(RM) $(NAME) $(LIBFT) $(CHECKER)
+	@$(MAKE) -C libft fclean
+	@$(MAKE) -C bonus_checker fclean
+	@$(RM) $(NAME) $(LIBFT) $(CHECKER)
 
 re: fclean all
 
