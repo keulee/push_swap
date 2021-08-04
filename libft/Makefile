@@ -6,7 +6,7 @@
 #    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/19 17:00:13 by keulee            #+#    #+#              #
-#    Updated: 2021/06/08 23:46:34 by keulee           ###   ########.fr        #
+#    Updated: 2021/08/04 16:38:49 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,15 +32,15 @@ RMF = rm -f
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) -c $(SRC) -I $(INCLUDE)
-	$(AR) $(RC) $(NAME) $(OBJ)
-	ranlib $(NAME)
+	@$(CC) $(CFLAGS) -c $(SRC) -I $(INCLUDE)
+	@$(AR) $(RC) $(NAME) $(OBJ)
+	@ranlib $(NAME)
 
 clean:
-	$(RMF) $(OBJ)
+	@$(RMF) $(OBJ)
 
 fclean: clean
-	$(RMF) $(NAME)
+	@$(RMF) $(NAME)
 
 re: fclean all
 
