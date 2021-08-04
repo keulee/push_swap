@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keulee <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 16:29:09 by keulee            #+#    #+#             */
-/*   Updated: 2021/08/03 16:30:11 by keulee           ###   ########.fr       */
+/*   Updated: 2021/08/04 17:20:59 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 # include "../../libft/libft.h"
 
@@ -53,10 +52,6 @@ typedef struct s_info {
 	t_node	*stack_a;
 	t_node	*stack_b;
 }				t_info;
-
-void	print_node_a(t_node *node);
-void	print_node_b(t_node *node);
-void	print_node(t_node *node);
 
 /*
 ** checker process

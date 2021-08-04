@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keulee <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 16:28:34 by keulee            #+#    #+#             */
-/*   Updated: 2021/08/03 16:28:41 by keulee           ###   ########.fr       */
+/*   Updated: 2021/08/04 17:21:07 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 # include "../libft/libft.h"
 
@@ -51,10 +50,6 @@ typedef struct s_info {
 	t_node	*stack_a;
 	t_node	*stack_b;
 }				t_info;
-
-void	print_node_a(t_node *node);
-void	print_node_b(t_node *node);
-void	print_node(t_node *node);
 
 /*
 ** push swap
@@ -171,14 +166,5 @@ void	node_3_min_last(t_node **a, int max);
 ** stack size two
 */
 void	sort_two(t_node **a, t_node **b, int stack);
-
-/*
-** void	set_pivots_a(t_node **node, int size, t_call *call);
-** void	set_pivots_b(t_node **node, int size, t_call *call);
-** void	get_pivot(t_node **node, int size, t_call *call);
-** void	rra_rrb_rrr_a(t_node **a, t_node **b, t_call *call, int *flag);
-** void	rra_rrb_rrr_b(t_node **a, t_node **b, t_call *call);
-** void	under_node_3_a(t_node **a, t_node **b, int size);
-*/
 
 #endif

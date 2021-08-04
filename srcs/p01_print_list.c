@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   p01_print_list.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: keulee <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: keulee <keulee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 16:22:49 by keulee            #+#    #+#             */
-/*   Updated: 2021/08/03 16:24:23 by keulee           ###   ########.fr       */
+/*   Updated: 2021/08/04 17:18:58 by keulee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ void	print_node_a(t_node *node)
 	while (node != NULL)
 	{
 		printf("[%d] : %d\n", i, node->value);
-		// printf("- node = %p \n value = %d \n prev = %p \n next = %p \n 
-		// - \n", node, node->value, node->prev, node->next);
 		node = node->next;
 		i++;
 	}
@@ -72,3 +70,8 @@ void	print_node_b(t_node *node)
 	printf("---------\n");
 	printf(" node b\n");
 }
+
+/*
+**printf("- node = %p \n value = %d \n prev = %p \n next = %p \n 
+** - \n", node, node->value, node->prev, node->next);
+*/

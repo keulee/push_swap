@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: keulee <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: keulee <keulee@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:00:47 by keulee            #+#    #+#              #
-#    Updated: 2021/08/04 17:00:56 by keulee           ###   ########.fr        #
+#    Updated: 2021/08/04 17:20:47 by keulee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,14 +22,13 @@ SRCS = ./srcs/checker.c \
 		./srcs/create_stack.c \
 		./srcs/free.c \
 		./srcs/stack_sorted.c \
-		./srcs/checker_process.c \
-		./srcs/p01_print_list.c
+		./srcs/checker_process.c
 
 OBJS = $(SRCS:.c=.o)
 
 CC = clang
 
-CFLAGS = -Wall -Wextra -Werror -g3 #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 
 LIBFT = libft.a
 
